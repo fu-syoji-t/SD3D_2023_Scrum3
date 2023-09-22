@@ -14,7 +14,7 @@
             */
 
             // $pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1418719-23dev3early;charset=utf8mb4','LAA1418719','teamd');
-            $pdo = new PDO('mysql:host=localhost;dbname=test;charset=utf8mb4','root','root');
+            $pdo = new PDO('mysql:host=localhost;dbname=sharing_site;charset=utf8mb4','root','root');
             return $pdo;
         }
 
