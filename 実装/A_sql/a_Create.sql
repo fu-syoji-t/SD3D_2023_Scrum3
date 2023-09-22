@@ -1,3 +1,5 @@
+/* データベース名は「sharing_site」 */
+
 CREATE TABLE users
 (user_id INT AUTO_INCREMENT,
  user_loginID VARCHAR(128) NOT NULL,
