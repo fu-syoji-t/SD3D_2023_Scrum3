@@ -97,12 +97,12 @@
 
         function max_post_id(){
             $pdo = $this->dbConnect();
-            $sql = "SELECT MAX(post_id)
+            $sql = "SELECT MAX(post_id) AS max_post_id
                     FROM posts";
             $ps = $pdo->query($sql);
             $ps->execute();
-            $post_id = $ps->fetchAll();
-            return $post_id[0];
+            $post_id = $ps->fetch();
+            return $post_id["max_post_id"];
         }
 
     }

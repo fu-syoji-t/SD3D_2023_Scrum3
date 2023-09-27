@@ -2,7 +2,8 @@
     require_once "M_DBManager.php";
     $get = new DBManager();
 
-    $post = $get->get_post(13);
+    $max_post_id = $get->max_post_id();
+    $post = $get->get_post($max_post_id);
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +47,7 @@
         if(isset($post["images"])){
             foreach($post["images"] as $image){
                 if($image["image_order"] == $i){
-                    echo '<img src="'.$image["path"].'" width=200>';
+                    echo '<img src="'.$image["path"].'" width=500>';
                 }
             }
         }
