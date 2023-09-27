@@ -9,9 +9,9 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <h2>
-<a type="button" onclick="location.href='http://localhost/php/AnotherSky/login.php/'" value=""><h2>log in&nbsp;&nbsp;</h2></a>
+<a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/login.php/'" value=""><h2>log in&nbsp;&nbsp;</h2></a>
 &nbsp; &nbsp;
-<a type="button" onclick="location.href='http://localhost/php/AnotherSky/menu.php/'" value=""><h2>side</h2></a><br><hr>
+<a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/menu.php/'" value=""><h2>side</h2></a><br><hr>
   <font face="serif">&nbsp;&nbsp;&nbsp;忘れられない空がある</font>
 </h2>
 <h1>
@@ -98,7 +98,7 @@
       </font>
     </div>
     <div style="text-align: center;">
-    <a type="button" onclick="location.href='http://localhost/php/AnotherSky/another.php/'" value=""><font face="serif" size="3">more view</font></a>
+    <a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/another.php/'" value=""><font face="serif" size="3">more view</font></a>
     </div>
     <div style="text-align: center;">
       <font face="serif" size="3"><br /></font>
@@ -132,7 +132,7 @@
       <span style="font-family: serif; font-size: 36px;"><br /></span>
     </div>
     <div style="text-align: center;">
-    <a type="button" onclick="location.href='http://localhost/php/AnotherSky/hometown.php/'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
+    <a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/hometown.php/'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
     </div>
     <div style="text-align: center;">
       <hr />

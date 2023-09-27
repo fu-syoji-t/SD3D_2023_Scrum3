@@ -9,15 +9,15 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<a type="button" onclick="location.href='http://localhost/php/AnotherSky/login.php/'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
+<a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/login.php/'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
     &nbsp; &nbsp;
-    <a type="button" onclick="location.href='http://localhost/php/AnotherSky/home.php/'" value=""><h2>side</h2></a>
+    <a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/home.php/'" value=""><h2>side</h2></a>
 <div style="text-align: center;">
 <div class="Header">
-<a type="button" onclick="location.href='http://localhost/php/AnotherSky/home.php/'" value=""><font face="serif">home&nbsp;&nbsp;&nbsp;</font></a>
-<a type="button" onclick="location.href='http://localhost/php/AnotherSky/hometown.php/'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;hometown&nbsp;&nbsp;&nbsp;</font></a>
-<a type="button" onclick="location.href='http://localhost/php/AnotherSky/another.php/'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;anoher&nbsp;&nbsp;&nbsp;</font></a>
-<a type="button" onclick="location.href='http://localhost/php/AnotherSky/category.php/'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;category&nbsp;&nbsp;&nbsp;</font></a>
+<a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/home.php/'" value=""><font face="serif">home&nbsp;&nbsp;&nbsp;</font></a>
+<a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/hometown.php/'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;hometown&nbsp;&nbsp;&nbsp;</font></a>
+<a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/another.php/'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;anoher&nbsp;&nbsp;&nbsp;</font></a>
+<a type="button" onclick="location.href='http://localhost/web/SD3D_2023_Scrum3/AnotherSky/category.php/'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;category&nbsp;&nbsp;&nbsp;</font></a>
     </div>
 </div>
 <div><hr /></div>
