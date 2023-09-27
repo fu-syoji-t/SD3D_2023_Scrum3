@@ -7,11 +7,11 @@
 
 <input type="button" onclick="history.back()" value="戻る"><br><br>
 
-<form action="A_G1-5(b).php" method="post" enctype="multipart/form-data">
+<form action="M_post(b).php" method="post" enctype="multipart/form-data">
     title : 
     <input type="text" name="title" maxlength="30"><br>
     region : 
-    <select name="grade">
+    <select name="region">
         <option value=1>北海道</option>
         <option value=2>東北</option>
         <option value=3>関東</option>
@@ -27,10 +27,10 @@
     youtube : 
     <textarea name="link"></textarea><br>
     freespace : 
-    <textarea name="freespace"></textarea><br><br>
+    <textarea name="text"></textarea><br><br>
 
     画像を選択 : 
-    <input type="file" name="post_image" accept="image/*"><br>
+    <input type="file" name="post_image1" accept="image/*"><br>
     具体的なスポット　　　　　　　 : 
     <textarea name="sentence1_1"></textarea><br>
     そこに行くようになったきっかけ : 
@@ -39,7 +39,7 @@
     <textarea name="sentence1_3"></textarea><br><br>
 
     画像を選択 : 
-    <input type="file" name="post_image" accept="image/*"><br>
+    <input type="file" name="post_image2" accept="image/*"><br>
     具体的なスポット　　　　　　　 : 
     <textarea name="sentence2_1"></textarea><br>
     そこに行くようになったきっかけ : 
@@ -48,7 +48,7 @@
     <textarea name="sentence2_3"></textarea><br><br>
     
     画像を選択 : 
-    <input type="file" name="post_image" accept="image/*"><br>
+    <input type="file" name="post_image3" accept="image/*"><br>
     具体的なスポット　　　　　　　 : 
     <textarea name="sentence3_1"></textarea><br>
     そこに行くようになったきっかけ : 
@@ -57,7 +57,7 @@
     <textarea name="sentence3_3"></textarea><br><br>
     
     画像を選択 : 
-    <input type="file" name="post_image" accept="image/*"><br>
+    <input type="file" name="post_image4" accept="image/*"><br>
     具体的なスポット　　　　　　　 : 
     <textarea name="sentence4_1"></textarea><br>
     そこに行くようになったきっかけ : 
