@@ -35,7 +35,7 @@
     echo 'place : ';
     echo $post["place"]."<br>";
     echo 'youtube : <br>';
-    echo $post["link_path"]."<br>";
+    echo '<div style="width:100px">'.$post["link_path"]."</div><br>";
     echo 'freespace : <br>';
     echo $post["text"]."<br>";
 
