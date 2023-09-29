@@ -1,6 +1,11 @@
 <?php
 ?>
-<html>
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>地域選択</title>
+</head>
+<body>
     <h1>Category</h1>
     <!-- 地域選択画面(バック) -->
     <form action="region.php" method="post">
@@ -14,4 +19,5 @@
         <button type="submit" value="8">九州地方</button>
         <button type="submit" value="9">海外</button>
     </form>
+</body>
 </html>
