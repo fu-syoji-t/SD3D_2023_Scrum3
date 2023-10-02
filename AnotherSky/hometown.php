@@ -108,11 +108,9 @@
   </h2>
   <h2>
     <div style="text-align: center;">
-      <hr />
-      <font face="serif">@Another Sky</font>
     </div>
   </h2>
 </div>
-
+<?php  require_once 'footer.php' ?>
 </body>
 </html>

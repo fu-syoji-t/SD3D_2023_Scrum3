@@ -67,5 +67,6 @@
     </div>
     <p class="more"><a href="#">read more...</a></p>
   </body>
+  <?php  require_once 'footer.php' ?>
 </html>
 

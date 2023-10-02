@@ -1,9 +1,69 @@
-body{
+body {
+    background-color: #DDDDDD;
     margin: 20px; /* bodyの外側の余白を指定する */
     padding: 50px 10px 50px 10px; /* bodyの内側余白を指定する(上:右:下:左) */
     margin-left: auto;
     margin-right: auto 
-}
+  }
+
+  h1 {
+    background-color: gray;
+    font-size: 23px;
+    font-family: "Arial Black";
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .box {
+    background-color: #FFF;
+    box-shadow: 0 5px 5px #999;
+    height: 200px;
+    margin: 30px auto;
+    overflow: hidden;
+    padding: 15px;
+    width: 500px;
+  }
+
+  .box a:link,
+  .box a:visited {
+    color: #00C;
+  }
+
+  .box a:hover {
+    color: #33F;
+  }
+
+  .box > h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .box > h2 > .date {
+    color: #666;
+    font-size: 13px;
+    font-weight: normal;
+  }
+
+  .box > .box_img {
+    float: left;
+    margin-right: 10px;
+    width: 150px;
+  }
+
+  .box > .box_sentence > p {
+    color: #444;
+    font-size: 14px;
+  }
+
+  .more{
+    text-align: center;
+  }
+  .sky{
+      text-align: center;
+  }
+  .login{
+    text-align: right;
+  }
     .Header {
     position: fixed; /* ヘッダーを固定する */
     top: 0; /* 上部から配置の基準位置を決める */
@@ -18,4 +78,3 @@ body{
     width: 100%; /* コンテンツの横幅を指定する */
     overflow: auto; /* コンテンツの表示を自動に設定（スクロール） */
     }
-    
