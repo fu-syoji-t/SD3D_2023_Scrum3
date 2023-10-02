@@ -39,13 +39,13 @@
     <script>
         // ボタンがクリックされたときの処理
         document.getElementById("option1").addEventListener("click", function() {
-            redirectToNextPage("hkd");
+            redirectToNextPage("1");
         });
         document.getElementById("option2").addEventListener("click", function() {
-            redirectToNextPage("thk");
+            redirectToNextPage("2");
         });
         document.getElementById("option3").addEventListener("click", function() {
-            redirectToNextPage("knt");
+            redirectToNextPage("3");
         });
 
         // 次のページに遷移する関数
