@@ -15,7 +15,7 @@
 </div>
 &nbsp; &nbsp;
 <div class="side">
-<a onclick="location.href='menu.php'" value=""><h2>side</h2></a><br><hr>
+<a onclick="location.href='../menu.php'" value=""><h2>side</h2></a><br><hr>
 </div>
   <font face="serif">&nbsp;&nbsp;&nbsp;忘れられない空がある</font>
 </h2>
@@ -120,8 +120,6 @@
       <span style="font-family: serif; font-size: 36px;">Hometown</span>
       <br />
     </div>
-
-    <h1>BLOG</h1>
     <div class="box">
       <h2>
         <a href="#">大分　湯布院</a>
@@ -182,9 +180,7 @@
     </div>
 </div>
 <div style="text-align: center;">
-      <hr />
-      <font face="serif">@Another Sky</font>
     </div>
-
+    <?php  require_once 'footer.php' ?>
 </body>
 </html>

@@ -5,13 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/homea.css">
+<<link rel="stylesheet" href="../css/homea.css">
 </head>
 <body>
+  <style>  
+  body {
+    background-color: #DDDDDD;
+  }
+  h1 {
+    background-color: gray;
+    font-size: 23px;
+    font-family: "Arial Black";
+    letter-spacing: 2px;
+    text-align: center;
+  }</style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <a onclick="location.href='../login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
     &nbsp; &nbsp;
-    <a onclick="location.href='home.php'" value=""><h2>side</h2></a>
+    <a onclick="location.href='home.php/'" value=""><h2 style="text-align: left;">side</h2></a>
     <?php  require_once 'header.php' ?>
 </div>
 <div><hr /></div>
@@ -21,8 +32,7 @@
 </h2>
 <h1>
     &nbsp; &nbsp;
-  <font face="serif">Another&nbsp;</font>
-  Sky
+  <font face="serif">Another&nbsp;Sky</font>
 </h1>
 <h4> &nbsp; &nbsp;みんなの第二の故郷を知り、あなたの第二の故郷を広め、</h4>
 <h4 style="text-align: justify;">
@@ -111,39 +121,65 @@
       <hr />
       <span style="font-family: serif; font-size: 36px;">Hometown</span>
       <br />
-    </div>
-    <div style="text-align: center;">
-      <span style="font-family: serif; font-size: 36px;"><br /></span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-family: serif; font-size: 36px;">title</span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-family: serif; font-size: 36px;"><br /></span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-family: serif; font-size: 36px;">title</span>
-      <span style="font-family: serif; font-size: 36px;"><br /></span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-family: serif; font-size: 36px;"><br /></span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-family: serif; font-size: 36px;">title</span>
-      <span style="font-family: serif; font-size: 36px;"><br /></span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-family: serif; font-size: 36px;"><br /></span>
-    </div>
-    <div style="text-align: center;">
-    <a onclick="location.href='../hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
-    </div>
-    <div style="text-align: center;">
-      <hr />
-      <font face="serif">@Another Sky</font>
-    </div>
-  </h2>
-</div>
+      <div class="box">
+      <h2>
+        <a href="#">大分　湯布院</a>
+        <span class="date">(2023.09.29)</span>
+      </h2>
+      <p class="box_img">
+        <img src="img/desktop.JPG" alt="Thumbnail" width="150" height="150">
+      </p>
 
+      <div class="box_sentence">
+        <p>
+          私のアナザースカイは大分の湯布院です。心が乱れている時によく行ってます<br>
+          ここの金賞コロッケを食べてガラスの森に行くのがいつものルーティンです<br>
+          今までもこれからも通いたい私のアナザースカイです。ぜひ詳細をご覧ください…
+          <a href="#">続きを読む</a>
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <h2>
+        <a href="#">大分　湯布院</a>
+        <span class="date">(2023.09.29)</span>
+      </h2>
+      <p class="box_img">
+        <img src="img/desktop.JPG" alt="Thumbnail" width="150" height="150">
+      </p>
+
+      <div class="box_sentence">
+        <p>
+          私のアナザースカイは大分の湯布院です。心が乱れている時によく行ってます<br>
+          ここの金賞コロッケを食べてガラスの森に行くのがいつものルーティンです<br>
+          今までもこれからも通いたい私のアナザースカイです。ぜひ詳細をご覧ください…
+          <a href="#">続きを読む</a>
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <h2>
+        <a href="#">大分　湯布院</a>
+        <span class="date">(2023.09.29)</span>
+      </h2>
+      <p class="box_img">
+        <img src="img/desktop.JPG" alt="Thumbnail" width="150" height="150">
+      </p>
+
+      <div class="box_sentence">
+        <p>
+          私のアナザースカイは大分の湯布院です。心が乱れている時によく行ってます<br>
+          ここの金賞コロッケを食べてガラスの森に行くのがいつものルーティンです<br>
+          今までもこれからも通いたい私のアナザースカイです。ぜひ詳細をご覧ください…
+          <a href="..//AnotherSky/hometowndetail">続きを読む</a>
+        </p>
+      </div>
+    </div>
+    <div style="text-align: center;">
+    <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
+  </h2>
+    </div>
+</div>
+    <?php  require_once 'footer.php' ?>
 </body>
 </html>

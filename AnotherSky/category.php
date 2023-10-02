@@ -41,10 +41,7 @@
     <div style="text-align: center;"><br /></div>
   </h2>
   <h2>
-    <div style="text-align: center;">
-      <hr />
-      <font face="serif">@Another Sky</font>
-    </div>
+    <?php  require_once 'footer.php' ?>
   </h2>
 </div>
 

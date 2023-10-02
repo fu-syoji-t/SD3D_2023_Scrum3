@@ -10,10 +10,10 @@
     <nav class="header-nav">
       <div style="text-align: center;">
       <div class="Header">
-        <a onclick="location.href='../home.php'" value=""><font face="serif">home&nbsp;&nbsp;&nbsp;</font></a>
-        <a onclick="location.href='../hometown.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;hometown&nbsp;&nbsp;&nbsp;</font></a>
-        <a onclick="location.href='../another.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;anoher&nbsp;&nbsp;&nbsp;</font></a>
-        <a onclick="location.href='../category.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;category&nbsp;&nbsp;&nbsp;</font></a>
+        <a onclick="location.href='../AnotherSky/home.php'" value=""><font face="serif">home&nbsp;&nbsp;&nbsp;</font></a>
+        <a onclick="location.href='../AnotherSky/hometown.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;hometown&nbsp;&nbsp;&nbsp;</font></a>
+        <a onclick="location.href='../AnotherSky/another.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;anoher&nbsp;&nbsp;&nbsp;</font></a>
+        <a onclick="location.href='../AnotherSky/category.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;category&nbsp;&nbsp;&nbsp;</font></a>
       </div>
     </nav>
   </header>
