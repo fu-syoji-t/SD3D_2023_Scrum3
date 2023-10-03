@@ -48,7 +48,9 @@
             <form action="login.php" method="post">
                 <input type="text" class="input-field" name="username" placeholder="ユーザー名" required><br>
                 <input type="password" class="input-field" name="password" placeholder="パスワード" required><br>
-                <input type="submit" class="submit-button" value="ログイン">
+                <div style="button-align: center;">
+                <input onclick="location.href='../AnotherSky/menu.php'"class="submit-button"  value="ログイン"><font face="serif"></font></a>
+                </div>
             </form>
         </div>
     </div>
