@@ -7,7 +7,7 @@
 
 <input type="button" onclick="history.back()" value="戻る"><br><br>
 
-<form action="M_post(b).php" method="post" enctype="multipart/form-data">
+<form action="post(b).php" method="post" enctype="multipart/form-data">
     title : 
     <input type="text" name="title" maxlength="30"><br>
     region : 

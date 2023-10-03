@@ -31,5 +31,5 @@
         }
     }
 
-    header('Location:M_youtube_display_test.php');
+    header('Location:youtube_display_test.php');
 ?>
