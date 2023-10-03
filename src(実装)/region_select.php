@@ -1,5 +1,6 @@
 <?php
     require_once "DBManager.php";
+    $DBM= new DBManager();
     // echo "<form action='region.php' name=region method='post'>";
 
     // echo "<button type='submit' name=region value='1'>北海道地方</button>";
