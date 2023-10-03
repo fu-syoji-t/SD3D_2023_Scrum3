@@ -1,5 +1,5 @@
 <?php
-    require_once "M_DBManager.php";
+    require_once "DBManager.php";
     $get = new DBManager();
 
     $max_post_id = $get->max_post_id();
