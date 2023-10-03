@@ -8,10 +8,20 @@
     <link rel="stylesheet" href="../css/homea.css">
 </head>
 <body>
+<style>  
+  body {
+    background-color: #DDDDDD;
+  }
+  h1 {
+    background-color: gray;
+    font-size: 23px;
+    font-family: "Arial Black";
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
-    &nbsp; &nbsp;
-    <a onclick="location.href='../home.php'" value=""><h2>side</h2></a>
 <?php  require_once 'header.php' ?>
     </div>
 </div>
@@ -23,22 +33,46 @@
         <font face="serif">Another Sky</font>
       </span>
     </div>
-    <div style="text-align: center;">
-      <span style="font-size: 1.5em;">
-        <font face="serif"><br /></font>
-      </span>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">[1]</span></font>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">[2]</span></font>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">[3]</span></font>
+    <div class="row">
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[1]</text></svg>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[2]</text></svg>
+            <div class="card-body">
+              <p class="card-text">Another Skyの魅力！
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[3]</text></svg>
+            <div class="card-body">
+              <p class="card-text">Another Skyの魅力！
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
     </div>
     <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;"><hr /></div>
+    <div style="text-align: center;"></div>
     <div style="text-align: center;">
     <?php  require_once 'footer.php' ?>
     </div>
