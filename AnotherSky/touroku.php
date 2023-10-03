@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+</head>
+<body>
+<style>
         /* CSSスタイルで中央配置を指定 */
         .centered-form {
             text-align: center; /* テキストを中央に配置 */
@@ -38,17 +40,16 @@
             cursor: pointer;
         }
     </style>
-</head>
-<body>
     <div class="centered-form">
         <?php
-            echo "ログイン";
+            echo "新規登録";
         ?>
         <div class="login-form">
             <form action="login.php" method="post">
-                <input type="text" class="input-field" name="username" placeholder="ユーザー名" required><br>
+                <input type="text" class="input-field" name="email" placeholder="メールアドレス" required><br> <!-- ユーザー名の入力フィールドをメールアドレスに変更 -->
                 <input type="password" class="input-field" name="password" placeholder="パスワード" required><br>
-                <input type="submit" class="submit-button" value="ログイン">
+                <input type="text" class="input-field" name="name" placeholder="名前" required><br>
+                <input type="submit" class="submit-button" value="登録">
             </form>
         </div>
     </div>
