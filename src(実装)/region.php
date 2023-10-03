@@ -22,9 +22,27 @@
                 case "3":
                     echo "<h1>関東地方</h1>";
                     break;
+                case "4":
+                    echo "<h1>中部地方</h1>";
+                    break;
+                case "5":
+                    echo "<h1>近畿地方</h1>";
+                    break;
+                case "6":
+                    echo "<h1>中国地方</h1>";
+                    break;
+                case "7":
+                    echo "<h1>四国地方</h1>";
+                    break;
+                case "8":
+                    echo "<h1>九州地方</h1>";
+                    break;
+                case "9":
+                    echo "<h1>海外</h1>";
+                    break;
                 default:
                     echo "<h1>404 Error<br>このページは存在しません</h1>";
-                    echo "<img src='../image/404.jpg' alt='404 Eroor'>";
+                    echo "<img src='image/404.jpg' alt='404 Eroor'>";
             }
         } else {
             echo "<h1>パラメータが送信されませんでした</h1>";
