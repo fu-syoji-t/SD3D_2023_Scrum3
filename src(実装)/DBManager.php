@@ -18,43 +18,91 @@
             return $pdo;
         }
 
-        function create($loginID,$password,$nickname,$course,$major,$grade,$classname,$Fsubject){
+        function create_post($user_id,$title,$region_id,$place,$link,$text){
             $pdo = $this->dbConnect();
-            $sql = "INSERT INTO users (user_loginID,user_password,user_name,user_course,
-                                        user_major,user_grade,user_classname,user_Fsubject)
-                                VALUES(?,?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO posts (user_id,title,region_id,place,link_path,text)
+                                VALUES(?,?,?,?,?,?)";
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$loginID,PDO::PARAM_STR);
-            $ps->bindValue(2,password_hash($password,PASSWORD_DEFAULT),PDO::PARAM_STR);
-            $ps->bindValue(3,$nickname,PDO::PARAM_STR);
-            $ps->bindValue(4,$course,PDO::PARAM_STR);
-            $ps->bindValue(5,$major,PDO::PARAM_STR);
-            $ps->bindValue(6,$grade,PDO::PARAM_STR_CHAR);
-            $ps->bindValue(7,$classname,PDO::PARAM_STR);
-            $ps->bindValue(8,$Fsubject,PDO::PARAM_STR);
+            $ps->bindValue(1,$user_id,PDO::PARAM_INT);
+            $ps->bindValue(2,$title,PDO::PARAM_STR);
+            $ps->bindValue(3,$region_id,PDO::PARAM_INT);
+            $ps->bindValue(4,$place,PDO::PARAM_STR);
+            $ps->bindValue(5,$link,PDO::PARAM_STR);
+            $ps->bindValue(6,$text,PDO::PARAM_STR);
             $ps->execute();
-
-            $sql = "INSERT INTO `evaluation` (`user_id`,`evaluation_trp`,`evaluation_receivednum`,
-                                `evaluation_receivedvalue`,`evaluation_sentnum`,`evaluation_sentvalue`)
-                                VALUES((SELECT MAX(user_id) FROM users),0,0,0,0,0)";
-            $ps = $pdo->prepare($sql)->execute();
         }
 
-        function login($loginID,$password){
+        function create_post_images($image_order,$path){
             $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM users WHERE user_loginID = ?";
+            $sql = "INSERT INTO post_images (post_id,image_order,path)
+                                VALUES((SELECT MAX(post_id) FROM posts),?,?)";
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$loginID,PDO::PARAM_STR);
+            $ps->bindValue(1,$image_order,PDO::PARAM_INT);
+            $ps->bindValue(2,$path,PDO::PARAM_STR);
             $ps->execute();
-            $search = $ps->fetchAll();
-            if(!empty($search)){
-                foreach($search as $row){
-                    if(password_verify($password,$row["user_password"]) == true){
-                        return $search;
-                    }
-                }
-            }
-            return $search=[];
+        }
+
+        function create_post_sentence($sentence_order,$sentence){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO post_sentences (post_id,sentence_order,sentence)
+                                VALUES((SELECT MAX(post_id) FROM posts),?,?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$sentence_order,PDO::PARAM_INT);
+            $ps->bindValue(2,$sentence,PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function get_post($post_id){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * 
+                    FROM posts
+                    WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->execute();
+            $post = $ps->fetch();
+
+            $sql = "SELECT name
+                    FROM regions
+                    WHERE region_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post["region_id"],PDO::PARAM_INT);
+            $ps->execute();
+            $post["region"] = $ps->fetch();
+
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->execute();
+            $post["images"] = $ps->fetchAll();
+
+            $sql = "SELECT *
+                    FROM post_sentences
+                    WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->execute();
+            $post["sentences"] = $ps->fetchAll();
+            
+            /*if(count($post["sentences"]) < count($post["sentences"])){
+                $post["max_spot"] = count($post["sentences"]);
+            }else{
+                $post["max_spot"] = count($post["images"]);
+            }*/
+
+            return $post;
+        }
+
+        function max_post_id(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT MAX(post_id) AS max_post_id
+                    FROM posts";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $post_id = $ps->fetch();
+            return $post_id["max_post_id"];
         }
 
     }

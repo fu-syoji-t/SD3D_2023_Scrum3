@@ -5,20 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/home.css"> 
+    <link rel="stylesheet" href="../css/homea.css"> 
 </head>
 <body>
+<style>  
+  body {
+    background-color: #DDDDDD;
+  }
+  h1 {
+    background-color: gray;
+    font-size: 23px;
+    font-family: "Arial Black";
+    letter-spacing: 2px;
+    text-align: center;
+  }
+  </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
-    &nbsp; &nbsp;
-    <a onclick="location.href='../AnotherSky/home.php'" value=""><h2>side</h2></a>
-<div style="text-align: center;">
-<div class="Header">
-<a onclick="location.href='../AnotherSky/home.php'" value=""><font face="serif">home&nbsp;&nbsp;&nbsp;</font></a>
-<a onclick="location.href='../AnotherSky/hometown.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;hometown&nbsp;&nbsp;&nbsp;</font></a>
-<a onclick="location.href='../AnotherSky/another.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;anoher&nbsp;&nbsp;&nbsp;</font></a>
-<a onclick="location.href='../AnotherSky/category.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;category&nbsp;&nbsp;&nbsp;</font></a>
-    </div>
+    <?php  require_once 'header.php' ?>
 </div>
 <div><hr /></div>
 <div>
@@ -36,15 +40,18 @@
       </span>
     </div>
     <div style="text-align: center;">
-      <span style="font-size: 36px;"><font face="serif">title</font></span>
+      <span style="font-size: 36px;"><font face="serif">title</font></span><br>
+      <input type=”text” name=”name”>
     </div>
     <div style="text-align: center;"><br /></div>
     <div style="text-align: center;">
-      <span style="font-size: 36px;"><font face="serif">地方の選択</font></span>
+      <span style="font-size: 36px;"><font face="serif">地方の選択</font></span><br>
+      <input type=”text” name=”name”>
     </div>
     <div style="text-align: center;"><br /></div>
     <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">place</span></font>
+      <font face="serif"><span style="font-size: 36px;">place</span></font><br>
+      <input type=”text” name=”name”>
     </div>
     <div style="text-align: center;">
       <span style="font-size: 36px;">
@@ -54,7 +61,8 @@
   </h2>
   <h2>
     <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">youtube</span></font>
+      <font face="serif"><span style="font-size: 36px;">youtube</span></font><br>
+      <input type=”text” name=”name”>
     </div>
     <div style="text-align: center;"><br /></div>
     <div style="text-align: center;">
@@ -72,10 +80,10 @@
       <span style="font-size: 36px;"><font face="serif">spot</font></span>
     </div>
     <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">画像選択</span></font>
+      <font face="serif"><span style="font-size: 36px;">画像選択</span></font><br>
+      <input type=”text” name=”name”>
     </div>
     <div style="text-align: center;">
-      <img src="image.png" />
       <font face="serif">
         <span style="font-size: 36px;"><br /></span>
       </font>
@@ -98,8 +106,7 @@
   </h2>
   <h2>
     <div style="text-align: center;">
-      <hr />
-      <font face="serif">@Another Sky</font>
+      <?php  require_once 'footer.php' ?>
     </div>
   </h2>
 </div>
