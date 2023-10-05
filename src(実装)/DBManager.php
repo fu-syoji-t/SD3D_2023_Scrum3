@@ -86,12 +86,6 @@
             $ps->execute();
             $post["sentences"] = $ps->fetchAll();
             
-            /*if(count($post["sentences"]) < count($post["sentences"])){
-                $post["max_spot"] = count($post["sentences"]);
-            }else{
-                $post["max_spot"] = count($post["images"]);
-            }*/
-
             return $post;
         }
 
@@ -103,6 +97,16 @@
             $ps->execute();
             $post_id = $ps->fetch();
             return $post_id["max_post_id"];
+        }
+
+        function get_regions(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM regions";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $regions = $ps->fetchAll();
+            return $regions;
         }
 
     }

@@ -1,3 +1,10 @@
+<?php 
+    require_once "DBManager.php";
+    $get = new DBManager();
+
+    $regions = $get->get_regions();
+?>
+
 <input type="button" onclick="location.href='home.php'" value="home">
 <input type="button" onclick="location.href='hometown.php'" value="hometown">
 <input type="button" onclick="location.href='another.php'" value="another">
@@ -12,15 +19,12 @@
     <input type="text" name="title" maxlength="30"><br>
     region : 
     <select name="region">
-        <option value=1>北海道</option>
-        <option value=2>東北</option>
-        <option value=3>関東</option>
-        <option value=4>中部</option>
-        <option value=5>近畿</option>
-        <option value=6>中国</option>
-        <option value=7>四国</option>
-        <option value=8>九州</option>
-        <option value=9>海外</option>
+        <?php
+            foreach($regions as $region){
+                echo 
+        '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
+            }
+        ?>
     </select><br>
     place : 
     <input type="text" name="place"><br>
