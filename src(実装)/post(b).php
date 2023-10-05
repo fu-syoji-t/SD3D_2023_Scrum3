@@ -31,5 +31,5 @@
         }
     }
 
-    header('Location:youtube_display_test.php');
+    header('Location:hometown_detail.php');
 ?>
