@@ -22,20 +22,28 @@
 </head>
 
 <body>
+
+    <input type="button" onclick="history.back()" value="戻る"><br>
+    
     <?php
     echo 'post_id : ';
     echo $post["post_id"].'<br>';
 
     echo 'datetime : ';
     echo $post["date"]."<br>";
+
     echo 'title : ';
     echo $post["title"]."<br>";
+
     echo 'region : ';
     echo $post["region"][0]."<br>";
+
     echo 'place : ';
     echo $post["place"]."<br>";
+
     echo 'youtube : <br>';
-    echo '<div style="width:100px">'.$post["link_path"]."</div><br>";
+    echo '<div>'.$post["link_path"]."</div><br>";
+    
     echo 'freespace : <br>';
     echo $post["text"]."<br>";
 
@@ -47,7 +55,7 @@
         if(isset($post["images"])){
             foreach($post["images"] as $image){
                 if($image["image_order"] == $i){
-                    echo '<img src="'.$image["path"].'" width=500>';
+                    echo '<img src="'.$image["path"].'" width=560>';
                 }
             }
         }

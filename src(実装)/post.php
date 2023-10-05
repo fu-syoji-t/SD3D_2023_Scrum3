@@ -25,7 +25,7 @@
     place : 
     <input type="text" name="place"><br>
     youtube : 
-    <textarea name="link"></textarea><br>
+    <textarea name="link" rows="8" cols="50"></textarea><br>
     freespace : 
     <textarea name="text"></textarea><br><br>
 
