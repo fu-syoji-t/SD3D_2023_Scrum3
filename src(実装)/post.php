@@ -72,7 +72,7 @@
     <input type="submit" value="投稿">
 </form>
 
-<div style="color:blueviolet; font-size:5rem">
+<div style="color:blueviolet; font-size:3rem">
 <?php 
     require_once "index.php";
     $template = new template();

@@ -31,5 +31,5 @@
         }
     }
 
-    header('Location:hometown_detail.php');
+    header('Location:hometown.php');
 ?>

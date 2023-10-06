@@ -109,6 +109,32 @@
             return $regions;
         }
 
+        function get_all_post(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM posts
+                    LIMIT 30";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $all_post = $ps->fetchAll();
+            
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE image_order = 1";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $first_image = $ps->fetchAll();
+
+            $post_count = count($all_post);
+            for($i = 0; $i <$post_count; $i++){
+                if(isset($first_image[$i])){
+                    $all_post[$i]["first_image"] = $first_image[$i]["path"];
+                }
+            }
+
+            return $all_post;
+        }
+
     }
 
 ?>
