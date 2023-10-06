@@ -11,7 +11,7 @@
 
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-    <title>youtube_display_test</title>
+    <title>hometown_detail</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
 
@@ -49,8 +49,8 @@
 
     $spot_limit = 4; // 投稿内のスポット数の上限
     for($i = 1; $i <= $spot_limit; $i++) {
-
-        echo '<br>[spot'.$i.']<br>';
+        echo '----------------------------------------------------------------------------------------------------<br>';
+        echo '[spot'.$i.']<br>';
 
         if(isset($post["images"])){
             foreach($post["images"] as $image){

@@ -1,4 +1,7 @@
 <?php 
+    require_once "index.php";
+    $template = new html_standard_template();
+
     require_once "DBManager.php";
     $get = new DBManager();
 
@@ -72,11 +75,9 @@
     <input type="submit" value="投稿">
 </form>
 
-<div style="color:blueviolet; font-size:3rem">
+<div style="color:blueviolet">
 <?php 
     require_once "index.php";
-    $template = new template();
-
-    $template->text_template_display("text1!!!","text2!!","text3!");
+    $template = new template("text1!!!","text2!!","text3!");
 ?>
 </div>
