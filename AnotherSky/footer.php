@@ -6,8 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+<style>
+        .h6{
+          background-color: #DDDDDD;
+          margin: 30px auto;
+          overflow: hidden;
+          padding: 15px;
+          width: 100vw;
+        }
+    </style>
 <footer>
-  <div style="text-align: center;">
+  <div class="h6"style="text-align: center;">
       <hr />
       <font face="serif">@Another Sky</font>
     </div>

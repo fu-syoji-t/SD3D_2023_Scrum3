@@ -9,22 +9,87 @@
 </head>
 <body>
   <style>  
-  body {
-    background-color: #DDDDDD;
-  }
-  h1 {
-    background-color: gray;
-    font-size: 23px;
-    font-family: "Arial Black";
-    letter-spacing: 2px;
-    text-align: center;
-  }
+      body {
+          background-color: #DDDDDD;
+        }
+
+
+        h1 {
+          background-color: gray;
+          font-size: 23px;
+          font-family: "Arial Black";
+          letter-spacing: 2px;
+          text-align: center;
+          text-justify: auto;
+        }
+        .h6{
+          background-color: #DDDDDD;
+          height: 200px;
+          margin: 30px auto;
+          overflow: hidden;
+          padding: 15px;
+          width: 500px;
+        }
+
+        .box {
+          background-color: #FFF;
+          box-shadow: 0 5px 5px #999;
+          height: 200px;
+          margin: 30px auto;
+          overflow: hidden;
+          padding: 15px;
+          width: 450px;
+        }
+
+        .box a:link,
+        .box a:visited {
+          color: #00C;
+        }
+
+        .box a:hover {
+          color: #33F;
+        }
+
+        .box > h2 {
+          font-size: 16px;
+          margin: 0;
+        }
+
+        .box > h2 > .date {
+          color: #666;
+          font-size: 13px;
+          font-weight: normal;
+        }
+
+        .box > .box_img {
+          float: left;
+          margin-right: 10px;
+          width: 150px;
+        }
+
+        .box > .box_sentence > p {
+          color: #444;
+          font-size: 14px;
+        }
+
+        .more{
+          text-align: center;
+        }
+      .col{
+        background-color: #DDDDDD;
+          margin: 30px auto;
+          overflow: hidden;
+          padding: 15px;
+          width: 100vw;
+      }
+
+
   </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
     <?php  require_once 'header.php' ?>
 </div>
-<div><hr /></div>
+<div class="h6">
 <h2>
     &nbsp; &nbsp;
   <font face="serif">忘れられない空がある</font>
@@ -33,13 +98,13 @@
     &nbsp; &nbsp;
   <font face="serif">Another&nbsp;Sky</font>
 </h1>
-<h4> &nbsp; &nbsp;みんなの第二の故郷を知り、あなたの第二の故郷を広め、</h4>
+<h4>&nbsp;&nbsp;みんなの第二の故郷を知り！<br>&nbsp;&nbsp;あなたの第二の故郷を広め！</h4>
 <h4 style="text-align: justify;">
-   &nbsp; &nbsp;多くの価値観を共有しましょう
+   &nbsp;&nbsp;多くの価値観を共有しましょう！
 </h4>
 <div>
+    <hr>
   <h2>
-    <hr />
     <div style="text-align: center;">
       <span style="font-size: 1.5em;">
         <font face="serif"><br /></font>
@@ -50,73 +115,41 @@
         <font face="serif">Another Sky</font>
       </span>
     </div>
-    <div class="row">
-        <div class="col">
+  </div>
+  <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[1]</text></svg>
-            <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                </div>
-              </div>
             </div>
           </div>
         </div>
-
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[1]</text></svg>
+            </div>
+          </div>
+        </div>
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[2]</text></svg>
-            <div class="card-body">
-              <p class="card-text">Another Skyの魅力！
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                </div>
-              </div>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[3]</text></svg>
-            <div class="card-body">
-              <p class="card-text">Another Skyの魅力！
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                </div>
-              </div>
             </div>
           </div>
         </div>
     </div>
     <div style="text-align: center;">
-      <span style="font-size: 1.5em;">
-        <font face="serif"><br /></font>
-      </span>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif">
-        <span style="font-size: 36px;"><br /></span>
-      </font>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif">
-        <span style="font-size: 36px;"><br /></span>
-      </font>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif">
-        <span style="font-size: 36px;"><br /></span>
-      </font>
-    </div>
-    <div style="text-align: center;">
     <a onclick="location.href='../another.php'" value=""><font face="serif" size="3">more view</font></a>
-    </div>
     <div style="text-align: center;">
       <font face="serif" size="3"><br /></font>
     </div>
+    <hr>
     <div style="text-align: center;">
-      <hr />
-      <span style="font-family: serif; font-size: 36px;">Hometown</span>
-      <br />
+
+    <span style="font-family: serif; font-size: 36px;">Hometown</span>
       <div class="box">
       <h2>
         <a href="#">大分　湯布院</a>
@@ -171,10 +204,8 @@
         </p>
       </div>
     </div>
-    <div style="text-align: center;">
     <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
-    </div>
 </div>
     <?php  require_once 'footer.php' ?>
 </body>

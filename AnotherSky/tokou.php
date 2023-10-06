@@ -25,91 +25,77 @@
     <?php  require_once 'header.php' ?>
 </div>
 <div><hr /></div>
-<div>
-  <h2>
-    <div style="text-align: center;"></div>
-    <div style="text-align: center;">
-      <font face="serif">
-        <span style="font-size: 36px;">post</span>
-        <br />
-      </font>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-size: 36px;">
-        <font face="serif"><br /></font>
-      </span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-size: 36px;"><font face="serif">title</font></span><br>
-      <input type=”text” name=”name”>
-    </div>
-    <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;">
-      <span style="font-size: 36px;"><font face="serif">地方の選択</font></span><br>
-      <input type=”text” name=”name”>
-    </div>
-    <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">place</span></font><br>
-      <input type=”text” name=”name”>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-size: 36px;">
-        <font face="serif"><br /></font>
-      </span>
-    </div>
-  </h2>
-  <h2>
-    <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">youtube</span></font><br>
-      <input type=”text” name=”name”>
-    </div>
-    <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;">
-      <font face="serif">
-        <span style="font-size: 36px;">freespace</span>
-        <span style="font-size: 36px;"><br /></span>
-      </font>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-size: 36px;">
-        <font face="serif"><br /></font>
-      </span>
-    </div>
-    <div style="text-align: center;">
-      <span style="font-size: 36px;"><font face="serif">spot</font></span>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif"><span style="font-size: 36px;">画像選択</span></font><br>
-      <input type=”text” name=”name”>
-    </div>
-    <div style="text-align: center;">
-      <font face="serif">
-        <span style="font-size: 36px;"><br /></span>
-      </font>
-    </div>
-    <div style="text-align: center;">具体的なスポット</div>
-    <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;">そこに行くようになったきっかけ</div>
-    <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;">どんな思い出があるのか</div>
-    <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;">spotを追加+</div>
-    <div style="text-align: center;"><br /></div>
-  </h2>
-  <h2><div style="text-align: center;"></div></h2>
-  <h2>
-    <div style="text-align: center;">
+
+<input type="button" onclick="history.back()" value="戻る"><br><br>
+
+<form action="post(b).php" method="post" enctype="multipart/form-data">
+    title : 
+    <input type="text" name="title" maxlength="30"><br>
+    region : 
+    <select name="region">
+        <option value=1>北海道</option>
+        <option value=2>東北</option>
+        <option value=3>関東</option>
+        <option value=4>中部</option>
+        <option value=5>近畿</option>
+        <option value=6>中国</option>
+        <option value=7>四国</option>
+        <option value=8>九州</option>
+        <option value=9>海外</option>
+    </select><br>
+    place : 
+    <input type="text" name="place"><br>
+    youtube : 
+    <textarea name="link"></textarea><br>
+    freespace : 
+    <textarea name="text"></textarea><br><br>
+
+    画像を選択 : 
+    <input type="file" name="post_image1" accept="image/*"><br>
+    具体的なスポット　　　　　　　 : 
+    <textarea name="sentence1_1"></textarea><br>
+    そこに行くようになったきっかけ : 
+    <textarea name="sentence1_2"></textarea><br>
+    どんな思い出があるのか　　　　 : 
+    <textarea name="sentence1_3"></textarea><br><br>
+
+    画像を選択 : 
+    <input type="file" name="post_image2" accept="image/*"><br>
+    具体的なスポット　　　　　　　 : 
+    <textarea name="sentence2_1"></textarea><br>
+    そこに行くようになったきっかけ : 
+    <textarea name="sentence2_2"></textarea><br>
+    どんな思い出があるのか　　　　 : 
+    <textarea name="sentence2_3"></textarea><br><br>
+    
+    画像を選択 : 
+    <input type="file" name="post_image3" accept="image/*"><br>
+    具体的なスポット　　　　　　　 : 
+    <textarea name="sentence3_1"></textarea><br>
+    そこに行くようになったきっかけ : 
+    <textarea name="sentence3_2"></textarea><br>
+    どんな思い出があるのか　　　　 : 
+    <textarea name="sentence3_3"></textarea><br><br>
+    
+    画像を選択 : 
+    <input type="file" name="post_image4" accept="image/*"><br>
+    具体的なスポット　　　　　　　 : 
+    <textarea name="sentence4_1"></textarea><br>
+    そこに行くようになったきっかけ : 
+    <textarea name="sentence4_2"></textarea><br>
+    どんな思い出があるのか　　　　 : 
+    <textarea name="sentence4_3"></textarea><br><br>
+ 
+    <input type="submit" value="投稿">
+</form>
+<div style="text-align: center;">
     <a onclick="location.href='../AnotherSky/hometowndetail.php'" value=""><span style="font-size: 36px;"><font face="serif">投稿する</font></span></a>
     </div>
-    <div style="text-align: center;"><br /></div>
-  </h2>
   <h2>
     <div style="text-align: center;">
       <?php  require_once 'footer.php' ?>
     </div>
   </h2>
 </div>
-
 </body>
 </html>
