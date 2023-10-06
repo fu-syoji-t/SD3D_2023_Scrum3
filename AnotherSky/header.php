@@ -5,6 +5,15 @@
     <title>header</title>
   </head>
   <body>
+    <style>
+      .header{
+        background-color: #DDDDDD;
+          margin: 30px auto;
+          overflow: hidden;
+          padding: 15px;
+          width: 100vw;
+      }
+    </style>
   <header class="header">
 
     <nav class="header-nav">
@@ -14,6 +23,7 @@
         <a onclick="location.href='../AnotherSky/hometown.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;hometown&nbsp;&nbsp;&nbsp;</font></a>
         <a onclick="location.href='../AnotherSky/another.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;anoher&nbsp;&nbsp;&nbsp;</font></a>
         <a onclick="location.href='../AnotherSky/category.php'" value=""><font face="serif">&nbsp;&nbsp;&nbsp;category&nbsp;&nbsp;&nbsp;</font></a>
+        <hr>
       </div>
     </nav>
   </header>
