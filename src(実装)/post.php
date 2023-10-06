@@ -71,3 +71,12 @@
  
     <input type="submit" value="投稿">
 </form>
+
+<div style="color:blueviolet; font-size:5rem">
+<?php 
+    require_once "index.php";
+    $template = new template();
+
+    $template->text_template_display("text1!!!","text2!!","text3!");
+?>
+</div>
