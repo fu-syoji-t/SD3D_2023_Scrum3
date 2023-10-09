@@ -1,19 +1,12 @@
 <?php 
-    require_once "index.php";
-    $template = new html_standard_template();
-
     require_once "DBManager.php";
     $get = new DBManager();
 
     $regions = $get->get_regions();
+
+    require_once "index.php";
+    $template = new header("post");
 ?>
-
-<input type="button" onclick="location.href='home.php'" value="home">
-<input type="button" onclick="location.href='hometown.php'" value="hometown">
-<input type="button" onclick="location.href='another.php'" value="another">
-<input type="button" onclick="location.href='category.php'" value="category">
-
-<h3>post</h3>
 
 <input type="button" onclick="history.back()" value="戻る"><br><br>
 
