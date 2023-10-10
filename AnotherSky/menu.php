@@ -22,14 +22,14 @@
           text-align: center;
           text-justify: auto;
         }
-        .h6{
+        /*.h6{
           background-color: #DDDDDD;
           height: 200px;
           margin: 30px auto;
           overflow: hidden;
           padding: 15px;
           width: 500px;
-        }
+        }*/
 
         .box {
           background-color: #FFF;
@@ -38,7 +38,7 @@
           margin: 30px auto;
           overflow: hidden;
           padding: 15px;
-          width: 450px;
+          width: 100%;
         }
 
         .box a:link,
@@ -103,6 +103,7 @@
    &nbsp;&nbsp;多くの価値観を共有しましょう！
 </h4>
 <div>
+<iframe width="300" height="150" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <hr>
   <h2>
     <div style="text-align: center;">
@@ -110,42 +111,8 @@
         <font face="serif"><br /></font>
       </span>
     </div>
-    <div style="text-align: center;">
-      <span style="font-size: 1.5em;">
-        <font face="serif">Another Sky</font>
-      </span>
-    </div>
+   
   </div>
-  <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[1]</text></svg>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[1]</text></svg>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[2]</text></svg>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">[3]</text></svg>
-            </div>
-          </div>
-        </div>
-    </div>
-    <div style="text-align: center;">
-    <a onclick="location.href='../another.php'" value=""><font face="serif" size="3">more view</font></a>
-    <div style="text-align: center;">
-      <font face="serif" size="3"><br /></font>
-    </div>
     <hr>
     <div style="text-align: center;">
 

@@ -28,7 +28,7 @@
           margin: 30px auto;
           overflow: hidden;
           padding: 15px;
-          width: 450px;
+          width: 400px;
         }
 
         .box a:link,
@@ -64,6 +64,10 @@
 
         .more{
           text-align: center;
+        }
+        .input{
+          text-align: center;
+          background-color: #999999;
         }
     </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -143,7 +147,7 @@
       </div>
     </div>
     <p class="more"><a href="#">read more...</a></p>
-    <div style="text-align: center;">
+    <div class="input">
     <a onclick="location.href='../AnotherSky/tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
     </div>
   </body>

@@ -9,26 +9,37 @@
 </head>
 <body>
 <style>  
-  body {
-    background-color: #DDDDDD;
-  }
-  h1 {
-    background-color: gray;
-    font-size: 23px;
-    font-family: "Arial Black";
-    letter-spacing: 2px;
-    text-align: center;
-  }
-  .{
-  background-color: #85FFBD;
-  background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
-  }
-  .button{
-    padding: 1rem 2rem;
-    border: 1px solid #000;
-	color: rgb(184, 184, 184);
-    text-decoration: none;
-}
+        body {
+            margin: 0;
+            background-color: #DDDDDD;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            flex-direction: column;
+        }
+        h1 {
+            background-color: gray;
+            font-size: 23px;
+            font-family: "Arial Black";
+            letter-spacing: 2px;
+            text-align: center;
+            color: black;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 400px; /* コンテナの幅を制限 */
+        }
+        .button {
+            padding: 1rem 2rem;
+            border: 1px solid #000;
+            color: black;
+            text-decoration: none;
+            margin: 5px;
+            width: 45%; /* ボタンの幅を調整して2列に */
+        }
 </style>
   </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -96,6 +107,7 @@
         <button type="submit" name=region value="8">九州地方</button>
         <button type="submit" name=region value="9">海外</button>
     </form> -->
+    <div class="button-container">
     <?php
     echo "<button id='option1' data-parameter='1'>北海道地方</button>";
     echo "<button id='option2' data-parameter='2'>東北地方</button>";
@@ -107,6 +119,7 @@
     echo "<button id='option8' data-parameter='8'>九州地方</button>";
     echo "<button id='option9' data-parameter='9'>海外</button>";
     ?>
+    </div>
     <script>
         // ボタンがクリックされたときの処理
         document.getElementById("option1").addEventListener("click", function() {
