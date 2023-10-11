@@ -38,7 +38,7 @@
           margin: 30px auto;
           overflow: hidden;
           padding: 15px;
-          width: 100%;
+          width: 400px;
         }
 
         .box a:link,
@@ -82,7 +82,12 @@
           padding: 15px;
           width: 100vw;
       }
-
+      iframe{
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: auto;
+      }
 
   </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -103,7 +108,7 @@
    &nbsp;&nbsp;多くの価値観を共有しましょう！
 </h4>
 <div>
-<iframe width="300" height="150" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe class="iframe" width="300" height="150" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <hr>
   <h2>
     <div style="text-align: center;">

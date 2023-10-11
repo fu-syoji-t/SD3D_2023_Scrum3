@@ -86,12 +86,6 @@
             $ps->execute();
             $post["sentences"] = $ps->fetchAll();
             
-            /*if(count($post["sentences"]) < count($post["sentences"])){
-                $post["max_spot"] = count($post["sentences"]);
-            }else{
-                $post["max_spot"] = count($post["images"]);
-            }*/
-
             return $post;
         }
 
@@ -103,6 +97,42 @@
             $ps->execute();
             $post_id = $ps->fetch();
             return $post_id["max_post_id"];
+        }
+
+        function get_regions(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM regions";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $regions = $ps->fetchAll();
+            return $regions;
+        }
+
+        function get_all_post(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM posts
+                    LIMIT 30";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $all_post = $ps->fetchAll();
+            
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE image_order = 1";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $first_image = $ps->fetchAll();
+
+            $post_count = count($all_post);
+            for($i = 0; $i <$post_count; $i++){
+                if(isset($first_image[$i])){
+                    $all_post[$i]["first_image"] = $first_image[$i]["path"];
+                }
+            }
+
+            return $all_post;
         }
 
     }

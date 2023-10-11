@@ -13,8 +13,25 @@
           padding: 15px;
           width: 100vw;
       }
+      .busu{
+        text-align: left;
+        position: fixed;
+        right: auto;
+        margin-left: auto;
+        bottom: 0%;
+        height: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transform: rotate(90deg);
+        font-size: 100%;
+        line-height: 1.5rem;
+        color: #737373;
+        padding: 0 0 0 1%;
+        border-top: solid 1px;
+      }
     </style>
   <header class="header">
+  <input class="busu" type="button" onclick="history.back()" value="⬅︎"><br><br>
 
     <nav class="header-nav">
       <div style="text-align: center;">
