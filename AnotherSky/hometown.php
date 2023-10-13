@@ -97,20 +97,35 @@
 
     $posts = $get->get_all_post();
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     foreach($posts as $post){
-        echo '----------------------------------------------------------------------------------------------------<br>';
-        echo '<a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>　　　';
-        echo $post["date"].'<br>';
+        echo '<div class="box">
+        <h2>
+          <a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
+          <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
+        </h2>';
         if(isset($post["first_image"])){
-            echo '<img width=560 src="'.$post["first_image"].'"><br>';
+          echo 
+          '<p class="box_img">
+            <img src="'.$post["first_image"].'" alt="Thumbnail" width="150" height="150">
+          </p>';
         }
-        echo '<div style="wisth:560px">'.$post["text"].'</div>';
-        echo '----------------------------------------------------------------------------------------------------<br>';
+        echo 
+        '<div class="box_sentence">
+          <p>
+            '.$post["text"].'…
+            <a href="hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
+          </p>
+        </div>
+      </div>';
     }
     
 ?>
 
+<<<<<<< Updated upstream
     <div class="box">
       <h2>
         <a href="#">大分　湯布院</a>
@@ -129,6 +144,8 @@
         </p>
       </div>
     </div>
+=======
+>>>>>>> Stashed changes
     <p class="more"><a href="#">read more...</a></p>
     <div class="input">
     <a onclick="location.href='../AnotherSky/tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
