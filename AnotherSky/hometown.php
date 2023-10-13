@@ -97,8 +97,6 @@
 
     $posts = $get->get_all_post();
 
-    require_once "index.php";
-    $template = new header("hometown");
 
     foreach($posts as $post){
         echo '----------------------------------------------------------------------------------------------------<br>';
