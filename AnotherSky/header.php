@@ -28,6 +28,7 @@
         color: #737373;
         padding: 0 0 0 1%;
         border-top: solid 1px;
+        
       }
     </style>
   <header class="header">
