@@ -38,7 +38,7 @@
           margin: 30px auto;
           overflow: hidden;
           padding: 15px;
-          width: 400px;
+          width: 380px;
         }
 
         .box a:link,
@@ -120,8 +120,41 @@
   </div>
     <hr>
     <div style="text-align: center;">
-
     <span style="font-family: serif; font-size: 36px;">Hometown</span>
+<?php
+require_once "DBManager.php";
+$get = new DBManager();
+
+$posts = $get->get_all_post();
+$displayCount = 0; // 表示済みのポスト数
+
+foreach($posts as $post){
+    if ($displayCount < 3) {
+        echo '<div class="box">
+        <h2>
+          <a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
+          <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
+        </h2>';
+        if(isset($post["first_image"])){
+          echo 
+          '<p class="box_img">
+            <img src="'.$post["first_image"].'" alt="Thumbnail" width="150" height="150">
+          </p>';
+        }
+        echo 
+        '<div class="box_sentence">
+          <p>
+            '.$post["text"].'…
+            <a href="hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
+          </p>
+        </div>
+      </div>';
+
+      $displayCount++;
+    }
+}
+?>
+    <!--<span style="font-family: serif; font-size: 36px;">Hometown</span>
       <div class="box">
       <h2>
         <a href="#">大分　湯布院</a>
@@ -175,7 +208,7 @@
           <a href="..//AnotherSky/hometowndetail">続きを読む</a>
         </p>
       </div>
-    </div>
+    </div>-->
     <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
 </div>

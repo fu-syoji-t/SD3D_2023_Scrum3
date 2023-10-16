@@ -42,6 +42,15 @@
     </div>
     <div>
     <iframe width="410" height="220" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      <!--<p>多種多様なヒストリーを持つゲストが
+        世界や日本国内のゆかりのある地を訪れる様子に密着。
+        
+        自身のルーツや人生観・仕事観について
+        本音を引き出していくドキュメンタリー。
+
+スタジオでは、ＭＣの今田耕司と八木莉可子が
+ゲストと共にロケの映像を見ながら、
+ゲストの更なる本音や裏話を引き出していきます。</p>-->
     </div>
     <div style="text-align: center;"><br /></div>
     <div style="text-align: center;"></div>
