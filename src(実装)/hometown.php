@@ -4,7 +4,7 @@
 
     $posts = $get->get_all_post();
 
-    require_once "index.php";
+    require_once "tmp_test.php";
     $template = new header("hometown");
 
     foreach($posts as $post){

@@ -4,7 +4,7 @@
 
     $regions = $get->get_regions();
 
-    require_once "index.php";
+    require_once "tmp_test.php";
     $template = new header("post");
 ?>
 
@@ -70,7 +70,7 @@
 
 <div style="color:blueviolet">
 <?php 
-    require_once "index.php";
+    require_once "tmp_test.php";
     $template = new template("text1!!!","text2!!","text3!");
 ?>
 </div>
