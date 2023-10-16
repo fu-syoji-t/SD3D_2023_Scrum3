@@ -60,7 +60,7 @@
                 } 
                                 </style>
                 <body>
-                    <form action="login_check.php" method="post">
+                    <form action="menu.php" method="post">
                         <br><br>
                     <div id="error-message">
                         <div class="container mt-3"></div>
@@ -72,7 +72,7 @@
                         <input type="password" class="from-control" name="pass" placeholder="password"><br>
                     </div>
                     <br>
-                    <a href="../Create_acount/acnt_1.php">新規登録</a><br>
+                    <a href="../Create_acount/acnt_1.php">Sign up</a><br>
 
                     <?php
                     if(isset($message)){
@@ -80,7 +80,7 @@
                     }
                     ?>
                     <br>
-                    <input type="button" value="ログイン"><br>
+                    <button type = "submit">Login</button>
                 </div>
                 </form>
                 <script type="text/javascript">
@@ -127,4 +127,5 @@
 
                 </script>
                 !-->
+    </html>
                 </body>

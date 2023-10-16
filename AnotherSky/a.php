@@ -38,9 +38,28 @@
             margin: 5px;
             width: 45%; /* ボタンの幅を調整して2列に */
         }
+        .hoge-class {
+    visibility:hidden;
+    border:1px solid red;
+    width:100px;
+    height:100px;
+}
+.other-class{
+    border:1px solid blue;
+    width:100px;
+    height:100px;
+}
+.float-class{
+    float: left;
+    margin: 20px;
+}
     </style>
 </head>
 <body>
+<div class="other-class float-class">Hello World!!こんにちは！</div>
+    <div class="hoge-class float-class">Hello World!!こんにちは！</div>
+    <div class="other-class float-class">Hello World!!こんにちは！</div>
+    <div class="other-class float-class">Hello World!!こんにちは！</div>
     <a href="../AnotherSky/login.php">
         <h2 style="text-align: right;">log in</h2>
     </a>
