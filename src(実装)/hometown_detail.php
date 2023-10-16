@@ -5,7 +5,7 @@
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
 
-    require_once "index.php";
+    require_once "index_test.php";
     $template = new header("hometown_detail");
 ?>
 
