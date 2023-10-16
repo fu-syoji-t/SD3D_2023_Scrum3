@@ -86,7 +86,6 @@
     </div>
   </h2>
 </div>
-
   </head>
   <body>
 
@@ -97,10 +96,6 @@
 
     $posts = $get->get_all_post();
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     foreach($posts as $post){
         echo '<div class="box">
         <h2>
@@ -125,27 +120,6 @@
     
 ?>
 
-<<<<<<< Updated upstream
-    <div class="box">
-      <h2>
-        <a href="#">大分　湯布院</a>
-        <span class="date">(2023.09.29)</span>
-      </h2>
-      <p class="box_img">
-        <img src="img/desktop.JPG" alt="Thumbnail" width="150" height="150">
-      </p>
-
-      <div class="box_sentence">
-        <p>
-          私のアナザースカイは大分の湯布院です。心が乱れている時によく行ってます<br>
-          ここの金賞コロッケを食べてガラスの森に行くのがいつものルーティンです<br>
-          今までもこれからも通いたい私のアナザースカイです。ぜひ詳細をご覧ください…
-          <a href="#">続きを読む</a>
-        </p>
-      </div>
-    </div>
-=======
->>>>>>> Stashed changes
     <p class="more"><a href="#">read more...</a></p>
     <div class="input">
     <a onclick="location.href='../AnotherSky/tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
