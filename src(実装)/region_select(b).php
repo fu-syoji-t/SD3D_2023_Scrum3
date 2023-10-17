@@ -1,6 +1,12 @@
 <?php
     require_once "DBManager.php";
-    $DBM= new DBManager();
+    $get = new DBManager();
+
+    require_once "tmp_test.php";
+    $template = new header("Category");
+
+    $regions = $get->get_regions();
+
     // echo "<form action='region.php' name=region method='post'>";
 
     // echo "<button type='submit' name=region value='1'>北海道地方</button>";
@@ -20,7 +26,6 @@
     <title>地域選択</title>
 </head>
 <body>
-    <h1>Category</h1>
     <!-- 地域選択画面(バック) -->
     <!-- <form action="region.php" name=region method="post">
         <button type="submit" name=region value="1">北海道地方</button>
@@ -33,6 +38,13 @@
         <button type="submit" name=region value="8">九州地方</button>
         <button type="submit" name=region value="9">海外</button>
     </form> -->
+
+    <?php
+            foreach($regions as $region){
+                echo "<button id='option".$region["region_id"]."' data-parameter='".$region["region_id"]."' class='button' onclick='location.href=".'"region.php?parameter='.$region["region_id"].'"'."'>".$region["name"]."</button>";
+            }
+        ?>
+<br>
 <?php
     echo "<button id='option1' data-parameter='1'>北海道地方</button>";
     echo "<button id='option2' data-parameter='2'>東北地方</button>";
