@@ -3,7 +3,7 @@
     $get = new DBManager();
 
     require_once "tmp_test.php";
-    $template = new header("Category");
+    // $template = new header("Category");
 
     $regions = $get->get_regions();
 
