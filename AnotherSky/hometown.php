@@ -61,13 +61,8 @@
           color: #444;
           font-size: 14px;
         }
-
-        .more{
-          text-align: center;
-        }
         .input{
           text-align: center;
-          background-color: #999999;
         }
     </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -86,6 +81,7 @@
     </div>
   </h2>
 </div>
+
   </head>
   <body>
 
@@ -117,14 +113,53 @@
         </div>
       </div>';
     }
-    
 ?>
-
-    <p class="more"><a href="#">read more...</a></p>
+    <!--<p onclick="more_view()" class="more">read more...</p>-->
     <div class="input">
     <a onclick="location.href='../AnotherSky/tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
+    <?php  require_once 'footer.php' ?>
     </div>
   </body>
-<?php  require_once 'footer.php' ?>
+<!--
 </body>
 </html>
+<script>
+  var div =c_box = 5;
+
+  var boxes = document.getElementsByClassName("box");
+
+  for(var i = 0; i < boxes.length;i++){
+    if(i < 5){
+      boxes[i].style.display = "block";
+    }
+  }
+  function more_view(){
+    var i =c_box;
+    while(i < c_box + 5 && i < boxes.length){
+      boxes[i].Style.display = "block";
+      i++;
+    }
+    c_box = i;
+  }
+</script>
+<script>
+  var div =c_box = 5;
+
+  var boxes = document.getElementsByClassName("box");
+
+  for(var i = 0; i < boxes.length;i++){
+    if(i < 5){
+      boxes[i].Style.display = "block";
+    }
+  }
+  function more_view(){
+    var i =c_box;
+    while(i < c_box + 5 && i < boxes.length){
+      boxes[i].Style.display = "block";
+      i++;
+    }
+    c_box = i;
+  }
+</script>
+
+display: none;-->

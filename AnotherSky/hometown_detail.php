@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/homea.css">
 </head>
 <body>
 <style>  
   body {
     background-color: #DDDDDD;
+    text-align: center;
   }
   h1 {
     background-color: gray;
@@ -20,7 +20,7 @@
     text-align: center;
   }
   </style>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
 <h2 style="text-align: center;"><font face="serif">ONE PIECE</font></h2>
 <div><font face="serif">ロジャー</font></div>
@@ -67,7 +67,66 @@
   </div>
   <div><br /></div>
   <a onclick="location.href='../AnotherSky/menu.php'" value=""><font face="serif">戻る</font></a>
-</div>
-<?php  require_once 'footer.php' ?>
+</div>-->
+<?php
+    require_once "DBManager.php";
+    $get = new DBManager();
+
+    $post_id = $_GET["post"];
+    $post = $get->get_post($post_id);
+
+    require_once "header.php";
+?>
+
+    <input type="button" onclick="history.back()" value="戻る"><br>
+    
+    <?php
+    echo 'post_id : ';
+    echo $post["post_id"].'<br>';
+
+    echo 'datetime : ';
+    echo $post["date"]."<br>";
+
+    echo 'title : ';
+    echo $post["title"]."<br>";
+
+    echo 'region : ';
+    echo $post["region"][0]."<br>";
+
+    echo 'place : ';
+    echo $post["place"]."<br>";
+
+    echo 'youtube : <br>';
+    echo '<div>'.$post["link_path"]."</div><br>";
+    
+    echo 'freespace : <br>';
+    echo $post["text"]."<br>";
+
+    $spot_limit = 4; // 投稿内のスポット数の上限
+    for($i = 1; $i <= $spot_limit; $i++) {
+        echo '----------------------------------------------------------------------------------------------------<br>';
+        echo '[spot'.$i.']<br>';
+
+        if(isset($post["images"])){
+            foreach($post["images"] as $image){
+                if($image["image_order"] == $i){
+                    echo '<img src="'.$image["path"].'" width=560>';
+                }
+            }
+        }
+
+        if(isset($post["sentences"])){
+            foreach($post["sentences"] as $sentence){
+                if($sentence["sentence_order"] == $i){
+                    echo $sentence["sentence"];
+                }
+            }
+        }
+
+        echo '<br>';
+
+    }
+
+    ?>
 </body>
 </html>
