@@ -149,6 +149,7 @@
     }
     c_box++;
   }
+  console.log(c_box);
 
   document.addEventListener("click", function (event) {
     if (event.target == moreElem) {
@@ -158,5 +159,6 @@
         c_box++;
       }
     }
+    console.log(c_box);
   });
 </script>

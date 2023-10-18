@@ -33,7 +33,9 @@ CREATE TABLE posts
  link_path VARCHAR(800),
  text TEXT,
  date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
- PRIMARY KEY(post_id)
+ PRIMARY KEY(post_id),
+ FOREIGN KEY (region_id)
+	REFERENCES regions(region_id)
 );
 
 CREATE TABLE post_images
