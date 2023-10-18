@@ -29,6 +29,7 @@
           overflow: hidden;
           padding: 15px;
           width: 400px;
+          display: none;
         }
 
         .box a:link,
@@ -61,8 +62,16 @@
           color: #444;
           font-size: 14px;
         }
+
+        .more{
+          border: none;
+          border-bottom: solid 1px #000;
+          background-color: transparent;
+          text-align: center;
+        }
         .input{
           text-align: center;
+          background-color: #999;
         }
     </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
@@ -114,52 +123,40 @@
       </div>';
     }
 ?>
-    <!--<p onclick="more_view()" class="more">read more...</p>-->
+  <div style="width: 100%; background-color: #bbb">
+    <button type="button" class="more" id="more">read more...</button>
+  </div>
     <div class="input">
     <a onclick="location.href='../AnotherSky/tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
     <?php  require_once 'footer.php' ?>
     </div>
   </body>
-<!--
+
 </body>
 </html>
 <script>
-  var div =c_box = 5;
+  var div = 5;
+  var c_box = 0;
 
   var boxes = document.getElementsByClassName("box");
+  var moreElem = document.getElementById("more");
 
-  for(var i = 0; i < boxes.length;i++){
-    if(i < 5){
-      boxes[i].style.display = "block";
+  while(c_box < boxes.length) {
+    if(c_box < div) {
+      boxes[c_box].style.display = "block";
+    }	else {
+      break;
     }
+    c_box++;
   }
-  function more_view(){
-    var i =c_box;
-    while(i < c_box + 5 && i < boxes.length){
-      boxes[i].Style.display = "block";
-      i++;
+
+  document.addEventListener("click", function (event) {
+    if (event.target == moreElem) {
+      var i = c_box;
+      while(c_box < i + div && c_box < boxes.length) {
+        boxes[c_box].style.display = "block";
+        c_box++;
+      }
     }
-    c_box = i;
-  }
+  });
 </script>
-<script>
-  var div =c_box = 5;
-
-  var boxes = document.getElementsByClassName("box");
-
-  for(var i = 0; i < boxes.length;i++){
-    if(i < 5){
-      boxes[i].Style.display = "block";
-    }
-  }
-  function more_view(){
-    var i =c_box;
-    while(i < c_box + 5 && i < boxes.length){
-      boxes[i].Style.display = "block";
-      i++;
-    }
-    c_box = i;
-  }
-</script>
-
-display: none;-->

@@ -1,12 +1,15 @@
 <?php
+    require_once "tmp_test.php";
     require_once "DBManager.php";
+
+    $template = new Template();
     $get = new DBManager();
+    
+    $template->head("post");
+    $template->header();
 
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
-
-    require_once "tmp_test.php";
-    $template = new header("hometown_detail");
 ?>
 
     <input type="button" onclick="history.back()" value="戻る"><br>
