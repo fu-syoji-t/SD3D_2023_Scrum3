@@ -1,5 +1,13 @@
 <?php
 //echo $_GET['region'];
+require_once "DBManager.php";
+$get = new DBManager();
+
+require_once "tmp_test.php";
+$template = new header("Category");
+
+$post_id = $_GET["post"];
+    $post = $get->get_post($post_id);
 ?>
 <html>
 <!-- 地域別投稿表示画面(バック) -->
@@ -45,7 +53,7 @@
                     echo "<img src='image/404.jpg' alt='404 Eroor'>";
             }
         } else {
-            echo "<h1>パラメータが送信されませんでした</h1>";
+            echo "<h1>不正な操作です。</h1>";
         }
         ?>
     </body>
