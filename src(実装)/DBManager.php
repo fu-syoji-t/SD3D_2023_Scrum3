@@ -111,9 +111,11 @@
 
         function get_all_post(){
             $pdo = $this->dbConnect();
-            $sql = "SELECT *
+            /*$sql = "SELECT *
                     FROM posts
-                    LIMIT 30";
+                    LIMIT 30";*/
+            $sql = "SELECT *
+                    FROM posts";
             $ps = $pdo->query($sql);
             $ps->execute();
             $all_post = $ps->fetchAll();

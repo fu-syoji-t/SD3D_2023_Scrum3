@@ -1,11 +1,14 @@
 <?php
+    require_once "tmp_test.php";
     require_once "DBManager.php";
+
+    $template = new Template();
     $get = new DBManager();
+    
+    $template->head("hometown");
+    $template->header();
 
     $posts = $get->get_all_post();
-
-    require_once "tmp_test.php";
-    $template = new header("hometown");
 
     foreach($posts as $post){
         echo '----------------------------------------------------------------------------------------------------<br>';

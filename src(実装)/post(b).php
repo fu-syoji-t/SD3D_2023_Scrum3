@@ -31,5 +31,9 @@
         }
     }
 
-    header('Location:hometown.php');
+    // header('Location:hometown.php');
 ?>
+<script>
+    history.go(0);
+    // location.replace('hometown.php');
+</script>
