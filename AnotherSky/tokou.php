@@ -54,6 +54,13 @@
         }
         .maru {
             border-radius: 1.5em;
+            padding: 5%; /* テキストと枠線の間の余白を指定 */
+        }
+        .maro{
+            border: 2px solid #000; /* 枠線の太さと色を指定 */
+            padding: 5%; /* テキストと枠線の間の余白を指定 */
+            border-radius: 1.5em;
+            margin-bottom: 10%;
         }
     </style>
 
@@ -87,52 +94,27 @@
         <div class="inputa" id="inputSection1">
             画像を選択 <br>
             <input class="maru" type="file" name="post_image1" accept="image/*"><br>
-            具体的なスポット <br>
-            <textarea class="maru" name="sentence1_1"></textarea><br>
-            そこに行くようになったきっかけ <br>
-            <textarea class="maru" name="sentence1_2"></textarea><br>
-            どんな思い出があるのか <br>
-            <textarea class="maru" name="sentence1_3"></textarea><br><br>
+            <textarea class="maro" name="sentence1_1" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
         <div class="input" id="inputSection2">
             画像を選択 <br>
             <input class="maru" type="file" name="post_image2" accept="image/*"><br>
-            具体的なスポット <br>
-            <textarea class="maru" name="sentence2_1"></textarea><br>
-            そこに行くようになったきっかけ <br>
-            <textarea class="maru" name="sentence2_2"></textarea><br>
-            どんな思い出があるのか <br>
-            <textarea class="maru" name="sentence2_3"></textarea><br><br>
+            <textarea class="maro" name="sentence2_1"placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
         <div class="input" id="inputSection3">
-            画像を選択 <br>
+            画像を選択 <br>s
             <input class="maru" type="file" name="post_image3" accept="image/*"><br>
-            具体的なスポット <br>
-            <textarea class="maru" name="sentence3_1"></textarea><br>
-            そこに行くようになったきっかけ <br>
-            <textarea class="maru" name="sentence3_2"></textarea><br>
-            どんな思い出があるのか <br>
-            <textarea class="maru" name="sentence3_3"></textarea><br><br>
+            <textarea class="maro" name="sentence3_1"placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
         <div class="input" id="inputSection4">
             画像を選択 <br>
-            <input class "maru" type="file" name="post_image4" accept="image/*"><br>
-            具体的なスポット <br>
-            <textarea class="maru" name="sentence4_1"></textarea><br>
-            そこに行くようになったきっかけ <br>
-            <textarea class="maru" name="sentence4_2"></textarea><br>
-            どんな思い出があるのか <br>
-            <textarea class="maru" name="sentence4_3"></textarea><br><br>
+            <input class = "maru" type="file" name="post_image4" accept="image/*"><br>
+            <textarea class="maro" name="sentence4_1"placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
         <div class="input" id="inputSection5">
             画像を選択 <br>
             <input class="maru" type="file" name="post_image5" accept="image/*"><br>
-            具体的なスポット <br>
-            <textarea class="maru" name="sentence5_1"></textarea><br>
-            そこに行くようになったきっかけ <br>
-            <textarea class="maru" name="sentence5_2"></textarea><br>
-            どんな思い出があるのか <br>
-            <textarea class="maru" name="sentence5_3"></textarea><br><br>
+            <textarea class="maro" name="sentence5_1"placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
     </div>
     <div style="width: 100%; background-color: #bbb;text-align: center; margin-top: 10%;">

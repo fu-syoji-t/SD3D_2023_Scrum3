@@ -101,29 +101,33 @@
     echo $post["post_id"].'<br>';*/
     
     echo '<div class="maru"> ';
+    echo $post["date"]."<br>";
+
+    echo ' <br>';
+    echo 'title <br>';
     echo $post["title"]."<br>";
 
     /*echo '<div class="mara"> ';
     echo $post["name"]."<br>";*/
 
     echo ' <br>';
+    echo 'place <br>';
     echo '<div>'.$post["link_path"]."</div><br>";
-
-    echo '';
-    echo $post["date"]."<br>";
 
     echo '';
     echo $post["region"][0]."<br>";
 
     echo '';
+    echo 'youTube <br>';
     echo $post["place"]."<br>";
     
     echo '<br>';
+    echo 'freespace <br>';
     echo $post["text"]."<br>";
 
-    $spot_limit = 4; // 投稿内のスポット数の上限
+    $spot_limit = 5; // 投稿内のスポット数の上限
     for($i = 1; $i <= $spot_limit; $i++) {
-        echo '<div class="input">----------------------------------------------------------------------------------------------------<br>';
+        echo '<div class="input">';
         echo '[spot'.$i.']<br>';
 
         if(isset($post["images"])){
@@ -142,7 +146,7 @@
             }
         }
 
-        echo '<br>';
+        echo '</div>';
 
     }
 
