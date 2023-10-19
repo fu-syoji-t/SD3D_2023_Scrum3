@@ -17,6 +17,16 @@
         .center {
             text-align: center;
         }
+        .inputa {
+            text-align: center;
+            margin-top: 10%;
+            margin-left: 10%;
+            margin-right: 10%;
+            border-radius: 20% 20% 20% 20%;
+            background-color: #999999;
+            padding: 0.5em;
+            border-radius: 1.5em;
+        }
         .input {
             text-align: center;
             margin-top: 10%;
@@ -26,6 +36,7 @@
             background-color: #999999;
             padding: 0.5em;
             border-radius: 1.5em;
+            display: none;
         }
         h1 {
             margin-bottom: 10%;
@@ -73,7 +84,7 @@
             <textarea class="maru" name="text"></textarea><br><br>
         </div>
         </div>
-        <div class="input" id="inputSection1">
+        <div class="inputa" id="inputSection1">
             画像を選択 <br>
             <input class="maru" type="file" name="post_image1" accept="image/*"><br>
             具体的なスポット <br>
@@ -83,53 +94,69 @@
             どんな思い出があるのか <br>
             <textarea class="maru" name="sentence1_3"></textarea><br><br>
         </div>
+        <div class="input" id="inputSection2">
+            画像を選択 <br>
+            <input class="maru" type="file" name="post_image2" accept="image/*"><br>
+            具体的なスポット <br>
+            <textarea class="maru" name="sentence2_1"></textarea><br>
+            そこに行くようになったきっかけ <br>
+            <textarea class="maru" name="sentence2_2"></textarea><br>
+            どんな思い出があるのか <br>
+            <textarea class="maru" name="sentence2_3"></textarea><br><br>
+        </div>
+        <div class="input" id="inputSection3">
+            画像を選択 <br>
+            <input class="maru" type="file" name="post_image3" accept="image/*"><br>
+            具体的なスポット <br>
+            <textarea class="maru" name="sentence3_1"></textarea><br>
+            そこに行くようになったきっかけ <br>
+            <textarea class="maru" name="sentence3_2"></textarea><br>
+            どんな思い出があるのか <br>
+            <textarea class="maru" name="sentence3_3"></textarea><br><br>
+        </div>
+        <div class="input" id="inputSection4">
+            画像を選択 <br>
+            <input class "maru" type="file" name="post_image4" accept="image/*"><br>
+            具体的なスポット <br>
+            <textarea class="maru" name="sentence4_1"></textarea><br>
+            そこに行くようになったきっかけ <br>
+            <textarea class="maru" name="sentence4_2"></textarea><br>
+            どんな思い出があるのか <br>
+            <textarea class="maru" name="sentence4_3"></textarea><br><br>
+        </div>
+        <div class="input" id="inputSection5">
+            画像を選択 <br>
+            <input class="maru" type="file" name="post_image5" accept="image/*"><br>
+            具体的なスポット <br>
+            <textarea class="maru" name="sentence5_1"></textarea><br>
+            そこに行くようになったきっかけ <br>
+            <textarea class="maru" name="sentence5_2"></textarea><br>
+            どんな思い出があるのか <br>
+            <textarea class="maru" name="sentence5_3"></textarea><br><br>
+        </div>
     </div>
-    <div class="input-section">
+    <div style="width: 100%; background-color: #bbb;text-align: center; margin-top: 10%;">
+        <button type="button" class="more" id="more">+</button>
+    </div>
+    <!--<div class="input-section">
         <button id="addInput" type="button">＋</button>
-    </div>
+    </div>-->
     <script>
-        var addButton = document.getElementById('addInput');
-        var inputSectionCounter = 1;
+        var addButton = document.getElementById('more');
+        var inputSectionCounter = 5; // 5つの入力セクションが既に表示されている
+        var moreElem = document.getElementById("more");
+        var sections = document.getElementsByClassName("input");
+        var visibleSections = 0;
 
         addButton.addEventListener('click', function() {
-            var inputSection = document.querySelector('#inputSection1');
-            
-            var newInputSection = inputSection.cloneNode(true);
-            newInputSection.style.display = 'block';
-
-            var newInputId = "inputSection" + (inputSectionCounter + 1);
-            newInputSection.setAttribute('id', newInputId);
-
-            newInputSection.querySelectorAll('input').forEach(function(inputElement, index) {
-                inputElement.name = inputElement.name.replace(/\d+/, inputSectionCounter + 1);
-            });
-
-            newInputSection.querySelectorAll('textarea').forEach(function(textareaElement, index) {
-                textareaElement.name = textareaElement.name.replace(/\d+/, inputSectionCounter + 1);
-            });
-
-            var inputSectionFileInputs = newInputSection.querySelectorAll('input[type="file"]');
-            inputSectionFileInputs.forEach(function(fileInput, index) {
-                fileInput.name = "post_image" + (index + 1);
-            });
-
-            var deleteButton = document.createElement('button');
-            deleteButton.textContent = '−';
-            deleteButton.type = 'button';
-            deleteButton.addEventListener('click', function() {
-                newInputSection.remove();
-            });
-            newInputSection.appendChild(deleteButton);
-
-            inputSection.parentElement.appendChild(newInputSection);
-            inputSectionCounter++;
+            if (visibleSections < sections.length) {
+                sections[visibleSections].style.display = "block";
+                visibleSections++;
+            }
         });
     </script>
     <div class="center">
         <input class="subu" type="submit" value="投稿">
     </div>
-
-    
 </body>
-
 </html>

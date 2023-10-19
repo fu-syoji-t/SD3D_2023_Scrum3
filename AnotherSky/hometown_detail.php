@@ -129,7 +129,7 @@
         if(isset($post["images"])){
             foreach($post["images"] as $image){
                 if($image["image_order"] == $i){
-                    echo '<img src="../src(実装)/image'.$image["path"].'" width=560>';
+                    echo '<img src="'.$image["path"].'" width=560>';
                 }
             }
         }
