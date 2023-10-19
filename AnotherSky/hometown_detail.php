@@ -10,7 +10,8 @@
 <style>  
   body {
     background-color: #DDDDDD;
-    text-align: center;
+    font-family: 'Sacramento', cursive;
+    font-family: "Kokoro";
   }
   h1 {
     background-color: gray;
@@ -19,6 +20,23 @@
     letter-spacing: 2px;
     text-align: center;
   }
+  .input {
+            text-align: center;
+            margin-top: 10%;
+            margin-left: 10%;
+            margin-right: 10%;
+            border-radius: 20% 20% 20% 20%;
+            background-color: #999999;
+            padding: 0.5em;
+            border-radius: 1.5em;
+        }
+        .maru {
+            border-radius: 1.5em;
+            text-align: center;
+        }
+        .mara {
+          display: block;
+        }
   </style>
 <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
@@ -77,40 +95,41 @@
 
     require_once "header.php";
 ?>
-
-    <input type="button" onclick="history.back()" value="戻る"><br>
     
     <?php
-    echo 'post_id : ';
-    echo $post["post_id"].'<br>';
-
-    echo 'datetime : ';
-    echo $post["date"]."<br>";
-
-    echo 'title : ';
+    /*echo 'post_id : ';
+    echo $post["post_id"].'<br>';*/
+    
+    echo '<div class="maru"> ';
     echo $post["title"]."<br>";
 
-    echo 'region : ';
+    /*echo '<div class="mara"> ';
+    echo $post["name"]."<br>";*/
+
+    echo ' <br>';
+    echo '<div>'.$post["link_path"]."</div><br>";
+
+    echo '';
+    echo $post["date"]."<br>";
+
+    echo '';
     echo $post["region"][0]."<br>";
 
-    echo 'place : ';
+    echo '';
     echo $post["place"]."<br>";
-
-    echo 'youtube : <br>';
-    echo '<div>'.$post["link_path"]."</div><br>";
     
-    echo 'freespace : <br>';
+    echo '<br>';
     echo $post["text"]."<br>";
 
     $spot_limit = 4; // 投稿内のスポット数の上限
     for($i = 1; $i <= $spot_limit; $i++) {
-        echo '----------------------------------------------------------------------------------------------------<br>';
+        echo '<div class="input">----------------------------------------------------------------------------------------------------<br>';
         echo '[spot'.$i.']<br>';
 
         if(isset($post["images"])){
             foreach($post["images"] as $image){
                 if($image["image_order"] == $i){
-                    echo '<img src="'.$image["path"].'" width=560>';
+                    echo '<img src="../src(実装)/image'.$image["path"].'" width=560>';
                 }
             }
         }
@@ -130,3 +149,5 @@
     ?>
 </body>
 </html>
+
+

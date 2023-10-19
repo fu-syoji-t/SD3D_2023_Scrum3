@@ -108,6 +108,11 @@
                 textareaElement.name = textareaElement.name.replace(/\d+/, inputSectionCounter + 1);
             });
 
+            var inputSectionFileInputs = newInputSection.querySelectorAll('input[type="file"]');
+            inputSectionFileInputs.forEach(function(fileInput, index) {
+                fileInput.name = "post_image" + (index + 1);
+            });
+
             var deleteButton = document.createElement('button');
             deleteButton.textContent = '−';
             deleteButton.type = 'button';
