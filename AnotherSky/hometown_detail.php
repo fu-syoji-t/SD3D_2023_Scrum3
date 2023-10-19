@@ -37,6 +37,11 @@
         .mara {
           display: block;
         }
+        iframe {
+          width: 100%;
+          height: 300px;
+        }
+
   </style>
 <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
@@ -112,14 +117,15 @@
 
     echo ' <br>';
     echo 'place <br>';
-    echo '<div>'.$post["link_path"]."</div><br>";
+    echo $post["place"]."<br>";
 
     echo '';
     echo $post["region"][0]."<br>";
+    echo '<br>';
 
     echo '';
-    echo 'youTube <br>';
-    echo $post["place"]."<br>";
+    echo 'youtube <br>';
+    echo '<div>'.$post["link_path"]."</div><br>";
     
     echo '<br>';
     echo 'freespace <br>';
@@ -151,6 +157,7 @@
     }
 
     ?>
+        <?php  require_once 'footer.php' ?>
 </body>
 </html>
 
