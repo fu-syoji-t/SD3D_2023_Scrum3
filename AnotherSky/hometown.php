@@ -121,6 +121,7 @@
           </p>
         </div>
       </div>';
+      $sql = "SELECT * FROM your_table_name ORDER BY update_date DESC";
     }
 ?>
   <div style="width: 100%; background-color: #bbb">
