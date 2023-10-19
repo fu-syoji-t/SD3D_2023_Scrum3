@@ -102,7 +102,7 @@
             <textarea class="maro" name="sentence2_1"placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
         <div class="input" id="inputSection3">
-            画像を選択 <br>s
+            画像を選択 <br>
             <input class="maru" type="file" name="post_image3" accept="image/*"><br>
             <textarea class="maro" name="sentence3_1"placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
