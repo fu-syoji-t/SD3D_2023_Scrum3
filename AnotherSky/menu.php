@@ -82,6 +82,14 @@
           padding: 15px;
           width: 100vw;
       }
+      .h6{
+          background-color: #DDDDDD;
+          margin: 30px auto;
+          overflow: hidden;
+          padding: 0%;
+          width: 100vw;
+          text-align: center;
+        }
       iframe{
         margin-bottom: auto;
         margin-left: auto;
@@ -212,6 +220,11 @@ foreach($posts as $post){
     <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
 </div>
-    <?php  require_once 'footer.php' ?>
+<footer>
+  <div class="h6">
+      <hr />
+      <font face="serif">@Another Sky</font>
+    </div>
+  </footer>
 </body>
 </html>
