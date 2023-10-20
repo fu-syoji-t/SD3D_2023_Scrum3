@@ -82,9 +82,17 @@
           padding: 15px;
           width: 100vw;
       }
+      .h8{
+          background-color: #DDDDDD;
+          margin: 30px auto;
+          overflow: hidden;
+          padding: 0px;
+          width: 100vw;
+          text-align: center;
+        }
       iframe{
         margin-bottom: auto;
-        margin-left: auto;
+        margin-left: 50px;
         margin-right: auto;
         margin-top: auto;
       }
@@ -108,8 +116,7 @@
    &nbsp;&nbsp;多くの価値観を共有しましょう！
 </h4>
 <div>
-<iframe class="iframe" width="300" height="150" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <hr>
+<iframe class="iframe" width="300" height="170" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   <h2>
     <div style="text-align: center;">
       <span style="font-size: 1.5em;">
@@ -212,6 +219,11 @@ foreach($posts as $post){
     <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
 </div>
-    <?php  require_once 'footer.php' ?>
+<footer>
+  <div class="h8">
+      <hr />
+      <font face="serif">@Another Sky</font>
+    </div>
+  </footer>
 </body>
 </html>

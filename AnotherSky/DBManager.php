@@ -115,7 +115,7 @@
                     FROM posts
                     LIMIT 30";*/
             $sql = "SELECT *
-                    FROM posts";
+                    FROM posts ORDER BY date DESC";
             $ps = $pdo->query($sql);
             $ps->execute();
             $all_post = $ps->fetchAll();
@@ -136,7 +136,6 @@
 
             return $all_post;
         }
-
     }
 
 ?>

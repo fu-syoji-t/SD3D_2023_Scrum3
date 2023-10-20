@@ -13,14 +13,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/homea.css">
     <style>
-        body {
-            margin: 0;
+         body {
             background-color: #DDDDDD;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
         }
         h1 {
             background-color: gray;
@@ -52,19 +46,28 @@
 </head>
 <body>
     <a href="../AnotherSky/login.php">
-      <div class="right">
     <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
     </div>
     </a>
     <?php require_once 'header.php'; ?>
-    <div><hr /></div>
-    <div>
-        <h2>
-            <div style="text-align: center;"></div>
-            <div style="text-align: center;">
-                <span style="font-size: 36px; font-family: serif;">category</span>
-                <br />
-            </div>
+        <div>
+            <h2>
+    <div style="text-align: center;"></div>
+        <div style="text-align: center;">
+                    <span style="font-size: 36px; font-family: serif;">category</span>
+                    <br />
+                        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <button class="button" onclick="location.href='../AnotherSky/categoryho.php?region_id=1'">北海道</button>
+            <button class="button" onclick="location.href='../AnotherSky/categoryto.php?region_id=2'">東北</button>
+            <button class="button" onclick="location.href='../AnotherSky/categoryknt.php?region_id=3'">関東</button>
+            <button class="button" onclick="location.href='../AnotherSky/categorytu.php?region_id=4'">中部</button>
+            <button class="button" onclick="location.href='../AnotherSky/categoryknk.php?region_id=5'">近畿</button>
+            <button class="button" onclick="location.href='../AnotherSky/categorytuk.php?region_id=6'">中国</button>
+            <button class="button" onclick="location.href='../AnotherSky/categorysko.php?region_id=7'">四国</button>
+            <button class="button" onclick="location.href='../AnotherSky/categorykys.php?region_id=8'">九州</button>
+            <button class="button" onclick="location.href='../AnotherSky/categoryabroad.php?region_id=9'">海外</button>
+        </div>
+    </div>
         </h2>
         <h2>
             <div style="text-align: center;"><br /></div>
@@ -72,45 +75,11 @@
     </div>
     <div class="button-container">
         <?php
-            foreach($regions as $region){
+         /*foreach($regions as $region){
                 echo "<button id='option".$region["region_id"]."' data-parameter='".$region["region_id"]."' class='button' onclick='location.href=".'"region.php?parameter='.$region["region_id"].'"'."'>".$region["name"]."</button>";
-            }
+            }*/
         ?>
     </div>
-    <script>
-        /*document.getElementById("option1").addEventListener("click", function() {
-            redirectToNextPage("1");
-        });
-        document.getElementById("option2").addEventListener("click", function() {
-            redirectToNextPage("2");
-        });
-        document.getElementById("option3").addEventListener("click", function() {
-            redirectToNextPage("3");
-        });
-        document.getElementById("option4").addEventListener("click", function() {
-            redirectToNextPage("4");
-        });
-        document.getElementById("option5").addEventListener("click", function() {
-            redirectToNextPage("5");
-        });
-        document.getElementById("option6").addEventListener("click", function() {
-            redirectToNextPage("6");
-        });
-        document.getElementById("option7").addEventListener("click", function() {
-            redirectToNextPage("7");
-        });
-        document.getElementById("option8").addEventListener("click", function() {
-            redirectToNextPage("8");
-        });
-        document.getElementById("option9").addEventListener("click", function() {
-            redirectToNextPage("9");
-        });
-
-        function redirectToNextPage(parameter) {
-            window.location.href = "region.php?parameter=" + parameter;
-        }*/
-    </script>
     <?php require_once 'footer.php'; ?>
 </body>
 </html>
-
