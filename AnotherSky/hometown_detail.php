@@ -157,6 +157,8 @@
     }
 
     ?>
+    <br>
+    <a href="tokou_edit.php?post=<?php echo $post_id; ?>">記事を編集</a>
         <?php  require_once 'footer.php' ?>
 </body>
 </html>
