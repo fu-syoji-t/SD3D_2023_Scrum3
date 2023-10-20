@@ -88,6 +88,21 @@
             echo ' <br>';
             echo 'title <br>';
             echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["title"]) . '"><br>';
+            
+            echo ' <br>';
+            echo'<div class="center">
+            <select name="region">
+                    <option value=1>北海道</option>
+                    <option value=2>東北</option>
+                    <option value=3>関東</option>
+                    <option value=4>中部</option>
+                    <option value=5>近畿</option>
+                    <option value=6>中国</option>
+                    <option value=7>四国</option>
+                    <option value=8>九州</option>
+                    <option value=9>海外</option>
+                 </select><br>
+                 </div>';
 
 
             echo ' <br>';
@@ -95,75 +110,14 @@
             echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["place"]) . '"><br>';
 
             echo ' <br>';
-            echo 'place <br>';
+            echo 'youtube <br>';
             echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["link_path"]) . '"><br>';
 
-
-    /*echo '<div class="mara"> ';
-    echo $post["name"]."<br>";*/
-
-    echo '';
-    echo $post["region"][0]."<br>";
-    echo '<br>';
-
-    echo '';
-    echo 'youtube <br>';
-    echo '<div>'.$post["link_path"]."</div><br>";
-    
-    echo '<br>';
-    echo 'freespace <br>';
-    echo $post["text"]."<br>";
-
-    $spot_limit = 5; // 投稿内のスポット数の上限
-    for($i = 1; $i <= $spot_limit; $i++) {
-        echo '<div class="input">';
-        echo '[spot'.$i.']<br>';
-
-        if(isset($post["images"])){
-            foreach($post["images"] as $image){
-                if($image["image_order"] == $i){
-                    echo '<img src="'.$image["path"].'" width=560>';
-                }
-            }
-        }
-
-        if(isset($post["sentences"])){
-            foreach($post["sentences"] as $sentence){
-                if($sentence["sentence_order"] == $i){
-                    echo $sentence["sentence"];
-                }
-            }
-        }
-
-        echo '</div>';
-
-    }
-
+            echo ' <br>';
+            echo 'freespace <br>';
+            echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["text"]) . '"><br>';
     ?>
-    <div class="center">
-        <h1>post</h1>
-        <form action="post(b).php" method="post" enctype="multipart/form-data">
-            title <br>
-            <input class="maru" type="text" name="title" maxlength="30"><br>
-            region <br>
-            <select name="region">
-                <option value=1>北海道</option>
-                <option value=2>東北</option>
-                <option value=3>関東</option>
-                <option value=4>中部</option>
-                <option value=5>近畿</option>
-                <option value=6>中国</option>
-                <option value=7>四国</option>
-                <option value=8>九州</option>
-                <option value=9>海外</option>
-            </select><br>
-            place <br>
-            <input class="maru" type="text" name="place"><br>
-            youtube <br>
-            <textarea class="maru" name="link"></textarea><br>
-            freespace <br>
-            <textarea class="maru" name="text"></textarea><br><br>
-    </div>
+
         <div class="inputa" id="inputSection1">
             画像を選択 <br>
             <input class="maru" type="file" name="post_image1" accept="image/*"><br>
