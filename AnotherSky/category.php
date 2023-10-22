@@ -54,20 +54,22 @@
             <h2>
     <div style="text-align: center;"></div>
         <div style="text-align: center;">
-                    <span style="font-size: 36px; font-family: serif;">category</span>
-                    <br />
-                        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-            <button class="button" onclick="location.href='../AnotherSky/categoryho.php?region_id=1'">北海道</button>
-            <button class="button" onclick="location.href='../AnotherSky/categoryto.php?region_id=2'">東北</button>
-            <button class="button" onclick="location.href='../AnotherSky/categoryknt.php?region_id=3'">関東</button>
-            <button class="button" onclick="location.href='../AnotherSky/categorytu.php?region_id=4'">中部</button>
-            <button class="button" onclick="location.href='../AnotherSky/categoryknk.php?region_id=5'">近畿</button>
-            <button class="button" onclick="location.href='../AnotherSky/categorytuk.php?region_id=6'">中国</button>
-            <button class="button" onclick="location.href='../AnotherSky/categorysko.php?region_id=7'">四国</button>
-            <button class="button" onclick="location.href='../AnotherSky/categorykys.php?region_id=8'">九州</button>
-            <button class="button" onclick="location.href='../AnotherSky/categoryabroad.php?region_id=9'">海外</button>
+            <span style="font-size: 36px; font-family: serif;">category</span>
+            <br />
+            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                <form action="../src(実装)/region(b).php" method="post">
+                    <input type="submit" class="button" name="1" value="北海道">
+                    <input type="submit" class="button" name="2" value="東北">
+                    <input type="submit" class="button" name="3" value="関東">
+                    <input type="submit" class="button" name="4" value="中部">
+                    <input type="submit" class="button" name="5" value="近畿">
+                    <input type="submit" class="button" name="6" value="中国">
+                    <input type="submit" class="button" name="7" value="四国">
+                    <input type="submit" class="button" name="8" value="九州">
+                    <input type="submit" class="button" name="9" value="海外">
+                </form>
+            </div>
         </div>
-    </div>
         </h2>
         <h2>
             <div style="text-align: center;"><br /></div>

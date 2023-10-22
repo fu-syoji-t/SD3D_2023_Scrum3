@@ -98,6 +98,8 @@
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
 
+    $max_sentence_id = $get->max_sentence_id();
+
     require_once "header.php";
 ?>
     
@@ -132,7 +134,7 @@
     echo $post["text"]."<br>";
 
     $spot_limit = 5; // 投稿内のスポット数の上限
-    for($i = 1; $i <= $spot_limit; $i++) {
+    for($i = 1; $i <= $max_sentence_id; $i++) {
         echo '<div class="input">';
         echo '[spot'.$i.']<br>';
 
@@ -157,6 +159,8 @@
     }
 
     ?>
+    <br>
+    <a href="tokou_edit.php?post=<?php echo $post_id; ?>">編集</a>
         <?php  require_once 'footer.php' ?>
 </body>
 </html>
