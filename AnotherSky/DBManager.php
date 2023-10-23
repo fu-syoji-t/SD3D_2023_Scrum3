@@ -109,22 +109,15 @@
             return $sentence_id["max_sentence_id"];
         }
 
+        // 元の
         function max_sentence_id(){
-
             $pdo = $this->dbConnect();
-
             $sql = "SELECT MAX(sentence_id) AS max_sentence_id
-
                     FROM post_sentences";
-
             $ps = $pdo->query($sql);
-
             $ps->execute();
-
             $sentence_id = $ps->fetch();
-
             return $sentence_id["max_sentence_id"];
-
         }
         
         function get_regions(){
