@@ -157,7 +157,7 @@
         background:#333;
         color:#fff;
         text-align: center;
-        padding: 20px;
+        padding: 10px;
         }
 
         section{
@@ -172,15 +172,21 @@
         background:#333;
         padding:20px;
         }
+        #logo {
+    max-width: 82px; /* 最大幅を指定 */
+    max-height: 46px; /* 最大高さを指定 */
+}
+
     </style>
     
 </head>
 
 <body>
 
-  <header id="header">
-    <h1>Another sky</h1>
-  </header>
+<header id="header">
+    <img src="img/anothersky.gif" alt="logo" id="logo">
+</header>
+
   
 <div class="openbtn1"><span></span><span></span><span></span></div>
 <nav id="g-nav">
