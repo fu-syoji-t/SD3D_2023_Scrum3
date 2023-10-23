@@ -98,7 +98,7 @@
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
 
-    $max_sentence_id = $get->max_sentence_id();
+    $max_sentence_id = $get->max_sentence_id($post_id);
 
     require_once "header.php";
 ?>

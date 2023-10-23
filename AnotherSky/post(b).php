@@ -3,7 +3,7 @@
     $create = new DBManager();
 
     $create->create_post(1,$_POST["title"],$_POST["region"],$_POST["place"],$_POST["link"],$_POST["text"]);
-    $spot_limit = 4; // 投稿内のスポット数の上限
+    $spot_limit = 5; // 投稿内のスポット数の上限
     $spot_index = 3; // １スポットの入力欄の数
     for($i = 1; $i <= $spot_limit; $i++) {
         $sentences = "";
