@@ -1,6 +1,8 @@
 <?php
     class DBManager{
 
+        public $spot_limit = 5;
+
         private function dbConnect(){
             /* パスワード設定
             xampp mysqlを起動

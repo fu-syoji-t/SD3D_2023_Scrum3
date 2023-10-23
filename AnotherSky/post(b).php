@@ -3,17 +3,10 @@
     $create = new DBManager();
 
     $create->create_post(1,$_POST["title"],$_POST["region"],$_POST["place"],$_POST["link"],$_POST["text"]);
-    $spot_limit = 4; // 投稿内のスポット数の上限
-    $spot_index = 3; // １スポットの入力欄の数
+    $spot_limit = $create->spot_limit; // 投稿内のスポット数の上限をDBManagerから呼び出し
     for($i = 1; $i <= $spot_limit; $i++) {
-        $sentences = "";
-        for($j = 1; $j <= $spot_index; $j++) {
-            if(isset($_POST["sentence".$i."_".$j])) {
-                $sentences .= $_POST["sentence".$i."_".$j];
-            }
-        }
-        if($sentences != ""){
-            $create->create_post_sentence($i,$sentences);
+        if($_POST["sentence".$i] != ""){
+            $create->create_post_sentence($i,$_POST["sentence".$i]);
         }
 
         $target = array('\'', '"');
@@ -31,5 +24,5 @@
         }
     }
 
-    header('Location:hometown.php');
+    //header('Location:hometown.php');
 ?>
