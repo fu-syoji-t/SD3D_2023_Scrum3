@@ -1,64 +1,115 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/homea.css">
-</head>
-<body>
-<style>  
-  body {
-    background-color: #DDDDDD;
-  }
-  h1 {
-    background-color: gray;
-    font-size: 23px;
-    font-family: "Arial Black";
-    letter-spacing: 2px;
-    text-align: center;
-  }
-  .col{
-        background-color: #DDDDDD;
-          margin: 30px auto;
-          overflow: hidden;
-          padding: 15px;
-          width: 100vw;
-      }
-  </style>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
-<?php  require_once 'header.php' ?>
-    </div>
-</div>
-<div></div>
-<div>
-  <h2>
-    <div style="text-align: center;">
-      <span style="font-size: 1.5em;">
-        <font face="serif">Another Sky</font>
-      </span>
-    </div>
-    <div>
-    <iframe width="410" height="220" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <!--<p>多種多様なヒストリーを持つゲストが
-        世界や日本国内のゆかりのある地を訪れる様子に密着。
-        
-        自身のルーツや人生観・仕事観について
-        本音を引き出していくドキュメンタリー。
+    <title>commithome</title>
+    <style>
+        body {
+          background-color: #DDDDDD;
+        }
+        .images_area {
+        margin: 0 auto;
+        overflow: hidden;
+        width: 300px;
+        }
 
-スタジオでは、ＭＣの今田耕司と八木莉可子が
-ゲストと共にロケの映像を見ながら、
-ゲストの更なる本音や裏話を引き出していきます。</p>-->
+        .thumb {
+        float: left;
+        list-style-type: none;
+        margin: 0;
+        overflow: hidden;
+        width: 300px;
+        }
+
+        .thumb li {
+        cursor: pointer;
+        float: left;
+        padding: 0;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        }
+
+        .thumb li:hover {
+        opacity: 0.8;
+        }
+
+        .thumb img {
+        height: 145px;
+        padding: 0;
+        vertical-align: bottom;
+        width: 145px;
+        }
+
+        .top {
+        float: left;
+        height: 295px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 295px;
+        }
+
+        .top img {
+        height: 295px;
+        width: 295px;
+        }
+
+        .top img:nth-child(2),
+        .top img:nth-child(3),
+        .top img:nth-child(4) {
+        display: none;
+        }
+
+        .images_area > h1{
+            font-size: 24px;
+            margin: 20px auto;
+            text-align: center;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        (function($){
+
+        $(document).ready(function(){
+
+        var thumbs = $(".thumb img");
+        var top_images = $(".top img");
+
+        thumbs.hover(function(){
+            top_images.hide().eq(thumbs.index($(this))).show();
+        });
+
+        });
+
+        })(jQuery);
+    </script>
+  </head>
+  <body>
+    <?php  require_once 'header.php' ?>
+
+    <div class="images_area">
+
+      <h1>COMMIT</h1>
+
+      <ul class="thumb">
+        <li><img src="img/logo.jpg" alt="thumbnail A"></li>
+        <li><img src="img/another_1.jpeg" alt="thumbnail B"></li>
+        <li><img src="img/another_2.jpg" alt="thumbnail C"></li>
+        <li><img src="img/another_3.jpg" alt="thumbnail D"></li>
+      </ul>
+
+      <ul class="top">
+        <li><img src="img/logo.jpg" alt="top image A"></li>
+        <li><img src="img/another_1.jpeg" alt="top image B"></li>
+        <li><img src="img/another_2.jpg" alt="top image C"></li>
+        <li><img src="img/another_3.jpg" alt="top image D"></li>
+      </ul>
+
     </div>
-    <div style="text-align: center;"><br /></div>
-    <div style="text-align: center;"></div>
-    <div style="text-align: center;">
+
+    
+
     <?php  require_once 'footer.php' ?>
-    </div>
-  </h2>
-</div>
-
-</body>
+  </body>
 </html>
+
