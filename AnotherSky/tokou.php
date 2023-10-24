@@ -63,15 +63,13 @@
             margin-bottom: 10%;
         }
     </style>
-
-    <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
     <?php  require_once 'header.php' ?>
     <div class="center">
         <h1>post</h1>
         <form action="post(b).php" method="post" enctype="multipart/form-data">
             title <br>
             <input class="maru" type="text" name="title" maxlength="30"><br>
-            region <br>
+            <!--region <br>-->
             <select name="region">
                 <option value=1>北海道</option>
                 <option value=2>東北</option>
@@ -82,7 +80,7 @@
                 <option value=7>四国</option>
                 <option value=8>九州</option>
                 <option value=9>海外</option>
-            </select><br>
+            </select><br><br>
             place <br>
             <input class="maru" type="text" name="place"><br>
             youtube <br>

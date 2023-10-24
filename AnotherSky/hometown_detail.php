@@ -112,14 +112,14 @@
 
     echo ' <br>';
     echo 'title <br>';
-    echo $post["title"]."<br>";
+    echo $post["title"]."<br><br>";
 
     /*echo '<div class="mara"> ';
     echo $post["name"]."<br>";*/
 
     echo ' <br>';
-    echo 'place <br>';
-    echo $post["place"]."<br>";
+    echo 'place <br><br>';
+    echo $post["place"]."<br><br>";
 
     echo '';
     echo $post["region"][0]."<br>";
