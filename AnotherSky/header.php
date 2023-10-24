@@ -216,7 +216,8 @@
       <li><a href="../AnotherSky/hometown.php">Hometown</a></li>  
       <li><a href="../AnotherSky/another.php">Commit</a></li>  
       <li><a href="../AnotherSky/category.php">Category</a></li>
-      <li><a href="account.php">Account</a></li>  
+      <li><a href ="account.php">Account</a></li> 
+      <li><a href ="account.php">login</a></li> 
     </ul>
   </div>
 </nav>
