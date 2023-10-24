@@ -50,7 +50,9 @@
             <h2>
     <div style="text-align: center;"></div>
         <div style="text-align: center;">
+        <br>
             <span style="font-size: 36px; font-family: serif;">category</span>
+            <br>
             <br />
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
                 <form action="../src(実装)/region(b).php" method="post">

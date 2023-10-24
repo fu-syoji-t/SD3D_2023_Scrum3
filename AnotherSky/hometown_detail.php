@@ -106,12 +106,12 @@
     <?php
     /*echo 'post_id : ';
     echo $post["post_id"].'<br>';*/
-    
+    echo"<br>";
     echo '<div class="maru"> ';
     echo $post["date"]."<br>";
 
     echo ' <br>';
-    echo 'title <br>';
+    echo 'title <br><br>';
     echo $post["title"]."<br><br>";
 
     /*echo '<div class="mara"> ';

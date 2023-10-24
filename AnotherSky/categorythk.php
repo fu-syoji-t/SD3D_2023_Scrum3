@@ -83,6 +83,7 @@
     <div style="text-align: center;"></div>
     <div style="text-align: center;">
       <font face="serif">
+      <br />
         <span style="font-size: 36px;">東北</span>
         <br />
       </font>
