@@ -96,27 +96,117 @@
         margin-right: auto;
         margin-top: auto;
       }
+      /*追加文 */
+      .home-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 画面いっぱいに表示 */
+        }
 
+        .home-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        /* Loading背景画面設定　*/
+        #splash {
+            /*fixedで全面に固定*/
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+        background:black;
+        text-align:center;
+        color:#fff;
+        }
+
+        /* Loading画像中央配置　*/
+        #splash_logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+
+        /* Loading アイコンの大きさ設定　*/
+        #splash_logo img {
+        width:260px;
+        }
+
+        /* fadeUpをするアイコンの動き */
+
+        .fadeUp{
+        animation-name: fadeUpAnime;
+        animation-duration:0.5s;
+        animation-fill-mode:forwards;
+        opacity: 0;
+        }
+
+        @keyframes fadeUpAnime{
+        from {
+            opacity: 0;
+        transform: translateY(100px);
+        }
+
+        to {
+            opacity: 1;
+        transform: translateY(0);
+        }
+        }
+
+
+
+        /*========= レイアウトのためのCSS ===============*/
+
+        #container{
+            width:100%;
+            height: 100vh;
+            background: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        a{
+            color: #333;
+        }
+
+        a:hover{
+            text-decoration: none;   
+        }
   </style>
+      <script>
+      //logoの表示
+      $(window).on('load',function(){
+      $("#splash").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+      $("#splash_logo").delay(1200).fadeOut('slow');//ロゴを1.2秒（1200ms）待機してからフェードアウト
+      });
+    </script>
+      <div id="splash">
+    <div id="splash_logo">
+      <img src="img/logo.jpg" alt="" class="fadeUp">
+    </div>
+  </div>
+  <main>
+    <?php  require_once 'header.php' ?>
+    <div class="home-photo">
+      <img src="img/another_sky_logo.jpg" alt="home">
+    </div>
+
+    <?php  require_once 'commit.php' ?>
+  </main>
+  <!--==============JQuery読み込み===============-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/4-1-4/js/4-1-4.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
     <?php  require_once 'header.php' ?>
 </div>
-<div class="h6">
-<h2>
-    &nbsp; &nbsp;
-  <font face="serif">忘れられない空がある</font>
-</h2>
-<h1>
-    &nbsp; &nbsp;
-  <font face="serif">Another&nbsp;Sky</font>
-</h1>
-<h4>&nbsp;&nbsp;みんなの第二の故郷を知り！<br>&nbsp;&nbsp;あなたの第二の故郷を広め！</h4>
-<h4 style="text-align: justify;">
-   &nbsp;&nbsp;多くの価値観を共有しましょう！
-</h4>
-<div>
-<iframe class="iframe" width="300" height="170" src="https://www.youtube.com/embed/3T7WB738PNE?si=hNfSRW97H30zMD6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   <h2>
     <div style="text-align: center;">
       <span style="font-size: 1.5em;">
@@ -219,11 +309,7 @@ foreach($posts as $post){
     <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
 </div>
-<footer>
-  <div class="h8">
-      <hr />
-      <font face="serif">@Another Sky</font>
-    </div>
-  </footer>
+
+      <?php  require_once 'footer.php' ?>
 </body>
 </html>

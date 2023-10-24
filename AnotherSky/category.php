@@ -45,10 +45,6 @@
     </style>
 </head>
 <body>
-    <a href="../AnotherSky/login.php">
-    <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
-    </div>
-    </a>
     <?php require_once 'header.php'; ?>
         <div>
             <h2>
