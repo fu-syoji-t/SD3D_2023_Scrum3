@@ -99,7 +99,7 @@
     require_once "DBManager.php";
     $get = new DBManager();
 
-    $posts = $get->get_all_post();
+    $posts = array_reverse($get->get_all_post());
 
     foreach($posts as $post){
         echo '<div class="box">

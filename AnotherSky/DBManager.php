@@ -1,6 +1,8 @@
 <?php
     class DBManager{
 
+        public $spot_limit = 5;
+
         private function dbConnect(){
             /* パスワード設定
             xampp mysqlを起動
@@ -136,7 +138,7 @@
                     FROM posts
                     LIMIT 30";*/
             $sql = "SELECT *
-                    FROM posts ORDER BY date DESC";
+                    FROM posts";
             $ps = $pdo->query($sql);
             $ps->execute();
             $all_post = $ps->fetchAll();
@@ -148,11 +150,14 @@
             $ps->execute();
             $first_image = $ps->fetchAll();
 
-            $post_count = count($all_post);
-            for($i = 0; $i <$post_count; $i++){
-                if(isset($first_image[$i])){
-                    $all_post[$i]["first_image"] = $first_image[$i]["path"];
+            $i = 0;
+            $j = 0;
+            foreach($all_post as $post) {
+                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
+                    $all_post[$j]["first_image"] = $first_image[$i]["path"];
+                    $i++;
                 }
+                $j++;
             }
 
             return $all_post;

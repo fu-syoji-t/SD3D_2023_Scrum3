@@ -133,29 +133,17 @@
     echo 'freespace <br>';
     echo $post["text"]."<br>";
 
-    $spot_limit = 5; // 投稿内のスポット数の上限
-    for($i = 1; $i <= $max_sentence_id; $i++) {
-        echo '<div class="input">';
-        echo '[spot'.$i.']<br>';
-
-        if(isset($post["images"])){
-            foreach($post["images"] as $image){
-                if($image["image_order"] == $i){
-                    echo '<img src="'.$image["path"].'" width=560>';
-                }
-            }
-        }
-
-        if(isset($post["sentences"])){
-            foreach($post["sentences"] as $sentence){
-                if($sentence["sentence_order"] == $i){
-                    echo $sentence["sentence"];
-                }
-            }
-        }
-
-        echo '</div>';
-
+    $spot_n = (count($post["images"]) > count($post["sentences"])) ? count($post["images"]) : count($post["sentences"]); // 投稿内のスポット数
+    for($i = 1; $i <= $spot_n; $i++) {
+      echo '<div class="input">';
+      echo '[spot'.$i.']<br>';
+      if(isset($post["images"][$i-1])) {
+        echo '<img width=500 src="'.$post["images"][$i-1]["path"].'">';
+      }
+      if(isset($post["sentences"][$i-1])) {
+        echo $post["sentences"][$i-1]["sentence"];
+      }
+      echo '</div>';
     }
 
     ?>
