@@ -104,34 +104,34 @@
 ?>
     
     <?php
-    /*echo 'post_id : ';
-    echo $post["post_id"].'<br>';*/
-    echo"<br>";
-    echo '<div class="maru"> ';
-    echo $post["date"]."<br>";
+      /*echo 'post_id : ';
+      echo $post["post_id"].'<br>';*/
+      echo"<br>";
+      echo '<div class="maru"> ';
+      echo $post["date"]."<br>";
 
-    echo ' <br>';
-    echo 'title <br><br>';
-    echo $post["title"]."<br><br>";
+      echo ' <br>';
+      echo 'title <br><br>';
+      echo $post["title"]."<br><br>";
 
-    /*echo '<div class="mara"> ';
-    echo $post["name"]."<br>";*/
+      /*echo '<div class="mara"> ';
+      echo $post["name"]."<br>";*/
 
-    echo ' <br>';
-    echo 'place <br><br>';
-    echo $post["place"]."<br><br>";
+      echo ' <br>';
+      echo 'place <br><br>';
+      echo $post["place"]."<br><br>";
 
-    echo '';
-    echo $post["region"][0]."<br>";
-    echo '<br>';
+      echo '';
+      echo $post["region"][0]."<br>";
+      echo '<br>';
 
-    echo '';
-    echo 'youtube <br>';
-    echo '<div>'.$post["link_path"]."</div><br>";
-    
-    echo '<br>';
-    echo 'freespace <br>';
-    echo $post["text"]."<br>";
+      echo '';
+      echo 'youtube <br>';
+      echo '<div>'.$post["link_path"]."</div><br>";
+
+      echo '<br>';
+      echo 'freespace <br>';
+      echo $post["text"]."<br>";
 
     $spot_n = (count($post["images"]) > count($post["sentences"])) ? count($post["images"]) : count($post["sentences"]); // 投稿内のスポット数
     for($i = 1; $i <= $spot_n; $i++) {
@@ -148,6 +148,11 @@
 
     ?>
     <br>
+    <form action="hometown_delete.php" method="post">
+    <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
+    <input type="submit" value="投稿を削除">
+</form>
+
     <a href="tokou_edit.php?post=<?php echo $post_id; ?>">編集</a>
         <?php  require_once 'footer.php' ?>
 </body>

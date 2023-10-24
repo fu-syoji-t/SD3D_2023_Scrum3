@@ -90,6 +90,19 @@
             
             return $post;
         }
+        function delete_post($post_id) {
+            $pdo = $this->dbConnect();
+            $sql = "DELETE FROM posts WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $post_id, PDO::PARAM_INT);
+            $success = $ps->execute();
+    
+            // 画像と文章も削除する場合
+            // $this->delete_post_images($post_id);
+            // $this->delete_post_sentences($post_id);
+    
+            return $success;
+        }
 
         function max_post_id(){
             $pdo = $this->dbConnect();
