@@ -152,8 +152,7 @@
     <input type="hidden" name="post_id" value="<?php echo $post_id; ?>">
     <input type="submit" value="投稿を削除">
 </form>
-
-    <a href="tokou_edit.php?post=<?php echo $post_id; ?>">編集</a>
+    <a href="hometown_edit.php?post=<?php echo $post_id; ?>">編集</a>
         <?php  require_once 'footer.php' ?>
 </body>
 </html>
