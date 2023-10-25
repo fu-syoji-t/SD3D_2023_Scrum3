@@ -104,6 +104,36 @@
             return $success;
         }
 
+        function updatePost($post_id, $title, $region, $place, $link_path, $text) {
+            $pdo = $this->dbConnect();
+            $sql = "UPDATE posts
+                    SET title = :title, region_id = :region, place = :place, link_path = :link_path, text = :text
+                    WHERE post_id = :post_id";
+        
+            $ps = $pdo->prepare($sql);
+            $ps->bindParam(':title', $title, PDO::PARAM_STR);
+            $ps->bindParam(':region', $region, PDO::PARAM_INT);
+            $ps->bindParam(':place', $place, PDO::PARAM_STR);
+            $ps->bindParam(':link_path', $link_path, PDO::PARAM_STR);
+            $ps->bindParam(':text', $text, PDO::PARAM_STR);
+            $ps->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        
+            return $ps->execute();
+        }
+
+        function get_post_for_edit($post_id) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * 
+                    FROM posts
+                    WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $post_id, PDO::PARAM_INT);
+            $ps->execute();
+            $post = $ps->fetch();
+        
+            return $post;
+        }
+
         function max_post_id(){
             $pdo = $this->dbConnect();
             $sql = "SELECT MAX(post_id) AS max_post_id
