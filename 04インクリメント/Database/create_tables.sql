@@ -39,7 +39,7 @@ CREATE TABLE posts
 CREATE TABLE post_images
 (image_id INT AUTO_INCREMENT,
  post_id INT NOT NULL,
- image_order INT NOT NULL,
+ order INT NOT NULL,
  path VARCHAR(400) NOT NULL,
  PRIMARY KEY(image_id),
  FOREIGN KEY (post_id)
@@ -49,7 +49,7 @@ CREATE TABLE post_images
 CREATE TABLE post_sentences
 (sentence_id INT AUTO_INCREMENT,
  post_id INT NOT NULL,
- sentence_order INT NOT NULL,
+ order INT NOT NULL,
  sentence TEXT NOT NULL,
  PRIMARY KEY(sentence_id),
  FOREIGN KEY (post_id)

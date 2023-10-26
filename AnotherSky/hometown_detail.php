@@ -98,7 +98,7 @@
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
 
-    $max_sentence_id = $get->max_sentence_id($post_id);
+    //$max_sentence_id = $get->max_sentence_id($post_id);
 
     require_once "header.php";
 ?>
@@ -133,15 +133,39 @@
       echo 'freespace <br>';
       echo $post["text"]."<br>";
 
-    $spot_n = (count($post["images"]) > count($post["sentences"])) ? count($post["images"]) : count($post["sentences"]); // 投稿内のスポット数
-    for($i = 1; $i <= $spot_n; $i++) {
-      echo '<div class="input">';
-      echo '[spot'.$i.']<br>';
-      if(isset($post["images"][$i-1])) {
-        echo '<img width=500 src="'.$post["images"][$i-1]["path"].'">';
+    $spot_n = 5; // 投稿内のスポット数
+    $spot_order = array();
+    for($i = 0; $i < count($post["images"]); $i++) {
+      $spot_order[] = $post["images"][$i]["image_order"];
+    }
+    for($i = 0; $i < count($post["sentences"]); $i++) {
+      $spot_order[] = $post["sentences"][$i]["sentence_order"];
+    }
+    $spot_n = count($spot_order);
+    for($i = 0; $i < count($spot_order); $i++) {
+      for($j = $i+1; $j < count($spot_order); $j++) {
+        if($spot_order[$i] == $spot_order[$j]) {
+          $spot_n--;
+        }
       }
-      if(isset($post["sentences"][$i-1])) {
-        echo $post["sentences"][$i-1]["sentence"];
+    }
+
+    $c_image = 0;
+    $c_sentence = 0;
+    for($i = 0; $i < $spot_n; $i++) {
+      echo '<div class="input">';
+      echo '[spot'.($i+1).']<br>';
+      if($post["images"][$c_image]["image_order"] == $i) {
+        echo '<img width=500 src="'.$post["images"][$c_image]["path"].'">';
+        if($c_image < count($post["images"])-1){
+          $c_image++;
+        }
+      }
+      if($post["sentences"][$c_sentence]["sentence_order"] == $i) {
+        echo $post["sentences"][$c_sentence]["sentence"];
+        if($c_sentence < count($post["sentences"])-1){
+          $c_sentence++;
+        }
       }
       echo '</div>';
     }
