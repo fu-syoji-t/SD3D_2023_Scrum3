@@ -5,7 +5,7 @@
     $regions = $get->get_regions();
 
     require_once "tmp_test.php";
-    $template = new header("post");
+    // $template = new header("post");
 ?>
 ============================================
 

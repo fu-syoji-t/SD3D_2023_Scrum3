@@ -1,6 +1,8 @@
 <?php
     class DBManager{
 
+        public $spot_limit = 10;
+
         private function dbConnect(){
             /* パスワード設定
             xampp mysqlを起動
@@ -32,22 +34,22 @@
             $ps->execute();
         }
 
-        function create_post_images($image_order,$path){
+        function create_post_images($order,$path){
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO post_images (post_id,image_order,path)
                                 VALUES((SELECT MAX(post_id) FROM posts),?,?)";
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$image_order,PDO::PARAM_INT);
+            $ps->bindValue(1,$order,PDO::PARAM_INT);
             $ps->bindValue(2,$path,PDO::PARAM_STR);
             $ps->execute();
         }
 
-        function create_post_sentence($sentence_order,$sentence){
+        function create_post_sentence($order,$sentence){
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO post_sentences (post_id,sentence_order,sentence)
                                 VALUES((SELECT MAX(post_id) FROM posts),?,?)";
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$sentence_order,PDO::PARAM_INT);
+            $ps->bindValue(1,$order,PDO::PARAM_INT);
             $ps->bindValue(2,$sentence,PDO::PARAM_STR);
             $ps->execute();
         }
@@ -88,6 +90,49 @@
             
             return $post;
         }
+        function delete_post($post_id) {
+            $pdo = $this->dbConnect();
+            $sql = "DELETE FROM posts WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $post_id, PDO::PARAM_INT);
+            $success = $ps->execute();
+    
+            // 画像と文章も削除する場合
+            // $this->delete_post_images($post_id);
+            // $this->delete_post_sentences($post_id);
+    
+            return $success;
+        }
+
+        function updatePost($post_id, $title, $region, $place, $link_path, $text) {
+            $pdo = $this->dbConnect();
+            $sql = "UPDATE posts
+                    SET title = :title, region_id = :region, place = :place, link_path = :link_path, text = :text
+                    WHERE post_id = :post_id";
+        
+            $ps = $pdo->prepare($sql);
+            $ps->bindParam(':title', $title, PDO::PARAM_STR);
+            $ps->bindParam(':region', $region, PDO::PARAM_INT);
+            $ps->bindParam(':place', $place, PDO::PARAM_STR);
+            $ps->bindParam(':link_path', $link_path, PDO::PARAM_STR);
+            $ps->bindParam(':text', $text, PDO::PARAM_STR);
+            $ps->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+        
+            return $ps->execute();
+        }
+
+        function get_post_for_edit($post_id) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * 
+                    FROM posts
+                    WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $post_id, PDO::PARAM_INT);
+            $ps->execute();
+            $post = $ps->fetch();
+        
+            return $post;
+        }
 
         function max_post_id(){
             $pdo = $this->dbConnect();
@@ -99,6 +144,27 @@
             return $post_id["max_post_id"];
         }
 
+        function max_sentence_id1($post_id){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM post_sentences WHERE post_id =?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->execute();
+            $sentence_id = $ps->fetch();
+            return $sentence_id["max_sentence_id"];
+        }
+
+        /* 元の
+        function max_sentence_id(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT MAX(sentence_id) AS max_sentence_id
+                    FROM post_sentences";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $sentence_id = $ps->fetch();
+            return $sentence_id["max_sentence_id"];
+        }*/
+        
         function get_regions(){
             $pdo = $this->dbConnect();
             $sql = "SELECT *
@@ -122,21 +188,23 @@
             
             $sql = "SELECT *
                     FROM post_images
-                    WHERE image_order = 1";
+                    WHERE image_order = 0";
             $ps = $pdo->query($sql);
             $ps->execute();
             $first_image = $ps->fetchAll();
 
-            $post_count = count($all_post);
-            for($i = 0; $i <$post_count; $i++){
-                if(isset($first_image[$i])){
-                    $all_post[$i]["first_image"] = $first_image[$i]["path"];
+            $i = 0;
+            $j = 0;
+            foreach($all_post as $post) {
+                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
+                    $all_post[$j]["first_image"] = $first_image[$i]["path"];
+                    $i++;
                 }
+                $j++;
             }
 
             return $all_post;
         }
-
     }
 
 ?>

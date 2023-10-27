@@ -18,6 +18,7 @@
         .contents > h1 {
         text-align: center;
         font-size: 24px;
+        margin: 24px;
         }
         z
         .grid_column {
@@ -25,6 +26,11 @@
         overflow: hidden;
         width: 249px;
         }
+        .grid_column .box h2 {
+          text-align: center; 
+          margin: 15px; 
+        }
+
 
         .box {
         background-color: #FFF;
