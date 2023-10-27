@@ -13,10 +13,11 @@
         }
         .form_title {
             font-size: 14px;
+            margin: 30px auto;
         }
         .label_left{
         display: inline-block;
-        width:9%;
+        width:10%;
         border-left: solid 5px gray;
         padding-left: 15px;
         vertical-align:top;
@@ -26,6 +27,7 @@
         input[type="password"]{
             width: 500px;
             padding: 10px;
+            background-color: white;
         }
         form .btn{
             display: inline-block;
