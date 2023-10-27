@@ -15,15 +15,15 @@
         #g-nav{
             /*position:fixed;にし、z-indexの数値を小さくして最背面へ*/
             position:fixed;
-        z-index: -1;
-        opacity: 0;/*はじめは透過0*/
+            z-index: -1;
+            opacity: 0;/*はじめは透過0*/
             /*ナビの位置と形状*/
-        top:0;
-        width:100%;
+            top:0;
+            width:100%;
             height: 100vh;/*ナビの高さ*/
-        background:#999;
+            background:#999;
             /*動き*/
-        transition: all 0.3s;
+            transition: all 0.3s;
         }
 
         /*アクティブクラスがついたら透過なしにして最前面へ*/
@@ -160,22 +160,10 @@
         padding: 10px;
         }
 
-        section{
-        padding:100px 30px;
-        }
-
-        section:nth-child(2n){
-        background:#f3f3f3; 
-        }
-
-        #footer{
-        background:#333;
-        padding:20px;
-        }
         #logo {
-    max-width: 82px; /* 最大幅を指定 */
-    max-height: 46px; /* 最大高さを指定 */
-}
+            max-width: 82px; /* 最大幅を指定 */
+            max-height: 46px; /* 最大高さを指定 */
+        }
 
     </style>
     
