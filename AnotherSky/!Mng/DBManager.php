@@ -1,6 +1,26 @@
 <?php
     class DBManager{
 
+        /* 関数一覧
+            
+            dbConnect
+
+            create_post
+            create_post_images
+            create_post_sentences
+            get_post
+            delete_post
+            updatePost
+            get_post_for_edit
+            max_post_id
+            max_sentence_id1
+            get_regions
+            get_all_post
+            get_user_info
+        */
+        
+
+        /* 投稿画面のスポット数の上限 */
         public $spot_limit = 10;
 
         private function dbConnect(){
@@ -204,6 +224,17 @@
             }
 
             return $all_post;
+        }
+
+        function get_user_info($user_id) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM users
+                    WHERE user_id = ?";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $regions = $ps->fetchAll();
+            return $regions;
         }
     }
 
