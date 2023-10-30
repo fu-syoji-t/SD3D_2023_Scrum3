@@ -1,7 +1,16 @@
-<p>name</p>
+<?php
+    require_once "../!Mng/DBManager.php";
+    $get = new DBManager();
 
-<p>E-mail</p>
+    $user_id = 1;
 
-<button>お気に入りの投稿</button>
+    $user = $get->get_user_info(1);
+?>
 
-<button>投稿履歴</button>
+<p><?php echo $user["name"] ?></p>
+
+<p><?php echo $user["mail"] ?></p>
+
+<button onclick="location.href='hometown_favorite.php'">お気に入りの投稿</button>
+
+<button onclick="location.href='hometown_history.php'">投稿履歴</button>

@@ -1,12 +1,7 @@
 <?php
-    require_once "tmp_test.php";
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
 
-    $template = new Template();
     $get = new DBManager();
-    
-    $template->head("post");
-    $template->header();
 
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);

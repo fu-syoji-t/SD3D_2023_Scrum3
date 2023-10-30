@@ -65,7 +65,7 @@
     </style>
 
     <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
-    <?php  require_once 'header.php' ?>
+    <?php  require_once '../!Mng/header.php' ?>
     <div class="center">
         <h1>post</h1>
         <form action="post(b).php" method="post" enctype="multipart/form-data">
@@ -73,7 +73,8 @@
             <input class="maru" type="text" name="title" maxlength="30"><br>
             region <br>
             <select name="region">
-                <option value=1>北海道</option>
+                <!--<option value="" selected style="color: #888">未選択</option>-->
+                <option value=1 selected>北海道</option>
                 <option value=2>東北</option>
                 <option value=3>関東</option>
                 <option value=4>中部</option>
@@ -98,10 +99,10 @@
             <textarea class="maro" name="sentence0" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット"></textarea><br>
         </div>
 <?php 
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
     $get = new DBManager();
     $spot_limit = $get->spot_limit;
-    for($i = 0; $i < $spot_limit; $i++) {
+    for($i = 1; $i < $spot_limit; $i++) {
         echo
         '<div class="input" id="inputSection'.$i.'">
             画像を選択 <br>
@@ -142,7 +143,7 @@
         var inputSectionCounter = 5; // 5つの入力セクションが既に表示されている
         var moreElem = document.getElementById("more");
         var sections = document.getElementsByClassName("input");
-        var visibleSections = 1;
+        var visibleSections = 0;
 
         addButton.addEventListener('click', function() {
             if (visibleSections < sections.length) {

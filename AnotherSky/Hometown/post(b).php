@@ -1,5 +1,5 @@
 <?php
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
     $create = new DBManager();
 
     $create->create_post(1,$_POST["title"],$_POST["region"],$_POST["place"],$_POST["link"],$_POST["text"]);

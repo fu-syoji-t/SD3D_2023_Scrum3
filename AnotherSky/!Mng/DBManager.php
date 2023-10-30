@@ -195,14 +195,41 @@
             return $regions;
         }
 
-        function get_all_post(){
+        function get_all_posts(){
             $pdo = $this->dbConnect();
-            /*$sql = "SELECT *
-                    FROM posts
-                    LIMIT 30";*/
             $sql = "SELECT *
                     FROM posts";
             $ps = $pdo->query($sql);
+            $ps->execute();
+            $all_post = $ps->fetchAll();
+            
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE image_order = 0";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $first_image = $ps->fetchAll();
+
+            $i = 0;
+            $j = 0;
+            foreach($all_post as $post) {
+                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
+                    $all_post[$j]["first_image"] = $first_image[$i]["path"];
+                    $i++;
+                }
+                $j++;
+            }
+
+            return $all_post;
+        }
+
+        function get_my_posts($user_id){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM posts
+                    WHERE user_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
             $ps->execute();
             $all_post = $ps->fetchAll();
             
@@ -231,10 +258,12 @@
             $sql = "SELECT *
                     FROM users
                     WHERE user_id = ?";
-            $ps = $pdo->query($sql);
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
             $ps->execute();
-            $regions = $ps->fetchAll();
-            return $regions;
+            $user = $ps->fetch();
+
+            return $user;
         }
     }
 
