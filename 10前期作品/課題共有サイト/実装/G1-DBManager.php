@@ -25,7 +25,8 @@
                                 VALUES(?,?,?,?,?,?,?,?)";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$loginID,PDO::PARAM_STR);
-            $ps->bindValue(2,password_hash($password,PASSWORD_DEFAULT),PDO::PARAM_STR);
+            //$ps->bindValue(2,password_hash($password,PASSWORD_DEFAULT),PDO::PARAM_STR);
+            $ps->bindValue(2,$password,PDO::PARAM_STR);
             $ps->bindValue(3,$nickname,PDO::PARAM_STR);
             $ps->bindValue(4,$course,PDO::PARAM_STR);
             $ps->bindValue(5,$major,PDO::PARAM_STR);
@@ -47,9 +48,16 @@
             $ps->bindValue(1,$loginID,PDO::PARAM_STR);
             $ps->execute();
             $search = $ps->fetchAll();
-            if(!empty($search)){
+            /*if(!empty($search)){
                 foreach($search as $row){
                     if(password_verify($password,$row["user_password"]) == true){
+                        return $search;
+                    }
+                }
+            }*/
+            if(!empty($search)){
+                foreach($search as $row){
+                    if($password == $row["user_password"]){
                         return $search;
                     }
                 }

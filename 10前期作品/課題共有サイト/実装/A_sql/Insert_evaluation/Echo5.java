@@ -41,7 +41,7 @@ public class Echo5 {
         Collections.reverse(trps);
         System.out.println(trps);
 
-        String filePath = "A_sql/Insert_evaluation/Insert_evaluation.txt";
+        String filePath = "10前期作品/課題共有サイト/実装/A_sql/Insert_evaluation/Insert_evaluation.txt";
 
         try {
             // 文字エンコーディングを指定してファイルに書き込む
@@ -63,7 +63,7 @@ public class Echo5 {
     }
 
     private static int generateRandomNumber(Random random) {
-        int maxNumber = 1650;
+        int maxNumber = 80000;//1650
         while (true) {
         int randomNumber = random.nextInt(maxNumber + 1);
         double probability;

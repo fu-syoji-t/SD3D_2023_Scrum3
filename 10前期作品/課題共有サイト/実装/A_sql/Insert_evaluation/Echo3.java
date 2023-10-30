@@ -32,7 +32,7 @@ public class Echo3 {
         }
         s = s.substring(0,s.length()-2);
 
-        String filePath = "A_sql/Insert_evaluation/Insert_evaluation.txt";
+        String filePath = "10前期作品/課題共有サイト/実装/A_sql/Insert_evaluation/Insert_evaluation.txt";
 
         try {
             // 文字エンコーディングを指定してファイルに書き込む

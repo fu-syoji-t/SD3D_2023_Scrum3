@@ -3,37 +3,28 @@
     $create = new DBManager();
 
     $create->create_post(1,$_POST["title"],$_POST["region"],$_POST["place"],$_POST["link"],$_POST["text"]);
-    $spot_limit = 4; // 投稿内のスポット数の上限
-    $spot_index = 3; // １スポットの入力欄の数
-    for($i = 1; $i <= $spot_limit; $i++) {
-        $sentences = "";
-        for($j = 1; $j <= $spot_index; $j++) {
-            if(isset($_POST["sentence".$i."_".$j])) {
-                $sentences .= $_POST["sentence".$i."_".$j];
-            }
-        }
-        if($sentences != ""){
-            $create->create_post_sentence($i,$sentences);
-        }
-
-        $target = array('\'', '"');
-        if(is_uploaded_file($_FILES['post_image'.$i]['tmp_name'])){
-
-            if(!file_exists('image')){
-                mkdir('image');
+    $spot_limit = $create->spot_limit; // 投稿内のスポット数の上限をDBManagerから呼び出し
+    $order = 0;
+    $target = array('\'', '"');
+    for($i = 0; $i < $spot_limit; $i++) {
+        if($_POST["sentence".$i] != "" || is_uploaded_file($_FILES['post_image'.$i]['tmp_name'])) {
+            if($_POST["sentence".$i] != ""){
+                $create->create_post_sentence($order,$_POST["sentence".$i]);
             }
 
-            $file = 'image/'.date("YmdHis")."_".str_replace($target,'',basename($_FILES['post_image'.$i]['name']));//ファイルの名前だけの保存
-            if(move_uploaded_file($_FILES['post_image'.$i]['tmp_name'],$file)){//$fileに名前が格納されている　一時的なファイル,保存先のファイル
-                $create->create_post_images($i,$file);
-            }
+            if(is_uploaded_file($_FILES['post_image'.$i]['tmp_name'])){
+                if(!file_exists('image')){
+                    mkdir('image');
+                }
 
+                $file = 'image/'.date("YmdHis")."_".str_replace($target,'',basename($_FILES['post_image'.$i]['name']));//ファイルの名前だけの保存
+                if(move_uploaded_file($_FILES['post_image'.$i]['tmp_name'],$file)){//$fileに名前が格納されている　一時的なファイル,保存先のファイル
+                    $create->create_post_images($order,$file);
+                }
+            }
+            $order++;
         }
     }
 
-    // header('Location:hometown.php');
+    header('Location:hometown.php');
 ?>
-<script>
-    history.go(0);
-    // location.replace('hometown.php');
-</script>
