@@ -182,7 +182,7 @@
 <ul>
 <li><a href="home.php">Top</a></li>  
 <li><a href="hometownhome.php">Hometown</a></li>  
-<li><a href="commithome.php">Commit</a></li>  
+<li><a href="test4.php">Commit</a></li>  
 <li><a href="category.php">Category</a></li>
 <li><a href="account.php">Account</a></li>  
 </ul>
