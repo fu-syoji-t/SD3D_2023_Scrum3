@@ -1,10 +1,10 @@
 <?php 
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
     $get = new DBManager();
 
     $regions = $get->get_regions();
 
-    require_once "tmp_test.php";
+    // require_once "../!Mng/tmp_test.php";
     // $template = new header("post");
 ?>
 ============================================
@@ -13,8 +13,8 @@
 $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
 
-    require_once "tmp_test.php";
-    $template = new header("hometown_detail");
+    // require_once "tmp_test.php";
+    // $template = new header("hometown_detail");
 ?>
 
     <input type="button" onclick="history.back()" value="戻る"><br>
@@ -108,7 +108,7 @@ $post_id = $_GET["post"];
 
 <div style="color:blueviolet">
 <?php 
-    require_once "tmp_test.php";
-    $template = new template("text1!!!","text2!!","text3!");
+    // require_once "tmp_test.php";
+    // $template = new template("text1!!!","text2!!","text3!");
 ?>
 </div>

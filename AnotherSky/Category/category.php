@@ -1,5 +1,5 @@
 <?php
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
     $get = new DBManager();
 
     $regions = $get->get_regions();
@@ -45,7 +45,7 @@
     </style>
 </head>
 <body>
-    <?php require_once 'header.php'; ?>
+    <?php require_once '../!Mng/header.php'; ?>
         <div>
             <h2>
     <div style="text-align: center;"></div>
@@ -80,6 +80,6 @@
             }*/
         ?>
     </div>
-    <?php require_once 'footer.php'; ?>
+    <?php require_once '../!Mng/footer.php'; ?>
 </body>
 </html>

@@ -18,13 +18,13 @@
         }
     </style>
 <?php
-    require_once "header.php";
+    require_once "../!Mng/header.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["post_id"])) {
         $post_id = $_POST["post_id"];
     
         // DBManagerクラスをインクルード
-        require_once "DBManager.php";
+        require_once "../!Mng/DBManager.php";
     
         // DBManagerのインスタンスを作成
         $dbManager = new DBManager();
@@ -43,7 +43,7 @@
     }
   ?>
   <?php
-    require_once "footer.php";
+    require_once "../!Mng/footer.php";
   ?>
     <!--<input class="" type="button" onclick="history.back()" value="⬅︎"><br><br>-->
 </body>

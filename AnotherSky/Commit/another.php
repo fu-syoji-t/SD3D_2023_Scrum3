@@ -85,7 +85,7 @@
     </script>
   </head>
   <body>
-    <?php  require_once 'header.php' ?>
+    <?php  require_once '../!Mng/header.php' ?>
 
     <div class="images_area">
 
@@ -109,7 +109,7 @@
 
     
 
-    <?php  require_once 'footer.php' ?>
+    <?php  require_once '../!Mng/footer.php' ?>
   </body>
 </html>
 

@@ -181,7 +181,7 @@
     <section class="primary">
         <p class="logo"><a href="#">COMPANY</a></p>
         <p class="address">
-        〒100-0005 福岡県博多区南１丁目<br>
+        〒100-0005 福岡市博多区南１丁目<br>
         TEL : 123-456-9999　/　FAX : 123-456-0000
         </p>
         <div class="navi-row">
