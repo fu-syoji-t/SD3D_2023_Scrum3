@@ -94,9 +94,9 @@
   </head>
   <body>
 
-    <?php  require_once 'header.php' ?>
+    <?php  require_once '../Mng/header.php' ?>
     <?php
-require_once "DBManager.php";
+require_once "../Mng/DBManager.php";
 $get = new DBManager();
 
 $posts = $get->get_all_post();
@@ -130,7 +130,7 @@ foreach ($posts as $post) {
   <div style="width: 100%; background-color: #bbb">
     <button type="button" class="more" id="more">read more...</button>
   </div>
-    <?php  require_once 'footer.php' ?>
+    <?php  require_once '../Mng/footer.php' ?>
   </body>
 
 </body>
