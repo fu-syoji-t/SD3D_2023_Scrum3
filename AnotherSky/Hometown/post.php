@@ -1,14 +1,8 @@
 <?php 
-    require_once "tmp_test.php";
     require_once "DBManager.php";
 
-    $template = new Template();
     $get = new DBManager();
     
-    $template->head("post");
-    $template->header();
-    $template->test_h(0,0,"peace");
-
     $regions = $get->get_regions();
 ?>
 
@@ -71,6 +65,3 @@
  
     <input type="submit" value="投稿">
 </form>
-<?php
-    $template->footer();
-?>

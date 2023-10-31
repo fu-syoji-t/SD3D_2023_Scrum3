@@ -63,11 +63,11 @@
         }
     </style>
 
-    <?php  require_once 'header.php' ?>
+    <?php  require_once '../!Mng/header.php' ?>
     <?php
 // edit_post.php
 
-require_once 'DBManager.php';
+require_once '../!Mng/DBManager.php';
 
 if (isset($_GET["post"])) {
     $post_id = $_GET["post"];
