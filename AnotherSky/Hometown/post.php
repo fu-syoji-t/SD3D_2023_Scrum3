@@ -1,5 +1,5 @@
 <?php 
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
 
     $get = new DBManager();
     

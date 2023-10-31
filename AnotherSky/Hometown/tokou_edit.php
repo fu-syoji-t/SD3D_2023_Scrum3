@@ -65,15 +65,15 @@
     </style>
 
     <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
-    <?php  require_once 'header.php' ?>
+    <?php  require_once '../!Mng/header.php' ?>
     <?php
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
     $get = new DBManager();
 
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
 
-    require_once "header.php";
+    require_once "../!Mng/header.php";
 ?>
     
     <?php
