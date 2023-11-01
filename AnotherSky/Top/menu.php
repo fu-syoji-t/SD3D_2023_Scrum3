@@ -17,7 +17,7 @@
     </script>
       <div id="splash">
     <div id="splash_logo">
-      <img src="img/logo.jpg" alt="" class="fadeUp">
+      <img src="../img/logo.jpg" alt="" class="fadeUp">
     </div>
   </div>
   <main>
@@ -26,7 +26,7 @@
       <img src="../img/another_sky_logo.jpg" alt="home">
     </div>
 
-    <?php  require_once '../Commit/commit.php' ?>
+    <?php  require_once '../commit/commit.php' ?>
   </main>
   <!--==============JQuery読み込み===============-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -57,7 +57,7 @@ foreach($posts as $post){
     if ($displayCount < 3) {
         echo '<div class="box">
         <h2>
-          <a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
+          <a href="../hometown/hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
           <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
         </h2>';
         if(isset($post["first_image"])){
@@ -70,7 +70,7 @@ foreach($posts as $post){
         '<div class="box_sentence">
           <p>
             '.$post["text"].'…
-            <a href="hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
+            <a href="../hometown/hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
           </p>
         </div>
       </div>';
