@@ -21,26 +21,26 @@
     text-align: center;
   }
   .input {
-            text-align: center;
-            margin-top: 10%;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-radius: 20% 20% 20% 20%;
-            background-color: #999999;
-            padding: 0.5em;
-            border-radius: 1.5em;
-        }
-        .maru {
-            border-radius: 1.5em;
-            text-align: center;
-        }
-        .mara {
-          display: block;
-        }
-        iframe {
-          width: 100%;
-          height: 300px;
-        }
+        text-align: center;
+        margin-top: 10%;
+        margin-left: 10%;
+        margin-right: 10%;
+        border-radius: 20% 20% 20% 20%;
+        background-color: #999999;
+        padding: 0.5em;
+        border-radius: 1.5em;
+    }
+    .maru {
+        border-radius: 1.5em;
+        text-align: center;
+    }
+    .mara {
+        display: block;
+    }
+    iframe {
+        width: 100%;
+        height: 300px;
+    }
 
   </style>
 
