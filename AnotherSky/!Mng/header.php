@@ -204,7 +204,7 @@
 }
     </style>
 <header id="header">
-    <img src="img/anothersky.gif" alt="logo" id="logo">
+    <img src="../img/anothersky.gif" alt="logo" id="logo">
 </header>
 
 

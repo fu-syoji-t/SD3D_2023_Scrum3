@@ -96,10 +96,10 @@
 
     <?php  require_once '../!Mng/header.php' ?>
     <?php
-require_once "../Mng/DBManager.php";
+require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
-$posts = $get->get_all_post();
+$posts = $get->get_all_posts();
 
 foreach ($posts as $post) {
     // 記事が「海外」カテゴリーに属しているか確認

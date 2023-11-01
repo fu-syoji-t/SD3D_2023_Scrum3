@@ -94,12 +94,12 @@
   </head>
   <body>
 
-    <?php  require_once '../!Mng/footer.php' ?>
+    <?php require_once '../!Mng/footer.php' ?>
     <?php
 require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
-$posts = $get->get_all_post();
+$posts = $get->get_all_posts();
 
 foreach ($posts as $post) {
     // 記事が「海外」カテゴリーに属しているか確認
@@ -130,7 +130,7 @@ foreach ($posts as $post) {
   <div style="width: 100%; background-color: #bbb">
     <button type="button" class="more" id="more">read more...</button>
   </div>
-    <?php  require_once '../!Mng/footer.php' ?>
+    <?php require_once '../!Mng/footer.php' ?>
   </body>
 
 </body>
