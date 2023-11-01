@@ -57,7 +57,7 @@ foreach($posts as $post){
     if ($displayCount < 3) {
         echo '<div class="box">
         <h2>
-          <a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
+          <a href="../hometown/hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
           <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
         </h2>';
         if(isset($post["first_image"])){
@@ -70,7 +70,7 @@ foreach($posts as $post){
         '<div class="box_sentence">
           <p>
             '.$post["text"].'…
-            <a href="hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
+            <a href="../hometown/hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
           </p>
         </div>
       </div>';
@@ -134,7 +134,7 @@ foreach($posts as $post){
         </p>
       </div>
     </div>-->
-    <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
+    <a onclick="location.href='../hometown/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
 </div>
 
