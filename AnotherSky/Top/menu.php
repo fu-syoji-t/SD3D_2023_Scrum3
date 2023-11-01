@@ -17,7 +17,7 @@
     </script>
       <div id="splash">
     <div id="splash_logo">
-      <img src="img/logo.jpg" alt="" class="fadeUp">
+      <img src="../img/logo.jpg" alt="" class="fadeUp">
     </div>
   </div>
   <main>
@@ -26,7 +26,7 @@
       <img src="../img/another_sky_logo.jpg" alt="home">
     </div>
 
-    <?php  require_once '../Commit/commit.php' ?>
+    <?php  require_once '../commit/commit.php' ?>
   </main>
   <!--==============JQuery読み込み===============-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
