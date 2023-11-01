@@ -212,12 +212,12 @@
 <nav id="g-nav">
   <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
     <ul>
-      <li><a href="../top/menu.php">Top</a></li>  
-      <li><a href="../hometown/hometown.php">Hometown</a></li>  
-      <li><a href="../commit/another.php">Commit</a></li>  
-      <li><a href="../category/category.php">Category</a></li>
-      <li><a href ="../account/login.php">Account</a></li> 
-      <li><a href ="../account/login.php">login</a></li> 
+      <li><a href="../Top/menu.php">Top</a></li>  
+      <li><a href="../Hometown/hometown.php">Hometown</a></li>  
+      <li><a href="../Commit/another.php">Commit</a></li>  
+      <li><a href="../Category/category.php">Category</a></li>
+      <li><a href ="account/login.php">Account</a></li> 
+      <li><a href ="account/login.php">login</a></li> 
     </ul>
   </div>
 </nav>

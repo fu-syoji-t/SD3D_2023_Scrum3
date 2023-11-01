@@ -24,7 +24,7 @@
             <br>
             <br />
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
-                <form action="../category/region(b).php" method="post">
+                <form action="region(b).php" method="post">
                     <input type="submit" class="button" name="1" value="北海道">
                     <input type="submit" class="button" name="2" value="東北">
                     <input type="submit" class="button" name="3" value="関東">

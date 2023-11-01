@@ -12,39 +12,39 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["1"])) {
-            $url = './categoryhkd.php';
+            $url = 'categoryhkd.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["2"])) {
-            $url = './categorythk.php';
+            $url = 'categorythk.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["3"])) {
-            $url = './categoryknt.php';
+            $url = 'categoryknt.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["4"])) {
-            $url = './categorychb.php';
+            $url = 'categorychb.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["5"])) {
-            $url = './categoryknk.php';
+            $url = 'categoryknk.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["6"])) {
-            $url = './categorychg.php';
+            $url = 'categorychg.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["7"])) {
-            $url = './categoryskk.php';
+            $url = 'categoryskk.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["8"])) {
-            $url = './categorykys.php';
+            $url = 'categorykys.php';
             header('Location: ' . $url, true, 301);
             exit;
         } elseif (isset($_POST["9"])) {
-            $url = './categoryabr.php';
+            $url = 'categoryabr.php';
             header('Location: ' . $url, true, 301);
             exit;
         } else {
