@@ -23,7 +23,7 @@
   <main>
     <?php  require_once '../!Mng/header.php' ?>
     <div class="home-photo">
-      <img src="img/another_sky_logo.jpg" alt="home">
+      <img src="../img/another_sky_logo.jpg" alt="home">
     </div>
 
     <?php  require_once '../Commit/commit.php' ?>
