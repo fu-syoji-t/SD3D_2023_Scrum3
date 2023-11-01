@@ -30,17 +30,17 @@
       <h1>COMMIT</h1>
 
       <ul class="thumb">
-        <li><img src="img/logo.jpg" alt="thumbnail A"></li>
-        <li><img src="img/another_1.jpeg" alt="thumbnail B"></li>
-        <li><img src="img/another_2.jpg" alt="thumbnail C"></li>
-        <li><img src="img/another_3.jpg" alt="thumbnail D"></li>
+        <li><img src="../img/logo.jpg" alt="thumbnail A"></li>
+        <li><img src="../img/another_1.jpeg" alt="thumbnail B"></li>
+        <li><img src="../img/another_2.jpg" alt="thumbnail C"></li>
+        <li><img src="../img/another_3.jpg" alt="thumbnail D"></li>
       </ul>
 
       <ul class="top">
-        <li><img src="img/logo.jpg" alt="top image A"></li>
-        <li><img src="img/another_1.jpeg" alt="top image B"></li>
-        <li><img src="img/another_2.jpg" alt="top image C"></li>
-        <li><img src="img/another_3.jpg" alt="top image D"></li>
+        <li><img src="../img/logo.jpg" alt="top image A"></li>
+        <li><img src="../img/another_1.jpeg" alt="top image B"></li>
+        <li><img src="../img/another_2.jpg" alt="top image C"></li>
+        <li><img src="../img/another_3.jpg" alt="top image D"></li>
       </ul>
 
     </div>
