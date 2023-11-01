@@ -7,42 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-<style>  
-  body {
-    background-color: #DDDDDD;
-    font-family: 'Sacramento', cursive;
-    font-family: "Kokoro";
-  }
-  h1 {
-    background-color: gray;
-    font-size: 23px;
-    font-family: "Arial Black";
-    letter-spacing: 2px;
-    text-align: center;
-  }
-  .input {
-            text-align: center;
-            margin-top: 10%;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-radius: 20% 20% 20% 20%;
-            background-color: #999999;
-            padding: 0.5em;
-            border-radius: 1.5em;
-        }
-        .maru {
-            border-radius: 1.5em;
-            text-align: center;
-        }
-        .mara {
-          display: block;
-        }
-        iframe {
-          width: 100%;
-          height: 300px;
-        }
-
-  </style>
 
 <?php
     require_once "../!Mng/DBManager.php";

@@ -11,38 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/homea.css">
-    <style>
-         body {
-            background-color: #DDDDDD;
-        }
-        h1 {
-            background-color: gray;
-            font-size: 23px;
-            font-family: "Arial Black";
-            letter-spacing: 2px;
-            text-align: center;
-            color: black;
-        }
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            max-width: 400px; /* コンテナの幅を制限 */
-        }
-        .button {
-            padding: 1rem 2rem;
-            border: 1px solid #000;
-            color: black;
-            text-decoration: none;
-            margin: 5px;
-            width: 45%; /* ボタンの幅を調整して2列に */
-        }
-      .right{
-        margin-left:auto;
-        margin-bottom: auto;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="../css/category.css">
 </head>
 <body>
     <?php require_once '../!Mng/header.php'; ?>

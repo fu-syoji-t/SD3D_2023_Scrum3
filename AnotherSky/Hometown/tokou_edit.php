@@ -7,63 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
-        body {
-            background-color: #DDDDDD;
-            font-family: 'Sacramento', cursive;
-            font-family: "Kokoro";
-        }
-        .center {
-            text-align: center;
-        }
-        .inputa {
-            text-align: center;
-            margin-top: 10%;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-radius: 20% 20% 20% 20%;
-            background-color: #999999;
-            padding: 0.5em;
-            border-radius: 1.5em;
-        }
-        .input {
-            text-align: center;
-            margin-top: 10%;
-            margin-left: 10%;
-            margin-right: 10%;
-            border-radius: 20% 20% 20% 20%;
-            background-color: #999999;
-            padding: 0.5em;
-            border-radius: 1.5em;
-            display: none;
-        }
-        h1 {
-            margin-bottom: 10%;
-            font-family: 'Sacramento', cursive;
-        }
-        .subu {
-            background-color: #999999;
-            font-size: 100%;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 50px;
-            position: relative;
-            margin-bottom: auto;
-            border-radius: 50vh;
-        }
-        .maru {
-            border-radius: 1.5em;
-            padding: 5%; /* テキストと枠線の間の余白を指定 */
-        }
-        .maro{
-            border: 2px solid #000; /* 枠線の太さと色を指定 */
-            padding: 5%; /* テキストと枠線の間の余白を指定 */
-            border-radius: 1.5em;
-            margin-bottom: 10%;
-        }
-    </style>
-
     <a onclick="location.href='../AnotherSky/login.php'" value=""><h2 style="text-align: right;">log in&nbsp;&nbsp;</h2></a>
     <?php  require_once '../!Mng/header.php' ?>
     <?php

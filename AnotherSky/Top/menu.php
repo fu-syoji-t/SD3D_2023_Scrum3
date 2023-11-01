@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
 </head>
 <body>
       <script>
@@ -22,7 +23,7 @@
   <main>
     <?php  require_once '../!Mng/header.php' ?>
     <div class="home-photo">
-      <img src="img/another_sky_logo.jpg" alt="home">
+      <img src="../img/another_sky_logo.jpg" alt="home">
     </div>
 
     <?php  require_once '../Commit/commit.php' ?>

@@ -5,75 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/homea.css"> 
+    <link rel="stylesheet" href="../css/hometown.css"> 
 </head>
 <body>
-<style>
-      body {
-          background-color: #DDDDDD;
-        }
-
-        h1 {
-          background-color: gray;
-          font-size: 23px;
-          font-family: "Arial Black";
-          letter-spacing: 2px;
-          text-align: center;
-        }
-
-        .box {
-          background-color: #FFF;
-          box-shadow: 0 5px 5px #999;
-          height: 200px;
-          margin: 30px auto;
-          overflow: hidden;
-          padding: 15px;
-          width: 400px;
-          display: none;
-        }
-
-        .box a:link,
-        .box a:visited {
-          color: #00C;
-        }
-
-        .box a:hover {
-          color: #33F;
-        }
-
-        .box > h2 {
-          font-size: 16px;
-          margin: 0;
-        }
-
-        .box > h2 > .date {
-          color: #666;
-          font-size: 13px;
-          font-weight: normal;
-        }
-
-        .box > .box_img {
-          float: left;
-          margin-right: 10px;
-          width: 150px;
-        }
-
-        .box > .box_sentence > p {
-          color: #444;
-          font-size: 14px;
-        }
-
-        .more{
-          border: none;
-          border-bottom: solid 1px #000;
-          background-color: transparent;
-          text-align: center;
-        }
-        .input{
-          text-align: center;
-          background-color: #999;
-        }
-    </style>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <?php  require_once '../!Mng/header.php' ?>
 </div>

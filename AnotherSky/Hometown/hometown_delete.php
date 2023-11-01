@@ -6,17 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <style>
-        body{
-            background-color: #DDDDDD;
-        }
-        .c{
-            margin-top: 100px;
-            margin-bottom: auto;
-            font-size: 200%;
-            text-align: center;
-        }
-    </style>
 <?php
     require_once "../!Mng/header.php";
 
