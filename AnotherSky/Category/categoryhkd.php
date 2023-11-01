@@ -30,7 +30,7 @@
 
     <?php  require_once '../!Mng/header.php' ?>
     <?php
-require_once "../Mng/DBManager.php";
+require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
 $posts = $get->get_all_posts();

@@ -28,7 +28,7 @@
   </head>
   <body>
 
-    <?php  require_once '../!Mng/footer.php' ?>
+    <?php require_once '../!Mng/footer.php' ?>
     <?php
 require_once "../!Mng/DBManager.php";
 $get = new DBManager();
@@ -64,7 +64,7 @@ foreach ($posts as $post) {
   <div style="width: 100%; background-color: #bbb">
     <button type="button" class="more" id="more">read more...</button>
   </div>
-    <?php  require_once '../!Mng/footer.php' ?>
+    <?php require_once '../!Mng/footer.php' ?>
   </body>
 
 </body>

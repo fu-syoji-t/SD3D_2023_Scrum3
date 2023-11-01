@@ -216,8 +216,8 @@
       <li><a href="../Hometown/hometown.php">Hometown</a></li>  
       <li><a href="../Commit/another.php">Commit</a></li>  
       <li><a href="../Category/category.php">Category</a></li>
-      <li><a href ="account.php">Account</a></li> 
-      <li><a href ="account.php">login</a></li> 
+      <li><a href ="account/login.php">Account</a></li> 
+      <li><a href ="account/login.php">login</a></li> 
     </ul>
   </div>
 </nav>
