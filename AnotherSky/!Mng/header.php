@@ -204,7 +204,7 @@
 }
     </style>
 <header id="header">
-    <img src="img/anothersky.gif" alt="logo" id="logo">
+    <img src="../img/anothersky.gif" alt="logo" id="logo">
 </header>
 
 
@@ -212,7 +212,7 @@
 <nav id="g-nav">
   <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
     <ul>
-      <li><a href="../AnotherSky/menu.php">Top</a></li>  
+      <li><a href="../Top/menu.php">Top</a></li>  
       <li><a href="../AnotherSky/hometown.php">Hometown</a></li>  
       <li><a href="../AnotherSky/another.php">Commit</a></li>  
       <li><a href="../AnotherSky/category.php">Category</a></li>
