@@ -9,7 +9,7 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <?php  require_once '../!Mng/DBManager.php' ?>
+    <?php  require_once 'header.php' ?>
 </div>
 <div></div>
 <div>
@@ -33,7 +33,7 @@
 require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
-$posts = $get->get_all_post();
+$posts = $get->get_all_posts();
 
 foreach ($posts as $post) {
     // 記事が「海外」カテゴリーに属しているか確認

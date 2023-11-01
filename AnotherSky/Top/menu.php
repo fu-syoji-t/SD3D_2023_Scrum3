@@ -134,7 +134,7 @@ foreach($posts as $post){
         </p>
       </div>
     </div>-->
-    <a onclick="location.href='../AnotherSky/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
+    <a onclick="location.href='../Hometown/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
 </div>
 
