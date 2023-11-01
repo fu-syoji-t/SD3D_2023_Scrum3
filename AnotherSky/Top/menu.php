@@ -5,180 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/homea.css">
 </head>
 <body>
-  <style>  
-      body {
-          background-color: #DDDDDD;
-        }
-
-
-        h1 {
-          background-color: gray;
-          font-size: 23px;
-          font-family: "Arial Black";
-          letter-spacing: 2px;
-          text-align: center;
-          text-justify: auto;
-        }
-        /*.h6{
-          background-color: #DDDDDD;
-          height: 200px;
-          margin: 30px auto;
-          overflow: hidden;
-          padding: 15px;
-          width: 500px;
-        }*/
-
-        .box {
-          background-color: #FFF;
-          box-shadow: 0 5px 5px #999;
-          height: 200px;
-          margin: 30px auto;
-          overflow: hidden;
-          padding: 15px;
-          width: 380px;
-        }
-
-        .box a:link,
-        .box a:visited {
-          color: #00C;
-        }
-
-        .box a:hover {
-          color: #33F;
-        }
-
-        .box > h2 {
-          font-size: 16px;
-          margin: 0;
-        }
-
-        .box > h2 > .date {
-          color: #666;
-          font-size: 13px;
-          font-weight: normal;
-        }
-
-        .box > .box_img {
-          float: left;
-          margin-right: 10px;
-          width: 150px;
-        }
-
-        .box > .box_sentence > p {
-          color: #444;
-          font-size: 14px;
-        }
-
-        .more{
-          text-align: center;
-        }
-      .col{
-        background-color: #DDDDDD;
-          margin: 30px auto;
-          overflow: hidden;
-          padding: 15px;
-          width: 100vw;
-      }
-      .h8{
-          background-color: #DDDDDD;
-          margin: 30px auto;
-          overflow: hidden;
-          padding: 0px;
-          width: 100vw;
-          text-align: center;
-        }
-      iframe{
-        margin-bottom: auto;
-        margin-left: 50px;
-        margin-right: auto;
-        margin-top: auto;
-      }
-      /*追加文 */
-      .home-photo {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* 画面いっぱいに表示 */
-        }
-
-        .home-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-
-        /* Loading背景画面設定　*/
-        #splash {
-            /*fixedで全面に固定*/
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: 999;
-        background:black;
-        text-align:center;
-        color:#fff;
-        }
-
-        /* Loading画像中央配置　*/
-        #splash_logo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        }
-
-        /* Loading アイコンの大きさ設定　*/
-        #splash_logo img {
-        width:260px;
-        }
-
-        /* fadeUpをするアイコンの動き */
-
-        .fadeUp{
-        animation-name: fadeUpAnime;
-        animation-duration:0.5s;
-        animation-fill-mode:forwards;
-        opacity: 0;
-        }
-
-        @keyframes fadeUpAnime{
-        from {
-            opacity: 0;
-        transform: translateY(100px);
-        }
-
-        to {
-            opacity: 1;
-        transform: translateY(0);
-        }
-        }
-
-
-
-        /*========= レイアウトのためのCSS ===============*/
-
-        #container{
-            width:100%;
-            height: 100vh;
-            background: #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        a{
-            color: #333;
-        }
-
-        a:hover{
-            text-decoration: none;   
-        }
-  </style>
       <script>
       //logoの表示
       $(window).on('load',function(){
@@ -192,12 +20,12 @@
     </div>
   </div>
   <main>
-    <?php  require_once 'header.php' ?>
+    <?php  require_once '../!Mng/header.php' ?>
     <div class="home-photo">
       <img src="img/another_sky_logo.jpg" alt="home">
     </div>
 
-    <?php  require_once 'commit.php' ?>
+    <?php  require_once '../Commit/commit.php' ?>
   </main>
   <!--==============JQuery読み込み===============-->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -205,7 +33,6 @@
   <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/4-1-4/js/4-1-4.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <?php  require_once 'header.php' ?>
 </div>
   <h2>
     <div style="text-align: center;">
@@ -219,10 +46,10 @@
     <div style="text-align: center;">
     <span style="font-family: serif; font-size: 36px;">Hometown</span>
 <?php
-require_once "DBManager.php";
+require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
-$posts = $get->get_all_post();
+$posts = $get->get_all_posts();
 $displayCount = 0; // 表示済みのポスト数
 
 foreach($posts as $post){
@@ -310,6 +137,6 @@ foreach($posts as $post){
   </h2>
 </div>
 
-      <?php  require_once 'footer.php' ?>
+      <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
