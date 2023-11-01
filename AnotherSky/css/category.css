@@ -17,8 +17,8 @@ h1 {
 }
 .button {
     padding: 1rem 2rem;
-    border: 1px solid #ffffff;
-    color: #DDDDDD;
+    border: 1px solid #000000;
+    color: #000000;
     text-decoration: none;
     margin: 5px;
     width: 45%; /* ボタンの幅を調整して2列に */
