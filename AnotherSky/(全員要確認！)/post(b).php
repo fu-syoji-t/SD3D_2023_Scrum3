@@ -1,5 +1,5 @@
 <?php
-    require_once "DBManager.php";
+    require_once "../!Mng/DBManager.php";
     $create = new DBManager();
 
     $create->create_post(1,$_POST["title"],$_POST["region"],$_POST["place"],$_POST["link"],$_POST["text"]);
@@ -14,10 +14,10 @@
 
             if(is_uploaded_file($_FILES['post_image'.$i]['tmp_name'])){
                 if(!file_exists('image')){
-                    mkdir('image');
+                    mkdir('../image');
                 }
 
-                $file = 'image/'.date("YmdHis")."_".str_replace($target,'',basename($_FILES['post_image'.$i]['name']));//ファイルの名前だけの保存
+                $file = '../image/'.date("YmdHis")."_".str_replace($target,'',basename($_FILES['post_image'.$i]['name']));//ファイルの名前だけの保存
                 if(move_uploaded_file($_FILES['post_image'.$i]['tmp_name'],$file)){//$fileに名前が格納されている　一時的なファイル,保存先のファイル
                     $create->create_post_images($order,$file);
                 }
