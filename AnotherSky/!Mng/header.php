@@ -217,7 +217,7 @@
       <li><a href="../Commit/another.php">Commit</a></li>  
       <li><a href="../Category/category.php">Category</a></li>
       <li><a href ="account/login.php">Account</a></li> 
-      <li><a href ="account/login.php">login</a></li> 
+      <li><a href ="../Account//login.php">login</a></li> 
     </ul>
   </div>
 </nav>
