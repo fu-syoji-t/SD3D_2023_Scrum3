@@ -3,7 +3,7 @@
 
     $get = new DBManager();
     
-    $posts = $get->get_all_posts();
+    $posts = array_reverse($get->get_all_posts());
 
     foreach($posts as $post){
         echo '<div class="box" style="display: none">----------------------------------------------------------------------------------------------------<br>';
