@@ -265,6 +265,35 @@
 
             return $user;
         }
+        function keep_post($user_id,$post_id){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    From keep_posts
+                    WHERE user_id=? AND post_id=?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$user_id,PDO::PARAM_INT);
+            $ps->bindValue(2,$post_id,PDO::PARAM_STR);
+            $ps->execute();
+            $post = $ps->fetch();
+            if(!empty($post)){
+                $sql = "DELETE FROM keep_posts
+                        WHERE  user_id=? AND post_id=?";
+                $ps = $pdo->prepare($sql);
+                $ps->bindValue(1,$user_id,PDO::PARAM_INT);
+                $ps->bindValue(2,$post_id,PDO::PARAM_STR);
+                $ps->execute();
+                echo "fuck";
+            }else{
+                $sql = "INSERT INTO keep_posts(user_id,post_id)
+                        VALUES(?,?)";
+                $ps = $pdo->prepare($sql);
+                $ps->bindValue(1,$user_id,PDO::PARAM_INT);
+                $ps->bindValue(2,$post_id,PDO::PARAM_STR);
+                $ps->execute();
+                echo "fucking";
+            }
+
+        }
     }
 
 ?>

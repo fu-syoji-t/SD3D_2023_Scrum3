@@ -61,7 +61,7 @@
     <button type="button" class="more" id="more">read more...</button>
   </div>
     <div class="input">
-    <a onclick="location.href='tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
+    <a onclick="location.href='hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
     <?php  require_once '../!Mng/footer.php' ?>
     </div>
   </body>
@@ -95,4 +95,35 @@
     }
     console.log(c_box);
   });
+</script>
+<script>
+  // G1-4-3, G1-6-1-3
+// フォームAJAX通信用関数　formタグの属性を空
+// データ送信と画面遷移を分離　遷移コントロールのため
+/* セッション管理と(b)でのJSによる遷移ができたのでいらないかも
+function sendFormData(url) {
+    var form = document.querySelector('form');
+    var formData = new FormData(form);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+        // リクエストが成功した場合の処理
+        console.log('成功:', xhr.responseText);
+        // 応答を処理するコードを追加します
+        } else {
+        // リクエストが失敗した場合の処理
+        console.log('エラー:', xhr.status);
+        }
+    };
+    xhr.onerror = function() {
+        // リクエストが失敗した場合の処理
+        console.log('ネットワークエラー');
+    };
+    xhr.send(formData);
+
+    history.back();
+
+}*/
 </script>
