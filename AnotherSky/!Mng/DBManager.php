@@ -265,6 +265,37 @@
 
             return $user;
         }
+
+        function get_myfavorite_posts($user_id) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT p.*
+                    FROM keep_posts kp
+                    INNER JOIN posts p ON kp.post_id = p.post_id
+                    WHERE kp.user_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
+            $ps->execute();
+            $myfavorite_posts = $ps->fetchAll();
+            
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE image_order = 0";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $first_image = $ps->fetchAll();
+
+            $i = 0;
+            $j = 0;
+            foreach($myfavorite_posts as $post) {
+                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
+                    $myfavorite_posts[$j]["first_image"] = $first_image[$i]["path"];
+                    $i++;
+                }
+                $j++;
+            }
+
+            return $myfavorite_posts;
+        }
     }
 
 ?>

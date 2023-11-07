@@ -13,7 +13,7 @@
             }
 
             if(is_uploaded_file($_FILES['post_image'.$i]['tmp_name'])){
-                if(!file_exists('image')){
+                if(!file_exists('../image')){
                     mkdir('../image');
                 }
 
