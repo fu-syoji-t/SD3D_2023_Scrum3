@@ -295,6 +295,8 @@
             }
 
             return $myfavorite_posts;
+        }
+
         function keep_post($user_id,$post_id){
             $pdo = $this->dbConnect();
             $sql = "SELECT *
@@ -324,6 +326,7 @@
             }
 
         }
+        
     }
 
 ?>
