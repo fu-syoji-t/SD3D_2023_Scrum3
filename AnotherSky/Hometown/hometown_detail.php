@@ -94,10 +94,53 @@
     <input type="submit" value="投稿を削除">
 </form>
     <a href="hometown_edit.php?post=<?php echo $post_id; ?>">編集</a>
+    <form id="keep_post" action="hometown_keep_post(b).php" method="post">
+    <input type="hidden" name="user_id" value="2">
+    <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
+
+      <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
+      <button type="submit" id="label"onclick="changelabel();">♡</button>
+    </form>
 
 
         <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
+  <script>
+    var label= document.getElementById("label")
+    function changelabel(){
+      if(label.textContent == "♡"){
+        label.textContent="❤️";
+      }else{
+        label.textContent="♡";
+      }
+    }
+  // フォームAJAX通信用関数　formタグの属性を空
+  // データ送信と画面遷移を分離　遷移コントロールのため
+  /*セッション管理と(b)でのJSによる遷移ができたのでいらないかも*/
+  function sendFormData() {
+      var form = document.querySelector('#keep_post');
+      var formData = new FormData(form);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', "hometown_keep_post(b).php");
+      xhr.onload = function() {
+          if (xhr.status === 200) {
+          // リクエストが成功した場合の処理
+          console.log('成功:', xhr.responseText);
+          // 応答を処理するコードを追加します
+          } else {
+          // リクエストが失敗した場合の処理
+          console.log('エラー:', xhr.status);
+          }
+      };
+      xhr.onerror = function() {
+          // リクエストが失敗した場合の処理
+          console.log('ネットワークエラー');
+      };
+      xhr.send(formData);
+
+  }
+  </script>
 
 
