@@ -15,6 +15,8 @@
             if(is_uploaded_file($_FILES['post_image'.$i]['tmp_name'])){
                 if(!file_exists('../image')){
                     mkdir('../image');
+                    // ファイルのパーミッションを変更して書き込み権限を与える
+                    //chmod($file_path . $_name, 0666);
                 }
 
                 $file = '../image/'.date("YmdHis")."_".str_replace($target,'',basename($_FILES['post_image'.$i]['name']));//ファイルの名前だけの保存
@@ -26,5 +28,5 @@
         }
     }
 
-    header('Location:hometown.php');
+    //header('Location:hometown.php');
 ?>
