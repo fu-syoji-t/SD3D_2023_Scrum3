@@ -99,7 +99,9 @@
     <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
 
       <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
-      <button type="submit" id="label"onclick="changelabel();">♡</button>
+      <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
+      <button type="button" id="label" onclick="changelabel(); sendFormData()">♡</button>
+
     </form>
 
 
@@ -141,6 +143,9 @@
       xhr.send(formData);
 
   }
+
+  
   </script>
+
 
 

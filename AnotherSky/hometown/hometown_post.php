@@ -1,67 +1,42 @@
-<?php 
+<?php
     require_once "../!Mng/DBManager.php";
-
     $get = new DBManager();
-    
+
     $regions = $get->get_regions();
+
+    $spot_limit = $get->spot_limit;
 ?>
 
-<input type="button" onclick="history.back()" value="戻る"><br><br>
-
-<form action="post(b).php" method="post" enctype="multipart/form-data">
-    title : 
+<h1>post</h1>
+<form action="hometown_post(b).php" method="post" enctype="multipart/form-data">
+    title <br>
     <input type="text" name="title" maxlength="30"><br>
-    region : 
-    <select name="region">
+    region <br>
+    <select name="region" required>
+        <option value="" selected style="color: #888">未選択</option>
         <?php
-            foreach($regions as $region){
+            foreach($regions as $region) {
                 echo 
         '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
             }
         ?>
     </select><br>
-    place : 
+    place <br>
     <input type="text" name="place"><br>
-    youtube : 
-    <textarea name="link" rows="8" cols="50"></textarea><br>
-    freespace : 
+    youtube <br>
+    <textarea name="link"></textarea><br>
+    freespace <br>
     <textarea name="text"></textarea><br><br>
 
-    画像を選択 : 
-    <input type="file" name="post_image1" accept="image/*"><br>
-    具体的なスポット　　　　　　　 : 
-    <textarea name="sentence1_1"></textarea><br>
-    そこに行くようになったきっかけ : 
-    <textarea name="sentence1_2"></textarea><br>
-    どんな思い出があるのか　　　　 : 
-    <textarea name="sentence1_3"></textarea><br><br>
-
-    画像を選択 : 
-    <input type="file" name="post_image2" accept="image/*"><br>
-    具体的なスポット　　　　　　　 : 
-    <textarea name="sentence2_1"></textarea><br>
-    そこに行くようになったきっかけ : 
-    <textarea name="sentence2_2"></textarea><br>
-    どんな思い出があるのか　　　　 : 
-    <textarea name="sentence2_3"></textarea><br><br>
-    
-    画像を選択 : 
-    <input type="file" name="post_image3" accept="image/*"><br>
-    具体的なスポット　　　　　　　 : 
-    <textarea name="sentence3_1"></textarea><br>
-    そこに行くようになったきっかけ : 
-    <textarea name="sentence3_2"></textarea><br>
-    どんな思い出があるのか　　　　 : 
-    <textarea name="sentence3_3"></textarea><br><br>
-    
-    画像を選択 : 
-    <input type="file" name="post_image4" accept="image/*"><br>
-    具体的なスポット　　　　　　　 : 
-    <textarea name="sentence4_1"></textarea><br>
-    そこに行くようになったきっかけ : 
-    <textarea name="sentence4_2"></textarea><br>
-    どんな思い出があるのか　　　　 : 
-    <textarea name="sentence4_3"></textarea><br><br>
- 
-    <input type="submit" value="投稿">
+    <?php 
+        for($i = 0; $i < $spot_limit; $i++) {
+            echo
+    '------------------------------------------------------------<br>
+        画像を選択 <br>
+        <input type="file" name="post_image'.$i.'" accept="image/*"><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50></textarea><br>';
+        }
+    ?>
+    <br>
+    <input class="subu" type="submit" value="投稿">
 </form>
