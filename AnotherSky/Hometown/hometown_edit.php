@@ -24,6 +24,8 @@
 
     $regions = $get->get_regions();
 
+    $spot_limit = $get->spot_limit;
+
     $post_id = $_GET["post"];
     $post = $get->get_post($post_id);
 
@@ -62,6 +64,17 @@
 
     <button type="button" id="addSpot">+</button><br>
     <br>
+
+    <?php 
+        for($i = 0; $i < $spot_limit; $i++) {
+        echo '<div class="spot-container" style="display: ' . ('none') . ';">
+        ------------------------------------------------------------<br>
+        画像を選択 <br>
+        <input type="file" name="post_image'.$i.'" accept="image/*"><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50></textarea><br>
+        </div>';
+        }
+    ?>
 
     <?php
 
@@ -149,6 +162,13 @@
         <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
-
+    <script>
+        $(document).ready(function () {
+            $('#addSpot').click(function () {
+                $('.spot-container:hidden:first').show();
+            });
+        });
+    </script>
+    
 
 
