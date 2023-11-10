@@ -51,7 +51,7 @@
         ------------------------------------------------------------<br>
         画像を選択 <br>
         <input type="file" name="post_image'.$i.'" accept="image/*"><br>
-        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50></textarea><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50></textarea><br>
         </div>';
         }
     ?>

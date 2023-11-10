@@ -46,11 +46,11 @@
       echo '<br>';
 
       echo '';
-      echo 'youtube <br>';
+      echo 'youtube link <br>';
       echo '<div>'.$post["link_path"]."</div><br>";
 
       echo '<br>';
-      echo 'freespace <br>';
+      echo 'freespace space <br>';
       echo $post["text"]."<br>";
 
     // 以下、投稿内のスポット数を計算している（2度手間だが）
