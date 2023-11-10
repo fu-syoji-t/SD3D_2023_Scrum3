@@ -39,12 +39,12 @@
           ?>
     <br>
     <label for="title">title</label><br>
-    <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($post["title"]); ?>"><br>
+    <input type="text" id="title" name="title" style= background-color:#fff; value="<?php echo htmlspecialchars($post["title"]); ?>"><br>
 
     <label for="place">place</label><br>
-    <input type="text" id="place" name="place" value="<?php echo htmlspecialchars($post["place"]); ?>"><br>
+    <input type="text" id="place" name="place" style= background-color:#fff; value="<?php echo htmlspecialchars($post["place"]); ?>"><br>
 
-    <label for="region">region</label><br><br>
+    <label for="region">region</label><br>
     <select name="region" required>
         <option value="" selected style="color: #888">未選択</option>
         
@@ -54,13 +54,13 @@
         '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
             }
         ?>
-    </select><br><br>
+    </select><br>
 
     <label for="youtube">youtube link</label><br>
-    <input type="text" id="youtube" name="youtube" value="<?php echo htmlspecialchars($post["link_path"]); ?>"><br>
+    <input type="text" id="youtube" name="youtube" style= background-color:#fff; value="<?php echo htmlspecialchars($post["link_path"]); ?>"><br>
 
     <label for="freespace">free space</label><br>
-    <input type="text" id="freespace" name="freespace" value="<?php echo htmlspecialchars($post["text"]); ?>"><br><br>
+    <input type="text" id="freespace" name="freespace" style= background-color:#fff; value="<?php echo htmlspecialchars($post["text"]); ?>"><br><br>
 
     <button type="button" id="addSpot">+</button><br>
     <br>
@@ -71,7 +71,7 @@
         ------------------------------------------------------------<br>
         画像を選択 <br>
         <input type="file" name="post_image'.$i.'" accept="image/*"><br>
-        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50></textarea><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style= background-color:#fff;></textarea><br>
         </div>';
         }
     ?>

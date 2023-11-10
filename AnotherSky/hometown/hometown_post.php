@@ -24,8 +24,8 @@
 <div class="macro">
 <form action="hometown_post(b).php" method="post" enctype="multipart/form-data">
     title <br>
-    <input type="text" name="title" maxlength="30"><br>
-    region <br><br>
+    <input type="text" name="title" maxlength="30" style= background-color:#fff;><br>
+    region <br>
     <select name="region" required>
         <option value="" selected style="color: #888">未選択</option>
 </div>
@@ -35,13 +35,13 @@
         '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
             }
         ?>
-    </select><br><br>
+    </select><br>
     place <br>
-    <input type="text" name="place"><br>
+    <input type="text" name="place" style= background-color:#fff;><br>
     youtube <br>
-    <textarea name="link"></textarea><br>
+    <textarea name="link" style= background-color:#fff;></textarea><br>
     freespace <br>
-    <textarea name="text"></textarea><br><br>
+    <textarea name="text" style= background-color:#fff;></textarea><br><br>
 
     <button type="button" id="addSpot">+</button><br>
 
@@ -51,7 +51,7 @@
         ------------------------------------------------------------<br>
         画像を選択 <br>
         <input type="file" name="post_image'.$i.'" accept="image/*"><br>
-        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50></textarea><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style= background-color:#fff;></textarea><br>
         </div>';
         }
     ?>
