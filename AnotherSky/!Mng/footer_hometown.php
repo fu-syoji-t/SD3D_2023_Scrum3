@@ -177,7 +177,7 @@
     </style>
   </head>
   <body>
-  <a onclick="location.href='hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 20px; position: fixed;bottom: 37%;right: 23px;">投稿</span></font></a>
+  <a onclick="location.href='hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 20px; position: fixed;bottom: 37%;right: 23px;color: #999;z-index: 9999;">投稿</span></font></a>
     <footer id="footer">
     <section class="primary">
         <p class="logo"><a href="#">COMPANY</a></p>
