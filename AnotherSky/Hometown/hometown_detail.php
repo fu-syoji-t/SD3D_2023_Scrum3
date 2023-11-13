@@ -6,6 +6,16 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
+<style>
+    body{
+      background-color: #DDDDDD;
+        text-align: center;
+    }
+    .hurt{
+      font-size: large;
+      margin-right: -300px;
+    }
+</style>
 <body>
 
 <?php
@@ -36,11 +46,11 @@
       echo '<br>';
 
       echo '';
-      echo 'youtube <br>';
+      echo 'youtube link <br>';
       echo '<div>'.$post["link_path"]."</div><br>";
 
       echo '<br>';
-      echo 'freespace <br>';
+      echo 'freespace space <br>';
       echo $post["text"]."<br>";
 
     // 以下、投稿内のスポット数を計算している（2度手間だが）
@@ -71,7 +81,7 @@
       echo '<div class="input">';
       echo '[spot'.($i+1).']<br>';
       if(isset($post["images"][$c_image]) && $post["images"][$c_image]["image_order"] == $i) {
-        echo '<img width=500 src="'.$post["images"][$c_image]["path"].'">';
+        echo '<img width=350px src="'.$post["images"][$c_image]["path"].'">';
         if($c_image < count($post["images"])-1){
           $c_image++;
         }
@@ -86,6 +96,9 @@
     }
 
     ?>
+
+    <button class="hurt" type="button" id="label" onclick="changelabel(); sendFormData()">♡</button>
+
     <br>
     <form action="hometown_delete.php" method="post">
 
@@ -100,7 +113,6 @@
 
       <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
       <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
-      <button type="button" id="label" onclick="changelabel(); sendFormData()">♡</button>
 
     </form>
 

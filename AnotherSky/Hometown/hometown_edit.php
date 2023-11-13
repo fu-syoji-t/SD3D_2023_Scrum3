@@ -4,62 +4,124 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
+<style>
+    body{
+      background-color: #DDDDDD;
+        text-align: center;
+    }
+    .hurt{
+      font-size: large;
+      margin-right: -300px;
+    }
+</style>
 <body>
 
-    <?php  require_once '../!Mng/header.php' ?>
-    <?php
-// edit_post.php
+<?php
+    require_once "../!Mng/DBManager.php";
+    $get = new DBManager();
 
-require_once '../!Mng/DBManager.php';
+    $regions = $get->get_regions();
 
-if (isset($_GET["post"])) {
+    $spot_limit = $get->spot_limit;
+
     $post_id = $_GET["post"];
-    $dbManager = new DBManager();
-    $post = $dbManager->get_post_for_edit($post_id);
+    $post = $get->get_post($post_id);
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $post_id = $_POST["post_id"];
-        $title = $_POST["title"];
-        $region = $_POST["region"];
-        $place = $_POST["place"];
-        $link = $_POST["link_path"];
-        $text = $_POST["text"];
-    
-        // 修正: UPDATE クエリを実行
-        $result = $dbManager->updatePost($post_id, $title, $region, $place, $link, $text);
-    
-        if ($result) {
-            echo "投稿が更新されました。";
-        } else {
-            echo "更新に失敗しました。";
+    require_once "../!Mng/header.php";
+?>
+
+    <?php
+          echo"<br>";
+          echo '<div class="maru"> ';
+          echo $post["date"]."<br>";
+          ?>
+    <br>
+    <label for="title">title</label><br>
+    <input type="text" id="title" name="title" style= background-color:#fff; value="<?php echo htmlspecialchars($post["title"]); ?>"><br>
+
+    <label for="place">place</label><br>
+    <input type="text" id="place" name="place" style= background-color:#fff; value="<?php echo htmlspecialchars($post["place"]); ?>"><br>
+
+    <label for="region">region</label><br>
+    <select name="region" required>
+        <option value="" selected style="color: #888">未選択</option>
+        
+        <?php
+            foreach($regions as $region) {
+                echo 
+        '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
+            }
+        ?>
+    </select><br>
+
+    <label for="youtube">youtube link</label><br>
+    <input type="text" id="youtube" name="youtube" style= background-color:#fff; value="<?php echo htmlspecialchars($post["link_path"]); ?>"><br>
+
+    <label for="freespace">free space</label><br>
+    <input type="text" id="freespace" name="freespace" style= background-color:#fff; value="<?php echo htmlspecialchars($post["text"]); ?>"><br><br>
+
+    <button type="button" id="addSpot">+</button><br>
+    <br>
+
+    <?php 
+        for($i = 0; $i < $spot_limit; $i++) {
+        echo '<div class="spot-container" style="display: ' . ('none') . ';">
+        ------------------------------------------------------------<br>
+        画像を選択 <br>
+        <input type="file" name="post_image'.$i.'" accept="image/*"><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style= background-color:#fff;></textarea><br>
+        </div>';
         }
-    }
-}
     ?>
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" value="<?php echo htmlspecialchars($post["title"]); ?>">
 
-    <label for="region">Region:</label>
-    <select id="region" name="region">
-        <option value="1" <?php if ($post["region_id"] == 1) echo 'selected'; ?>>北海道</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>東北</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>関東</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>中部</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>近畿</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>中国</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>四国</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>九州</option>
-        <option value="2" <?php if ($post["region_id"] == 2) echo 'selected'; ?>>海外</option>
-    </select>
-    <label for="place">Place:</label>
-    <input type="text" id="place" name="place" value="<?php echo htmlspecialchars($post["place"]); ?>">
+    <?php
 
-    <label for="youtube">YouTube Link:</label>
-    <input type="text" id="youtube" name="youtube" value="<?php echo htmlspecialchars($post["link_path"]); ?>">
+    // 以下、投稿内のスポット数を計算している（2度手間だが）
+    $spot_order = array();
+    // それぞれのオーダーを取得、配列に格納
+    for($i = 0; $i < count($post["images"]); $i++) {
+      $spot_order[] = $post["images"][$i]["image_order"];
+    }
+    for($i = 0; $i < count($post["sentences"]); $i++) {
+      $spot_order[] = $post["sentences"][$i]["sentence_order"];
+    }
+    // 画像の数とテキストの数の合計
+    $spot_n = count($spot_order); // spot_n = スポット数
+    // 画像とテキストのオーダーが一致しているときはspot_nを引く
+    for($i = 0; $i < count($spot_order); $i++) {
+      for($j = $i+1; $j < count($spot_order); $j++) {
+        if($spot_order[$i] == $spot_order[$j]) {
+          $spot_n--;
+        }
+      }
+    }
 
-    <label for="freespace">Free Space:</label>
-    <input type="text" id="freespace" name="freespace" value="<?php echo htmlspecialchars($post["text"]); ?>">
+
+    
+    $c_image = 0;
+    $c_sentence = 0;
+    for($i = 0; $i < $spot_n; $i++) {
+      echo '<div class="input">';
+      echo '[spot'.($i+1).']<br>';
+      if(isset($post["images"][$c_image]) && $post["images"][$c_image]["image_order"] == $i) {
+        echo '<img width=350px src="'.$post["images"][$c_image]["path"].'">';
+        if($c_image < count($post["images"])-1){
+          $c_image++;
+        }
+      }
+      if(isset($post["sentences"][$c_sentence]) && $post["sentences"][$c_sentence]["sentence_order"] == $i) {
+        echo $post["sentences"][$c_sentence]["sentence"];
+        if($c_sentence < count($post["sentences"])-1){
+          $c_sentence++;
+        }
+      }
+      echo '</div>';
+    }
+
+    ?>
+
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_post"])) {
             $title = $_POST["title"];
@@ -79,58 +141,34 @@ if (isset($_GET["post"])) {
     ?>
 
 
-
-    <?php
-            /*echo'<div class="center">';
-            echo'<h1>post</h1>';*/
-            echo'<form action="post(b).php" method="post" enctype="multipart/form-data">';
-
-            /*echo ' <br>';
-            echo '<div class="maru"> ';
-            echo $post["date"]."<br>";
-
-            echo ' <br>';
-            echo 'title <br>';
-            echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["title"]) . '"><br>';
-
-            
-            echo ' <br>';
-            echo'<div class="center">
-            <select name="region">
-                    <option value=1>北海道</option>
-                    <option value=2>東北</option>
-                    <option value=3>関東</option>
-                    <option value=4>中部</option>
-                    <option value=5>近畿</option>
-                    <option value=6>中国</option>
-                    <option value=7>四国</option>
-                    <option value=8>九州</option>
-                    <option value=9>海外</option>
-                 </select><br>
-                 </div>';
+    <br>
+    <form action="hometown_delete.php" method="post">
 
 
-            echo ' <br>';
-            echo 'place <br>';
-            echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["place"]) . '"><br>';
+</form>
+    <form id="keep_post" action="hometown_keep_post(b).php" method="post">
+    <input type="hidden" name="user_id" value="2">
+    <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
 
-            echo ' <br>';
-            echo 'youtube <br>';
-            echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["link_path"]) . '"><br>';
+      <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
+      <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
 
-            echo ' <br>';
-            echo 'freespace <br>';
-            echo '<input class="maru" type="text" name="title" maxlength="30" value="' . htmlspecialchars($post["text"]) . '"><br>';*/
-    ?>
-    </div>
-    <div style="width: 100%; background-color: #bbb;text-align: center; margin-top: 10%;">
-        <button type="button" class="more" id="more">+</button>
-    </div>
-        <div class="center">
-        <input type="submit" name="update_post" value="更新">
-        <input type="submit" name="update_post['title'.'region''place''link''text'] value='おおお'">
-        <!--<a href='../AnotherSky/k.php'><input type='submit'name='action' value='更新'style='color: white;color:black;'></a>-->
-       <!--<button type="submit">更新を確定</button>-->
-    </div>
+    </form>
+
+    <input type="submit" name="update_post" value="更新">
+
+
+
+        <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
+    <script>
+        $(document).ready(function () {
+            $('#addSpot').click(function () {
+                $('.spot-container:hidden:first').show();
+            });
+        });
+    </script>
+    
+
+

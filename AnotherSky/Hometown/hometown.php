@@ -61,8 +61,7 @@
     <button type="button" class="more" id="more">read more...</button>
   </div>
     <div class="input">
-    <a onclick="location.href='hometown_post_tokpo.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
-    <?php  require_once '../!Mng/footer.php' ?>
+    <?php  require_once '../!Mng/footer_hometown.php' ?>
     </div>
   </body>
 
