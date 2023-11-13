@@ -104,8 +104,7 @@
 
     </form>
 
-
-        <?php  require_once '../!Mng/footer.php' ?>
+    <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
   <script>

@@ -326,6 +326,39 @@
             }
 
         }
+
+        // Ajax_loadmore_test.php
+        function get_posts($current, $n){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM posts
+                    WHERE BETWEEN post_id = ?+1 AND post_id = ?+?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$current,PDO::PARAM_INT);
+            $ps->bindValue(2,$current,PDO::PARAM_INT);
+            $ps->bindValue(3,$n,PDO::PARAM_INT);
+            $ps->execute();
+            $all_post = $ps->fetchAll();
+            
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE image_order = 0";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $first_image = $ps->fetchAll();
+
+            $i = 0;
+            $j = 0;
+            foreach($all_post as $post) {
+                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
+                    $all_post[$j]["first_image"] = $first_image[$i]["path"];
+                    $i++;
+                }
+                $j++;
+            }
+
+            return $all_post;
+        }
         
     }
 

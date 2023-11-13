@@ -6,15 +6,15 @@
     $posts = array_reverse($get->get_my_posts(1));
 
     foreach($posts as $post){
-        echo '<div class="box" style="display: none">----------------------------------------------------------------------------------------------------<br>';
-        echo '<a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>　　　';
-        echo $post["date"].'<br>';
-        if(isset($post["first_image"])){
-            echo '<img width=560 src="'.$post["first_image"].'"><br>';
-        }
-        echo '<div style="width:560px">'.$post["text"].'</div>';
-        echo '----------------------------------------------------------------------------------------------------</div>';
-    }
+      echo '<div class="box" style="display: none" onclick="location.href='."'hometown_detail.php?post=".$post["post_id"]."'".'">----------------------------------------------------------------------------------------------------<br>';
+      echo '<a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>　　　';
+      echo $post["date"].'<br>';
+      if(isset($post["first_image"])){
+          echo '<img width=300 src="'.$post["first_image"].'"><br>';
+      }
+      echo '<div style="width:300px">'.$post["text"].'</div>';
+      echo '----------------------------------------------------------------------------------------------------</div>';
+  }
 ?>
     <button type="button" id="more" style="margin: 50px 0">more view...</button>
     <button type="button" onclick="location.href='post.php'" style="width: 100%; height:50px; margin-bottom: 50px">
