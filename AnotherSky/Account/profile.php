@@ -103,7 +103,7 @@
   </div>
 
   <div class="button-container">
-    <button class="button" onclick="addText('bottom-left')">お気に入り</button>
+    <a href="../Category/ine.php" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
     <button class="button" onclick="addText('bottom-right')">投稿履歴</button>
   </div>
 
