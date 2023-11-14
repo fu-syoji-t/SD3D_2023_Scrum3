@@ -28,7 +28,6 @@
   </head>
   <body>
 
-    <?php  require_once '../!Mng/header.php' ?>
     <?php
     require_once "../!Mng/DBManager.php";
     $get = new DBManager();
