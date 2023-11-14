@@ -2,8 +2,24 @@
     require_once "../!Mng/DBManager.php";
 
     $get = new DBManager();
+
+    require_once "tmp_test.php";
+    $template = new Template();
+    $template->header();
     
-    $posts = array_reverse($get->get_all_posts());
+    switch($_GET["branch"]) {
+      case "all":
+        $posts = array_reverse($get->get_all_posts());
+        break;
+      case "favorite":
+        $posts = array_reverse($get->get_myfavorite_posts(3));
+        break;
+      case "history":
+        $posts = array_reverse($get->get_my_posts(1));
+        break;
+      default:
+        $posts = [];
+    }
 
     foreach($posts as $post){
       echo '<div class="box" style="display: none" onclick="location.href='."'hometown_detail.php?post=".$post["post_id"]."'".'">----------------------------------------------------------------------------------------------------<br>';

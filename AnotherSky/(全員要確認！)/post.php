@@ -5,6 +5,10 @@
     $regions = $get->get_regions();
 
     $spot_limit = $get->spot_limit;
+
+    require_once "tmp_test.php";
+    $template = new Template();
+    $template->header();
 ?>
 
 <h1>post</h1>

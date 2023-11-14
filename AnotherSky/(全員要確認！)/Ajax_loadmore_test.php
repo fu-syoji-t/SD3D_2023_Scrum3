@@ -21,7 +21,7 @@
     function getPostData() {
       const postId = document.getElementById('postId').value;
 
-      fetch(`http://localhost:3000/getPostData?post_id=${postId}`)
+      fetch(`http://localhost:3080/getPostData?post_id=${postId}`)
         .then(response => response.json())
         .then(data => {
           displayResult(data);

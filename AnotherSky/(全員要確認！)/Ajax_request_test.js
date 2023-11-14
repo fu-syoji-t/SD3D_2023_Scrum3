@@ -2,14 +2,14 @@ const express = require('express');
 const mysql = require('mysql');
 
 const app = express();
-const port = 3000;
+const port = 3080;
 
 // MySQL接続情報
 const connection = mysql.createConnection({
-  host: 'your_mysql_host',
-  user: 'your_mysql_user',
-  password: 'your_mysql_password',
-  database: 'your_database_name',
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'another_sky',
 });
 
 // MySQL接続

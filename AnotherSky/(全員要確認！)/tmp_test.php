@@ -30,12 +30,14 @@
 
         function header() {
             echo 
-                '<body>
+                '
                     <header>
-                        <button onclick="location.href='."'home.php'".'">home</button>
-                        <button onclick="location.href='."'hometown.php'".'">hometown</button>
-                        <button onclick="location.href='."'another.php'".'">another</button>
-                        <button onclick="location.href='."'category.php'".'">category</button>
+                        <button onclick="location.href='."'#'".'">menu</button>
+                        <button onclick="location.href='."'hometown.php?branch=all'".'">hometown</button>
+                        <button onclick="location.href='."'#'".'">commit</button>
+                        <button onclick="location.href='."'regioin.php'".'">category</button>
+                        <button onclick="location.href='."'profile.php'".'">account</button>
+                        <button onclick="location.href='."'#'".'">login</button>
                     </header>';
         }
 
