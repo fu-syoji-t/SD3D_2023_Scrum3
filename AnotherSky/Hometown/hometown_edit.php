@@ -39,10 +39,10 @@
           ?>
     <br>
     <label for="title">title</label><br>
-    <input type="text" id="title" name="title" style= background-color:#fff; value="<?php echo htmlspecialchars($post["title"]); ?>"><br>
+    <input type="text" id="title" name="title" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" value="<?php echo htmlspecialchars($post["title"]); ?>"><br>
 
     <label for="place">place</label><br>
-    <input type="text" id="place" name="place" style= background-color:#fff; value="<?php echo htmlspecialchars($post["place"]); ?>"><br>
+    <input type="text" id="place" name="place" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" value="<?php echo htmlspecialchars($post["place"]); ?>"><br>
 
     <label for="region">region</label><br>
     <select name="region" required>
@@ -57,10 +57,10 @@
     </select><br>
 
     <label for="youtube">youtube link</label><br>
-    <input type="text" id="youtube" name="youtube" style= background-color:#fff; value="<?php echo htmlspecialchars($post["link_path"]); ?>"><br>
+    <input type="text" id="youtube" name="youtube" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" value="<?php echo htmlspecialchars($post["link_path"]); ?>"><br>
 
     <label for="freespace">free space</label><br>
-    <input type="text" id="freespace" name="freespace" style= background-color:#fff; value="<?php echo htmlspecialchars($post["text"]); ?>"><br><br>
+    <input type="text" id="freespace" name="freespace" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;" value="<?php echo htmlspecialchars($post["text"]); ?>"><br><br>
 
     <button type="button" id="addSpot">+</button><br>
     <br>
@@ -71,7 +71,7 @@
         ------------------------------------------------------------<br>
         画像を選択 <br>
         <input type="file" name="post_image'.$i.'" accept="image/*"><br>
-        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style= background-color:#fff;></textarea><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br>
         </div>';
         }
     ?>
