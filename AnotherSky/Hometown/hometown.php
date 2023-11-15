@@ -59,6 +59,9 @@
   <div style="width: 100%; background-color: #bbb">
     <button type="button" class="more" id="more">read more...</button>
   </div>
+  <div class="input">
+    <a onclick="location.href='../Hometown/hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
+    </div>
     <div class="input">
     <?php  require_once '../!Mng/footer_hometown.php' ?>
     </div>
