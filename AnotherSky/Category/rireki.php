@@ -21,7 +21,7 @@
           .box {
             background-color: #FFF;
             box-shadow: 0 5px 5px #999;
-            height: 210px;
+            height: 250px;
             margin: 30px auto;
             overflow: hidden;
             padding : 15px;
@@ -58,6 +58,22 @@
             color: #444;
             font-size: 14px;
           }
+
+        .delete-button {
+        background-color: #fff; /* ボタンの背景色 */
+        color: #000; /* ボタンのテキスト色 */
+        padding: 4px 8px; /* ボタンの内側の余白 */
+        border-radius: 4px; /* 角丸 */
+        margin-left: 310px;
+        margin-top: 10px;
+        cursor: pointer; /* ポインターを変更 */
+        position: relative; /* 相対位置指定 */
+    }
+        .delete-button:hover {
+        background-color: #DDDDDD; /* ホバー時の背景色 */
+        margin-right: 10px;
+    }
+
     </style>
     </html>
     <?php  require_once '../!Mng/header.php' ?>
@@ -82,17 +98,20 @@
                   <a href="../Hometown/hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
                   <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
                 </h2>';
-                // 削除ボタンを追加
-                echo '<form action="delete_post.php" method="post">
-                    <input type="hidden" name="post_id" value="'.$post["post_id"].'">
-                    <input type="submit" value="削除">
-                </form>';
             if(isset($post["first_image"])){
                 echo 
                 '<p class="box_img">
                     <img src="'.$post["first_image"].'" alt="Thumbnail" width="150" height="150">
                 </p>';
             }
+
+                // 削除ボタンを追加
+            echo '<form action="delete_post.php" method="post">
+                        <input type="hidden" name="post_id" value="'.$post["post_id"].'">
+                    <div class="delete-button">
+                        <input type="submit"value="削除">
+                    </div>
+                </form>';
             echo 
             '<div class="box_sentence">
                 <p>
@@ -103,4 +122,6 @@
             </div>';
         }
     ?>
+    <body>
+    </body>
     <?php  require_once '../!Mng/footer.php' ?>
