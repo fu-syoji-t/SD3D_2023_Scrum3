@@ -28,15 +28,13 @@
   </head>
   <body>
 
-    <?php require_once '../!Mng/footer.php' ?>
     <?php
 require_once "../!Mng/DBManager.php";
 $get = new DBManager();
-
-$posts = $get->get_all_posts();
+$posts = array_reverse($get->get_all_posts());
 
 foreach ($posts as $post) {
-    // 記事が「海外」カテゴリーに属しているか確認
+    // 記事が「」カテゴリーに属しているか確認
     if ($post["region_id"] == "5") {
         echo '<div class="box">
         <h2>

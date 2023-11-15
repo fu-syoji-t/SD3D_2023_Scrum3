@@ -72,7 +72,7 @@ $get = new DBManager();
 $keep_id = 2;
 
 // keep_idに関連するデータを取得
-$posts = $get->get_posts_by_keep_id($keep_id);
+$posts = array_reverse($get->get_posts_by_keep_id($keep_id));
 foreach ($posts as $post) {
     echo '<div class="box">
         <h2>
