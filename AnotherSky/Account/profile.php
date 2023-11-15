@@ -107,7 +107,7 @@
 
   <div class="button-container">
     <a href="../Category/ine.php" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
-    <button class="button" onclick="addText('bottom-right')">投稿履歴</button>
+    <a href="../Category/rireki.php" type="button" class="button" onclick="addText('bottom-left')">投稿履歴</a>
   </div>
 
   <script>

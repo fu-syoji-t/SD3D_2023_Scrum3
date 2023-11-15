@@ -357,6 +357,37 @@
         
             return $posts;
         }
+            //post/user
+            function get_posts_by_user_id($user_id) {
+                $pdo = $this->dbConnect();
+                $sql = "SELECT p.*
+                        FROM keep_posts kp
+                        INNER JOIN posts p ON kp.post_id = p.post_id
+                        WHERE kp.user_id = ?";
+                $ps = $pdo->prepare($sql);
+                $ps->bindValue(1, $user_id, PDO::PARAM_INT);
+                $ps->execute();
+                $posts = $ps->fetchAll();
+            
+                $sql = "SELECT *
+                        FROM post_images
+                        WHERE image_order = 0";
+                $ps = $pdo->query($sql);
+                $ps->execute();
+                $first_images = $ps->fetchAll();
+            
+                $i = 0;
+                $j = 0;
+                foreach ($posts as $post) {
+                    if (isset($first_images[$i]) && $post["post_id"] == $first_images[$i]["post_id"]) {
+                        $posts[$j]["first_image"] = $first_images[$i]["path"];
+                        $i++;
+                    }
+                    $j++;
+                }
+            
+                return $posts;
+            }
         
 
         // Ajax_loadmore_test.php
