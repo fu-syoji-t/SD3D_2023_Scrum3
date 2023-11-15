@@ -89,6 +89,9 @@
     }
   </style>
 </head>
+  <?php
+    require_once "../!Mng/header.php";
+  ?>
 <body>
   <div class="profile-title">Profile</div>
   <div class="square">
