@@ -82,7 +82,7 @@
         $get = new DBManager();
 
         // ここで適切な user_id を設定してください
-        $user_id = 2;
+        $user_id = 1;
 
         // 全ての記事を取得
         $all_posts = array_reverse($get->get_all_posts());
