@@ -17,6 +17,9 @@
       case "history":
         $posts = array_reverse($get->get_my_posts(1));
         break;
+      case "region":
+        $posts = array_reverse($get->get_region_posts($_GET["region"]));
+        break;
       default:
         $posts = [];
     }

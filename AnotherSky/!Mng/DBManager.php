@@ -358,17 +358,13 @@
             return $posts;
         }
         
-
-        // Ajax_loadmore_test.php
-        function get_posts($current, $n){
+        function get_region_posts($region_id){
             $pdo = $this->dbConnect();
             $sql = "SELECT *
                     FROM posts
-                    WHERE BETWEEN post_id = ?+1 AND post_id = ?+?";
+                    WHERE region_id = ?";
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$current,PDO::PARAM_INT);
-            $ps->bindValue(2,$current,PDO::PARAM_INT);
-            $ps->bindValue(3,$n,PDO::PARAM_INT);
+            $ps->bindValue(1, $region_id, PDO::PARAM_INT);
             $ps->execute();
             $all_post = $ps->fetchAll();
             
@@ -391,6 +387,7 @@
 
             return $all_post;
         }
+        
         
     }
 

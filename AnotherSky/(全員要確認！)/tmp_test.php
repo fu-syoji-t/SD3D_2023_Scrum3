@@ -35,7 +35,7 @@
                         <button onclick="location.href='."'#'".'">menu</button>
                         <button onclick="location.href='."'hometown.php?branch=all'".'">hometown</button>
                         <button onclick="location.href='."'#'".'">commit</button>
-                        <button onclick="location.href='."'regioin.php'".'">category</button>
+                        <button onclick="location.href='."'region.php'".'">category</button>
                         <button onclick="location.href='."'profile.php'".'">account</button>
                         <button onclick="location.href='."'#'".'">login</button>
                     </header>';

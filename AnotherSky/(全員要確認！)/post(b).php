@@ -26,5 +26,5 @@
         }
     }
 
-    header('Location:hometown.php');
+    header('Location:hometown.php?branch=all');
 ?>
