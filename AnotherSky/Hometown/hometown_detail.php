@@ -102,7 +102,7 @@
     <br>
     <a href="hometown_edit.php?post=<?php echo $post_id; ?>">編集</a>
     <form id="keep_post" action="hometown_keep_post(b).php" method="post">
-    <input type="hidden" name="user_id" value="2">
+    <input type="hidden" name="user_id" value="1">
     <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
 
       <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->

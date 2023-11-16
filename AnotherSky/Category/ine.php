@@ -69,7 +69,7 @@ require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
 // 仮のkeep_idを指定
-$keep_id = 2;
+$keep_id = 1;
 
 // keep_idに関連するデータを取得
 $posts = array_reverse($get->get_posts_by_keep_id($keep_id));
