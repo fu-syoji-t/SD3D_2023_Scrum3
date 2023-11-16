@@ -123,6 +123,56 @@
     
             return $success;
         }
+        public function delete_post_ignore_constraints($post_id) {
+            try {
+                $this->connect(); // データベースへの接続
+        
+                // 強制的に削除するために外部キー制約を無視する
+                $sql = "SET foreign_key_checks = 0";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute();
+        
+                // 投稿を削除
+                $sql = "DELETE FROM posts WHERE post_id = :post_id";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+                $stmt->execute();
+        
+                // 外部キー制約を元に戻す
+                $sql = "SET foreign_key_checks = 1";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute();
+        
+                return true; // 削除成功
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+                return false; // 削除失敗
+            }
+        }
+        //$pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
+
+        private $db_host = 'localhost';
+        private $db_name = 'another_sky';
+        private $db_user = 'root';
+        private $db_pass = 'root';
+
+        private $conn;
+
+        public function __construct()
+        {
+            $this->connect();
+        }
+
+        private function connect()
+        {
+            try {
+                $this->conn = new PDO("mysql:host={$this->db_host};dbname={$this->db_name}", $this->db_user, $this->db_pass);
+                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+            } catch (PDOException $e) {
+                echo "Connection failed: " . $e->getMessage();
+            }
+        }
 
         function updatePost($post_id, $title, $region, $place, $link_path, $text) {
             $pdo = $this->dbConnect();
@@ -357,6 +407,37 @@
         
             return $posts;
         }
+            //post/user
+            function get_posts_by_user_id($user_id) {
+                $pdo = $this->dbConnect();
+                $sql = "SELECT p.*
+                        FROM keep_posts kp
+                        INNER JOIN posts p ON kp.post_id = p.post_id
+                        WHERE kp.user_id = ?";
+                $ps = $pdo->prepare($sql);
+                $ps->bindValue(1, $user_id, PDO::PARAM_INT);
+                $ps->execute();
+                $posts = $ps->fetchAll();
+            
+                $sql = "SELECT *
+                        FROM post_images
+                        WHERE image_order = 0";
+                $ps = $pdo->query($sql);
+                $ps->execute();
+                $first_images = $ps->fetchAll();
+            
+                $i = 0;
+                $j = 0;
+                foreach ($posts as $post) {
+                    if (isset($first_images[$i]) && $post["post_id"] == $first_images[$i]["post_id"]) {
+                        $posts[$j]["first_image"] = $first_images[$i]["path"];
+                        $i++;
+                    }
+                    $j++;
+                }
+            
+                return $posts;
+            }
         
         function get_region_posts($region_id){
             $pdo = $this->dbConnect();

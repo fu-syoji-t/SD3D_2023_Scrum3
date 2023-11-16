@@ -20,7 +20,7 @@
     $spot_limit = $get->spot_limit;
 ?>
 
-<h1>post</h1>
+<br>
 <div class="macro">
 <form action="hometown_post(b).php" method="post" enctype="multipart/form-data">
     title <br>

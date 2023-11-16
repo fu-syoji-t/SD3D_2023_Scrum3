@@ -61,7 +61,6 @@ body {
   </style>
 <?php  require_once '../!Mng/header.php' ?>
 <body>
-<span style="font-size: 36px;">お気に入り</span>
   
 </body>
 </html>
@@ -70,11 +69,10 @@ require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
 // 仮のkeep_idを指定
-$keep_id = 2;
+$keep_id = 1;
 
 // keep_idに関連するデータを取得
-$posts = $get->get_posts_by_keep_id($keep_id);
-
+$posts = array_reverse($get->get_posts_by_keep_id($keep_id));
 foreach ($posts as $post) {
     echo '<div class="box">
         <h2>

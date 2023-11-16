@@ -89,6 +89,9 @@
     }
   </style>
 </head>
+  <?php
+    require_once "../!Mng/header.php";
+  ?>
 <body>
   <div class="profile-title">Profile</div>
   <div class="square">
@@ -103,8 +106,8 @@
   </div>
 
   <div class="button-container">
-    <button class="button" onclick="addText('bottom-left')">お気に入り</button>
-    <button class="button" onclick="addText('bottom-right')">投稿履歴</button>
+    <a href="../Category/ine.php" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
+    <a href="../Category/rireki.php" type="button" class="button" onclick="addText('bottom-left')">投稿履歴</a>
   </div>
 
   <script>

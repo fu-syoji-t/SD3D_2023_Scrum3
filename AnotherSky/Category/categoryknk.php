@@ -28,19 +28,17 @@
   </head>
   <body>
 
-    <?php require_once '../!Mng/footer.php' ?>
     <?php
 require_once "../!Mng/DBManager.php";
 $get = new DBManager();
-
-$posts = $get->get_all_posts();
+$posts = array_reverse($get->get_all_posts());
 
 foreach ($posts as $post) {
-    // 記事が「海外」カテゴリーに属しているか確認
+    // 記事が「」カテゴリーに属しているか確認
     if ($post["region_id"] == "5") {
         echo '<div class="box">
         <h2>
-          <a href="hometown_detail.php?post=' . $post["post_id"] . '">' . $post["place"] . '</a>
+          <a href="../Hometown/hometown_detail.php?post=' . $post["post_id"] . '">' . $post["place"] . '</a>
           <span class="date">(' . date('Y.m.d', strtotime($post["date"])) . ')</span>
         </h2>';
         if (isset($post["first_image"])) {
@@ -53,7 +51,7 @@ foreach ($posts as $post) {
             '<div class="box_sentence">
           <p>
             ' . $post["text"] . '…
-            <a href="hometown_detail.php?post=' . $post["post_id"] . '">続きを読む</a>
+            <a href="../Hometown/hometown_detail.php?post=' . $post["post_id"] . '">続きを読む</a>
           </p>
         </div>
       </div>';
