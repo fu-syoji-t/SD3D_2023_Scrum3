@@ -6,6 +6,11 @@
   <title>丸みを帯びた四角内に四行</title>
   <style>
     body {
+      background-color: #ccc;
+      margin: 0;
+    }
+
+    .a {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -18,7 +23,6 @@
       position: absolute;
       top: 50px;
       left: 50%;
-      font-family: 'Brush Script MT', cursive;
       font-size: 32px;
       color: #000;
       transform: translateX(-50%);
@@ -71,7 +75,7 @@
 
     .button-container {
       position: absolute;
-      bottom: 100px;
+      bottom: 60px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -93,6 +97,7 @@
     require_once "../!Mng/header.php";
   ?>
 <body>
+<div class="a">
   <div class="profile-title">Profile</div>
   <div class="square">
     <div>name</div>
@@ -104,11 +109,16 @@
       <div contenteditable="true" class="editable-text"></div>
     </div>
   </div>
+</div>
 
   <div class="button-container">
     <a href="../Category/ine.php" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
     <a href="../Category/rireki.php" type="button" class="button" onclick="addText('bottom-left')">投稿履歴</a>
   </div>
+  <?php
+      require_once "../!Mng/DBManager.php";
+      $get = new DBManager();
+  ?>
 
   <script>
     function addText(position) {

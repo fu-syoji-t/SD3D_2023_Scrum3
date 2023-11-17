@@ -73,15 +73,12 @@
         margin-left: 310px;
         margin-top: 10px;
         cursor: pointer;
-        /* ポインターを変更 */
-        position: relative;
-        /* 相対位置指定 */
     }
 
     .delete-button:hover {
         background-color: #DDDDDD;
         /* ホバー時の背景色 */
-        margin-right: 10px;
+        margin-right: -10px;
     }
 </style>
 </html>
@@ -119,7 +116,9 @@ foreach ($posts as $post) {
     // 削除ボタンを追加
     echo '<form action="rireki_delete.php" method="post" onsubmit="return confirmDelete()">
             <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
-            <input type="submit" value="投稿を削除">
+            <div class="delete-button">
+            <input type="submit" value="投稿を削除" >
+            </div>
           </form>';
 
     echo
