@@ -27,7 +27,7 @@
         margin: 30px auto;
         overflow: hidden;
         padding: 15px;
-        width: 400px;
+        width: 450px;
     }
 
     .box a:link,
@@ -66,7 +66,7 @@
         /* ボタンの背景色 */
         color: #000;
         /* ボタンのテキスト色 */
-        padding: 4px 8px;
+        padding: 1px 1px;
         /* ボタンの内側の余白 */
         border-radius: 4px;
         /* 角丸 */
@@ -78,7 +78,7 @@
     .delete-button:hover {
         background-color: #DDDDDD;
         /* ホバー時の背景色 */
-        margin-right: -10px;
+        margin-right: 25px;
     }
 </style>
 </html>
