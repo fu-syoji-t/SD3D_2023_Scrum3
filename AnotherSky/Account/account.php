@@ -57,20 +57,20 @@
     <?php  require_once '../!Mng/header.php' ?>
     <div class="form">
         <div class="form_title">
-            <h1>SIGN-IN</h1>
+            <h1>SIGN-UP</h1>
         </div>
         <div class="form_area">
-            <form action="../Top/menu.php" method="POST" name="userins" onsubmit="return check();">
+            <form action="toroku.php" method="POST" name="userins" onsubmit="return check();">
+                <label class="label_left" for="name">名前:</label>
+                <input type="text" id="name" name="name" placeholder="name" required><br><br>
                 
                 <label class="label_left" for="mail">メールアドレス:</label>
                 <input type="email" id="mail" name="mail" placeholder="e-mail" required><br><br>
                 
                 <label class="label_left" for="password">パスワード:</label>
                 <input type="password" id="password" name="pass" placeholder="pass" required><br><br> <!-- パスワードのname属性を修正 -->
-
-                <a href ="account.php">SIGN-UP</a> 
                 
-                <input type="submit" name="register" value="ログイン" class="btn">
+                <input type="submit" name="register" value="登録" class="btn">
             </form>
         </div>
     </div>
