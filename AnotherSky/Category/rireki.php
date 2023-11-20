@@ -118,6 +118,7 @@ foreach ($posts as $post) {
             <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
             <div class="delete-button">
             <input type="submit" value="投稿を削除" >
+            <a href="../Hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
             </div>
           </form>';
 

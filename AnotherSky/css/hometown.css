@@ -61,4 +61,6 @@ body {
   .input{
     text-align: center;
     background-color: #999;
+    margin-right: 350px;
+    margin-left: 350px;
   }
