@@ -56,7 +56,7 @@
       </div>';
     }
 ?>
-  <div class="read_more" style="width: 412px;background-color: #bbb">
+  <div class="read_more">
     <button type="button" class="more" id="more">read more...</button>
   </div>
   </div>
