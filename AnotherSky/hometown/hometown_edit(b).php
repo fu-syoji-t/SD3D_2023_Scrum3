@@ -10,9 +10,10 @@
         $place = $_POST["place"];
         $youtube = $_POST["youtube"];
         $freespace = $_POST["freespace"];
+        
 
-        //消すかも
-        // $post = $update->get_post_for_edit($post_id);
+
+
         // 投稿を更新
         $success = $update->updatePost($post_id, $title, $region, $place, $youtube, $freespace);
         

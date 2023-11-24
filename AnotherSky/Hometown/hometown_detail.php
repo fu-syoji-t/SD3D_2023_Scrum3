@@ -94,6 +94,22 @@
       }
       echo '</div>';
     }
+// //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// // お気に入りの状態を取得
+
+// $resultFavorite = $get->$pdo->query("SELECT * FROM keep_posts WHERE post_id = $post_id AND user_id = 2");
+// $resultFavorite->execute();
+
+// // お気に入りの状態に応じて表示を変更
+// if ($resultFavorite->num_rows > 0) {
+//     // お気に入りに保存されている場合
+//     echo 'label.textContent="❤️"';
+// } else {
+//     // お気に入りに保存されていない場合
+//     echo 'label.textContent="♡"';
+// }
+
+
 
     ?>
 

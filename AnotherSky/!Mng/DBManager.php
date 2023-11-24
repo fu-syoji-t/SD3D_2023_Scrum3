@@ -522,8 +522,16 @@
 
             return $all_post;
         }
-        
-        
+
+    //     function favorite_post($post_id, $user_id){
+    //         $pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
+    //         $pdo = $this->dbConnect();
+    //         $sql = "SELECT * FROM keep_posts WHERE post_id = $post_id AND user_id = 2";
+    //         $ps = $pdo->prepare($sql);
+    //         $ps->execute();
+    //         $resultFavorite = $ps->fetchAll();
+    //         return $resultFavorite;
+    //     }
     }
 
 ?>
