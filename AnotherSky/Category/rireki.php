@@ -4,63 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/hometown.css"> 
     <title>Document</title>
 </head>
 
 <style>
-    body {
-        background-color: #DDDDDD;
-    }
-
-    h1 {
-        background-color: gray;
-        font-size: 23px;
-        font-family: "Arial Black";
-        letter-spacing: 2px;
-        text-align: center;
-    }
-
-    .box {
-        background-color: #FFF;
-        box-shadow: 0 5px 5px #999;
-        height: 250px;
-        margin: 30px auto;
-        overflow: hidden;
-        padding: 15px;
-        width: 450px;
-    }
-
-    .box a:link,
-    .box a:visited {
-        color: #00C;
-    }
-
-    .box a:hover {
-        color: #33F;
-    }
-
-    .box>h2 {
-        font-size: 16px;
-        margin: 0;
-    }
-
-    .box>h2>.date {
-        color: #666;
-        font-size: 13px;
-        font-weight: normal;
-    }
-
-    .box>.box_img {
-        float: left;
-        margin-right: 10px;
-        width: 150px;
-    }
-
-    .box>.box_sentence>p {
-        color: #444;
-        font-size: 14px;
-    }
-
     .delete-button {
         background-color: #fff;
         /* ボタンの背景色 */
@@ -70,15 +18,15 @@
         /* ボタンの内側の余白 */
         border-radius: 4px;
         /* 角丸 */
-        margin-left: 310px;
+        margin-left: 680px;
         margin-top: 10px;
         cursor: pointer;
     }
 
     .delete-button:hover {
-        background-color: #DDDDDD;
-        /* ホバー時の背景色 */
-        margin-right: 25px;
+       /* background-color: #DDDDDD;
+        // ホバー時の背景色
+        margin-right: 25px;*/
     }
 </style>
 </html>
@@ -117,6 +65,7 @@ foreach ($posts as $post) {
     echo '<form action="rireki_delete.php" method="post" onsubmit="return confirmDelete()">
             <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
             <div class="delete-button">
+            <a href="../Hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
             <input type="submit" value="投稿を削除" >
             </div>
           </form>';

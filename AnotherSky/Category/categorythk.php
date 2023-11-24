@@ -60,7 +60,7 @@ foreach ($posts as $post) {
 }
 ?>
 
-  <div style="width: 100%; background-color: #bbb">
+<div class="read_more2">
     <button type="button" class="more" id="more">read more...</button>
   </div>
     <?php  require_once '../!Mng/footer.php' ?>

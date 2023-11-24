@@ -10,8 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // DBManagerクラスのインスタンスを作成
     $dbManager = new DBManager();
 
-    // 投稿を削除（外部キー制約を無視）
-    $success = $dbManager->delete_post_ignore_constraints($post_id);
+    // 投稿と画像を削除（外部キー制約を無視）
+    $success = $dbManager->delete_post_and_images_ignore_constraints($post_id);
 
     if ($success) {
         // リダイレクトするページの実際の URL に置き換えてください

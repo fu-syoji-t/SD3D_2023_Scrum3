@@ -123,7 +123,48 @@
     
             return $success;
         }
-        public function delete_post_ignore_constraints($post_id) {
+               //投稿削除（画像削除も）
+               public function delete_post_and_images_ignore_constraints($post_id) {
+                try {
+                    $this->connect(); // データベースへの接続
+            
+                    // 強制的に削除するために外部キー制約を無視する
+                    $sql = "SET foreign_key_checks = 0";
+                    $stmt = $this->conn->prepare($sql);
+                    $stmt->execute();
+            
+                    // 画像を削除
+                    $this->delete_post_images($post_id);
+            
+                    // 投稿を削除
+                    $sql = "DELETE FROM posts WHERE post_id = :post_id";
+                    $stmt = $this->conn->prepare($sql);
+                    $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+                    $stmt->execute();
+            
+                    // 外部キー制約を元に戻す
+                    $sql = "SET foreign_key_checks = 1";
+                    $stmt = $this->conn->prepare($sql);
+                    $stmt->execute();
+            
+                    return true; // 削除成功
+                } catch (PDOException $e) {
+                    echo "Error: " . $e->getMessage();
+                    return false; // 削除失敗
+                }
+            }
+            
+            private function delete_post_images($post_id) {
+                try {
+                    $sql = "DELETE FROM post_images WHERE post_id = :post_id";
+                    $stmt = $this->conn->prepare($sql);
+                    $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+                    $stmt->execute();
+                } catch (PDOException $e) {
+                    echo "Error deleting images: " . $e->getMessage();
+                }
+            }
+        /*public function delete_post_ignore_constraints($post_id) {
             try {
                 $this->connect(); // データベースへの接続
         
@@ -149,6 +190,16 @@
                 return false; // 削除失敗
             }
         }
+        private function delete_post_images($post_id) {
+            try {
+                $sql = "DELETE FROM post_images WHERE post_id = :post_id";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
+                $stmt->execute();
+            } catch (PDOException $e) {
+                echo "Error deleting images: " . $e->getMessage();
+            }
+        }*/
         //$pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
 
         private $db_host = 'localhost';
@@ -440,7 +491,8 @@
             
                 return $posts;
             }
-        
+            
+            
         function get_region_posts($region_id){
             $pdo = $this->dbConnect();
             $sql = "SELECT *

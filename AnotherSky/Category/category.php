@@ -20,7 +20,7 @@
     <div style="text-align: center;"></div>
         <div style="text-align: center;">
         <br>
-            <span style="font-size: 36px; font-family: serif;">category</span>
+            <span style="font-size: 36px; font-family: serif;">REGION</span>
             <br>
             <br />
             <div style="display: flex; flex-wrap: wrap; justify-content: center;">
