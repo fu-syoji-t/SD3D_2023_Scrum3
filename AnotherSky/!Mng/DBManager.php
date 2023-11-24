@@ -188,9 +188,11 @@
             $ps->bindParam(':text', $text, PDO::PARAM_STR);
             $ps->bindParam(':post_id', $post_id, PDO::PARAM_INT);
         
-            return $ps->execute();
+            $ps->execute();
+            return true;
         }
 
+        //未使用？
         function get_post_for_edit($post_id) {
             $pdo = $this->dbConnect();
             $sql = "SELECT * 

@@ -98,18 +98,14 @@
     ?>
 
     <button class="hurt" type="button" id="label" onclick="changelabel(); sendFormData()">♡</button>
-
-    <br>
     <a href="hometown_edit.php?post=<?php echo $post_id; ?>">編集</a>
+    <br>
     <form id="keep_post" action="hometown_keep_post(b).php" method="post">
     <input type="hidden" name="user_id" value="1">
-    <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
-
+    <input type="hidden" name="post_id" value="<?php echo $post_id ?>">
       <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
       <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
-
     </form>
-
     <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
