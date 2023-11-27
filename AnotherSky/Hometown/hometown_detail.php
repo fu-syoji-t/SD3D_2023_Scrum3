@@ -37,13 +37,14 @@
       echo 'title <br><br>';
       echo $post["title"]."<br><br>";
 
+      echo '';
+      echo $post["region"][0]."<br>";
+      echo '<br>';
+      
       echo ' <br>';
       echo 'place <br><br>';
       echo $post["place"]."<br><br>";
 
-      echo '';
-      echo $post["region"][0]."<br>";
-      echo '<br>';
 
       echo '';
       echo 'youtube link <br>';
