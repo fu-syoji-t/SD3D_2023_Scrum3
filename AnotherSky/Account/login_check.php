@@ -6,16 +6,18 @@ session_start();
 require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
-//ログインユーザのユーザ情報取得
-$user = $dao->get_user_info($_POST['mail'],$_POST['pass']);
+$search = $login->login($_POST["loginID"],$_POST["password"]);
 
-//ユーザ情報が正しければmenu画面へと遷移する
-foreach($user as $row){
-    $_SESSION['mail'] = $row['mail'];
-    $_SESSION['pass'] = $row['pass'];
-    $_SESSION['id'] = $row['user_id'];
-    header('Location: g_login.php');
+if(count($search)==0){
+    echo '<script> history.back(); </script>';
+}else{
+    foreach($search as $row){
+        $_SESSION['userID']=$row['user_id'];
+        header('Location:G1-3.php');
+    }
 }
+
+header('Location: ../Top/menu.php');
 if(count($user) == 0){
     header('Location: login.php?message=error');
 }
