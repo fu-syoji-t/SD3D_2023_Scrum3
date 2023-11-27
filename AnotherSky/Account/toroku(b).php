@@ -1,5 +1,5 @@
 <?php
-$pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8', 'root', '');
+$pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8', 'root', 'root');
 $sql = "SELECT * FROM users WHERE mail=? LIMIT 1"; // テーブル名を修正
 $ps = $pdo->prepare($sql);
 $ps->bindValue(1, $_POST['mail'], PDO::PARAM_STR);
@@ -9,7 +9,7 @@ if ($mailcheck > 0) {
     ?>
     <script type='text/javascript'>
         alert('既に同じメールアドレスが使用されています');
-        location.href = 'toroku.html'; // ページ名を修正
+        location.href = 'toroku(b).html'; // ページ名を修正
     </script>
 <?php
 } else {
@@ -20,6 +20,6 @@ if ($mailcheck > 0) {
     $ps->bindValue(3, $_POST['name'], PDO::PARAM_STR);
     $ps->execute();
 
-    header('Location: account.php'); // リダイレクト先を修正
+    header('Location: login.php'); // リダイレクト先を修正
 }
 ?>

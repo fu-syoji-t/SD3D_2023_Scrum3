@@ -74,7 +74,6 @@
             </form>
         </div>
     </div>
-
     <script type="text/javascript">
         function check(){
             const mailPattern = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
