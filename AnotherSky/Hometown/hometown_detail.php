@@ -94,22 +94,34 @@
       }
       echo '</div>';
     }
+// //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+// // お気に入りの状態を取得
+
+// $resultFavorite = $get->$pdo->query("SELECT * FROM keep_posts WHERE post_id = $post_id AND user_id = 2");
+// $resultFavorite->execute();
+
+// // お気に入りの状態に応じて表示を変更
+// if ($resultFavorite->num_rows > 0) {
+//     // お気に入りに保存されている場合
+//     echo 'label.textContent="❤️"';
+// } else {
+//     // お気に入りに保存されていない場合
+//     echo 'label.textContent="♡"';
+// }
+
+
 
     ?>
 
     <button class="hurt" type="button" id="label" onclick="changelabel(); sendFormData()">♡</button>
-
-    <br>
     <a href="hometown_edit.php?post=<?php echo $post_id; ?>">編集</a>
+    <br>
     <form id="keep_post" action="hometown_keep_post(b).php" method="post">
     <input type="hidden" name="user_id" value="1">
-    <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
-
+    <input type="hidden" name="post_id" value="<?php echo $post_id ?>">
       <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
       <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
-
     </form>
-
     <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
