@@ -112,8 +112,8 @@
 </div>
 
   <div class="button-container">
-    <a href="../Category/ine.php" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
-    <a href="../Category/rireki.php" type="button" class="button" onclick="addText('bottom-left')">投稿履歴</a>
+    <a href="../account/keep_post.php" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
+    <a href="../account/history.php" type="button" class="button" onclick="addText('bottom-left')">投稿履歴</a>
   </div>
   <?php
       require_once "../!Mng/DBManager.php";
