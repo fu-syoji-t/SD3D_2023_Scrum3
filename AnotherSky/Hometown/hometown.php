@@ -61,7 +61,7 @@
   </div>
   </div>
   <div class="input">
-    <a onclick="location.href='../Hometown/hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
+    <a onclick="location.href='../hometown/hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
     </div>
     <?php  require_once '../!Mng/footer_hometown.php' ?>
   </body>
