@@ -17,4 +17,4 @@
 
 <button onclick="location.href='hometown.php?branch=favorite'">お気に入りの投稿</button>
 
-<button onclick="location.href='hometown.php?branch=history'">投稿履歴</button>
+<button onclick="location.href='../hometown/hometown.php?branch=history'">投稿履歴</button>

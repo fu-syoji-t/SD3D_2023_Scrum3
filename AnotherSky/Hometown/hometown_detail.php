@@ -115,7 +115,6 @@
     ?>
 
     <button class="hurt" type="button" id="label" onclick="changelabel(); sendFormData()">♡</button>
-    <a href="hometown_edit.php?post=<?php echo $post_id; ?>">編集</a>
     <br>
     <form id="keep_post" action="hometown_keep_post(b).php" method="post">
     <input type="hidden" name="user_id" value="1">

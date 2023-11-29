@@ -9,6 +9,11 @@
         text-align: center;
         font-size: 14px;
         }
+    .image-preview-container img {
+        max-width: 100%;
+        max-height: 300px;
+    }
+
 </style>
 </html>
 <?php
@@ -50,9 +55,16 @@
         echo '<div class="spot-container" style="display: ' . ($i === 0 ? 'block' : 'none') . ';">
         ------------------------------------------------------------<br>
         画像を選択 <br>
+        <div id="imagePreview'.$i.'" class="image-preview-container"></div>
         <input type="file" name="post_image'.$i.'" accept="image/*"><br><br>
         <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br>
         </div>';
+
+        echo '<script>
+        $("input[name=\'post_image'.$i.'\']").change(function () {
+            showImagePreview(this, \'imagePreview'.$i.'\');
+        });
+        </script>';
         }
     ?>
     <br>
@@ -63,5 +75,27 @@
         $('#addSpot').click(function () {
             $('.spot-container:hidden:first').show();
         });
+    });
+
+    function showImagePreview(input, containerId) {
+        var container = document.getElementById(containerId);
+    
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var img = document.createElement("img");
+                img.src = e.target.result;
+                container.appendChild(img);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // ファイルが選択されたときに関数を呼び出す
+    $('input[type="file"]').change(function () {
+        showImagePreview(this, 'imagePreview');
     });
 </script>
