@@ -184,7 +184,7 @@
 <li><a href="hometownhome.php">Hometown</a></li>  
 <li><a href="test4.php">Commit</a></li>  
 <li><a href="category.php">Category</a></li>
-<li><a href="account.php">Account</a></li>  
+<li><a href="user.php">Account</a></li>  
 </ul>
 </div>
 </nav>
