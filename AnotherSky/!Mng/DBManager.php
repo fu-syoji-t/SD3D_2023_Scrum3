@@ -40,27 +40,50 @@
             return $pdo;
         }
 
-        function login($Email, $password) {
+        function mail_check($mail) {
             $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM users WHERE user_loginID = ?";
+            $sql = "SELECT * FROM users WHERE mail=? LIMIT 1"; // テーブル名を修正
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$Email,PDO::PARAM_STR);
+            $ps->bindValue(1, $mail, PDO::PARAM_STR);
             $ps->execute();
-            $search = $ps->fetchAll();
+            $mailcheck = $ps->fetch();
+
+            return $mailcheck;
+        }
+
+        function sign_up($mail, $pass, $name) {
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO users(mail, password, name) VALUES(?,?,?)"; // テーブル名を修正
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $mail, PDO::PARAM_STR);
+            $ps->bindValue(2, password_hash($pass, PASSWORD_DEFAULT), PDO::PARAM_STR);
+            //$ps->bindValue(2, $pass, PDO::PARAM_STR);
+            $ps->bindValue(3, $name, PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function login($mail, $pass) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM users WHERE mail = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$mail,PDO::PARAM_STR);
+            $ps->execute();
+            $search = $ps->fetch();
+            if(!empty($search)){
+                if(password_verify($pass,$search["password"]) == true){
+                    return $search;
+                }
+                /*if($pass == $search["password"]){
+                    return $search;
+                }*/
+            }
             /*if(!empty($search)){
                 foreach($search as $row){
-                    if(password_verify($password,$row["user_password"]) == true){
+                    if($password == $row["password"]){
                         return $search;
                     }
                 }
             }*/
-            if(!empty($search)){
-                foreach($search as $row){
-                    if($password == $row["user_password"]){
-                        return $search;
-                    }
-                }
-            }
             return $search=[];
         }
 

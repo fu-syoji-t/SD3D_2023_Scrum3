@@ -20,7 +20,7 @@
         }
         //セッションの情報が登録されている場合、グループログイン画面へと遷移する
         if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
-            header('Location: g_login.php');
+            header('Location: ../Top/menu.php');
         }
     ?>
 </head>
@@ -80,7 +80,7 @@
                 <input type="password" class="from-control" name="pass" placeholder="password"><br>
             </div>
             <br>
-            <a href="../Create_acount/acnt_1.php">Sign up</a>
+            <a href="account.php">Sign up</a>
             <br>
 
             <?php
@@ -124,20 +124,19 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <!--
-        <script>
-        var loginForm = document.querySelector("form");
-        loginForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            var mailInput = document.querySelector('input[name="mail"]');
-            var passInput = document.querySelector('input[name="pass"]');
-            var errorContainer = document.getElementById("error-container");
-            if (mailInput.value === "" || passInput.value === "") {
-                errorContainer.textContent = "正しいメールアドレスとパスワードを入力してください。";
-            } else {
-                loginForm.submit();
-            }
-        });
-
+<script>
+var loginForm = document.querySelector("form");
+loginForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    var mailInput = document.querySelector('input[name="mail"]');
+    var passInput = document.querySelector('input[name="pass"]');
+    var errorContainer = document.getElementById("error-container");
+    if (mailInput.value === "" || passInput.value === "") {
+        errorContainer.textContent = "正しいメールアドレスとパスワードを入力してください。";
+    } else {
+        loginForm.submit();
+    }
+});
 </script>
 !-->
 </html>

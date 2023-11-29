@@ -1,10 +1,7 @@
 <?php
-$pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8', 'root', 'root');
-$sql = "SELECT * FROM users WHERE mail=? LIMIT 1"; // テーブル名を修正
-$ps = $pdo->prepare($sql);
-$ps->bindValue(1, $_POST['mail'], PDO::PARAM_STR);
-$ps->execute();
-$mailcheck = $ps->fetch();
+require_once "../!Mng/DBManager.php";
+$create = new DBManager();
+$mailcheck = $create -> mail_check($_POST["mail"]);
 if ($mailcheck > 0) {
     ?>
     <script type='text/javascript'>
@@ -13,12 +10,7 @@ if ($mailcheck > 0) {
     </script>
 <?php
 } else {
-    $sql = "INSERT INTO users(mail, password, name) VALUES(?,?,?)"; // テーブル名を修正
-    $ps = $pdo->prepare($sql);
-    $ps->bindValue(1, $_POST['mail'], PDO::PARAM_STR);
-    $ps->bindValue(2, password_hash($_POST['password'], PASSWORD_DEFAULT), PDO::PARAM_STR);
-    $ps->bindValue(3, $_POST['name'], PDO::PARAM_STR);
-    $ps->execute();
+    $create -> sign_up($_POST["mail"], $_POST["pass"], $_POST["name"]);
 
     header('Location: login.php'); // リダイレクト先を修正
 }
