@@ -64,7 +64,7 @@
   </head>
   <body>
 
-    <?php  require_once 'header.php' ?>
+    <?php  require_once '../!Mng/header.php' ?>
 
     <h1>BLOG</h1>
     <div class="box">

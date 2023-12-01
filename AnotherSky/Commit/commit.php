@@ -127,7 +127,7 @@
           など発信<br>し価値観を広げよう。
           詳しい使い方はこちらから
         </p>
-        <a class="btn" href="commithome.php">read more...</a>
+        <a class="btn" href="../Top/home.php">read more...</a>
       </div>
       <div class="img">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/3T7WB738PNE?si=6qNPc6trJH8TXRj2&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

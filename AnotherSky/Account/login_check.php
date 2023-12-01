@@ -13,7 +13,7 @@ if(count($search)==0){
 }else{
     foreach($search as $row){
         $_SESSION['user_id'] = $row['user_id'];
-        header('Location: ../Top/menu.php');
+        header('Location: ../../Top/menu.php');
     }
 }
 ?>
