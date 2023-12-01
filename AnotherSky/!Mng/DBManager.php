@@ -36,7 +36,7 @@
             */
 
             //$pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1570577-anothersky;charset=utf8mb4','LAA1570577','I7RnRX7MhP7QeRP');
-            $pdo = new PDO('mysql:host=localhost;dbname=anothersky;charset=utf8mb4','root','root');
+            $pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
             return $pdo;
         }
 
