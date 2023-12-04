@@ -174,11 +174,11 @@
                //投稿削除（画像削除も）
         public function delete_post_and_images_ignore_constraints($post_id) {
             try {
-                $this->connect(); // データベースへの接続
+                $this->dbConnect(); // データベースへの接続
         
                 // 強制的に削除するために外部キー制約を無視する
                 $sql = "SET foreign_key_checks = 0";
-                $stmt = $this->conn->prepare($sql);
+                $stmt = $this->dbConnect()->prepare($sql);
                 $stmt->execute();
         
                 // 画像を削除
@@ -186,13 +186,13 @@
         
                 // 投稿を削除
                 $sql = "DELETE FROM posts WHERE post_id = :post_id";
-                $stmt = $this->conn->prepare($sql);
+                $stmt = $this->dbConnect()->prepare($sql);
                 $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
                 $stmt->execute();
         
                 // 外部キー制約を元に戻す
                 $sql = "SET foreign_key_checks = 1";
-                $stmt = $this->conn->prepare($sql);
+                $stmt = $this->dbConnect()->prepare($sql);
                 $stmt->execute();
         
                 return true; // 削除成功
@@ -205,7 +205,7 @@
         private function delete_post_images($post_id) {
             try {
                 $sql = "DELETE FROM post_images WHERE post_id = :post_id";
-                $stmt = $this->conn->prepare($sql);
+                $stmt = $this->dbConnect()->prepare($sql);
                 $stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
                 $stmt->execute();
             } catch (PDOException $e) {
@@ -250,28 +250,6 @@
         }*/
         //$pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
 
-        private $db_host = 'localhost';
-        private $db_name = 'another_sky';
-        private $db_user = 'root';
-        private $db_pass = 'root';
-
-        private $conn;
-
-        public function __construct()
-        {
-            $this->connect();
-        }
-
-        private function connect()
-        {
-            try {
-                $this->conn = new PDO("mysql:host={$this->db_host};dbname={$this->db_name}", $this->db_user, $this->db_pass);
-                $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $this->conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-            } catch (PDOException $e) {
-                echo "Connection failed: " . $e->getMessage();
-            }
-        }
 
         function updatePost($post_id, $title, $region, $place, $link_path, $text) {
             $pdo = $this->dbConnect();
