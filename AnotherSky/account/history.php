@@ -51,7 +51,7 @@ $posts = array_filter($all_posts, function ($post) use ($user_id) {
 foreach ($posts as $post) {
     echo '<div class="box">
         <h2>
-          <a href="../Hometown/hometown_detail.php?post=' . $post["post_id"] . '">' . $post["place"] . '</a>
+          <a href="../hometown/hometown_detail.php?post=' . $post["post_id"] . '">' . $post["place"] . '</a>
           <span class="date">(' . date('Y.m.d', strtotime($post["date"])) . ')</span>
         </h2>';
     if (isset($post["first_image"])) {
@@ -65,7 +65,7 @@ foreach ($posts as $post) {
     echo '<form action="rireki_delete.php" method="post" onsubmit="return confirmDelete()">
             <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
             <div class="delete-button">
-            <a href="../Hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
+            <a href="../hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
             <input type="submit" value="投稿を削除" >
             </div>
           </form>';
@@ -74,7 +74,7 @@ foreach ($posts as $post) {
         '<div class="box_sentence">
             <p>
                 ' . $post["text"] . '…
-                <a href="../Hometown/hometown_detail.php?post=' . $post["post_id"] . '">続きを読む</a>
+                <a href="../hometown/hometown_detail.php?post=' . $post["post_id"] . '">続きを読む</a>
             </p>
         </div>
     </div>';

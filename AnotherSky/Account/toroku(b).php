@@ -12,6 +12,6 @@ if ($mailcheck > 0) {
 } else {
     $create -> sign_up($_POST["mail"], $_POST["pass"], $_POST["name"]);
 
-    header('Location: login.php'); // リダイレクト先を修正
+    header('Location:login.php'); // リダイレクト先を修正
 }
 ?>

@@ -20,7 +20,7 @@
         }
         //セッションの情報が登録されている場合、グループログイン画面へと遷移する
         if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
-            header('Location: ../Top/menu.php');
+            header('Location: ../top/menu.php');
         }
     ?>
 </head>
