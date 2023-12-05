@@ -9,7 +9,31 @@
 </head>
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <?php  require_once '../!Mng/header.php' ?>
+<?php  
+  require_once '../!Mng/header.php' ;
+
+  switch($_GET["branch"]) {
+    case "all":
+      $title = 'Hometown';
+      $posts = array_reverse($get->get_all_posts());
+      break;
+    case "keep":
+      $title = 'Keep';
+      $posts = array_reverse($get->get_myfavorite_posts(3));
+      break;
+    case "history":
+      $title = 'History';
+      $posts = array_reverse($get->get_my_posts(1));
+      break;
+    case "region":
+      $title = 'Region';
+      $posts = array_reverse($get->get_region_posts($_GET["region"]));
+      break;
+    default:
+      $posts = [];
+  }
+
+?>
 </div>
 <div></div>
 <div>
@@ -18,7 +42,7 @@
     <div style="text-align: center;">
       <font face="serif">
       <br />
-        <span style="font-size: 36px;">Hometown</span>
+        <span style="font-size: 36px;"><?php $title ?></span>
         <br />
       </font>
     </div>
