@@ -178,10 +178,3 @@
   </script>
 </body>
 </html>
-    <script>
-        $(document).ready(function () {
-            $('#addSpot').click(function () {
-                $('.spot-container:hidden:first').show();
-            });
-        });
-    </script>
