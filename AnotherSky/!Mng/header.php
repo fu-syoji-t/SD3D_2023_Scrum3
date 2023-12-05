@@ -215,7 +215,7 @@
       <li><a href="../top/menu.php">Top</a></li>  
       <li><a href="../hometown/hometown.php">Hometown</a></li>  
       <li><a href="../commit/another.php">Commit</a></li>  
-      <li><a href="../category/category.php">Region</a></li>
+      <li><a href="../region/region.php">Region</a></li>
       <li><a href ="../account/profile.php">Account</a></li> 
       <li><a href ="../account/login.php">login</a></li> 
     </ul>
