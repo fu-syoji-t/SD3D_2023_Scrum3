@@ -20,8 +20,8 @@ h1 {
     border: 1px solid #000000;
     color: #000000;
     text-decoration: none;
-    margin: 5px;
-    width: 45%; /* ボタンの幅を調整して2列に */
+    margin: 10px;
+    width: 40%; /* ボタンの幅を調整して2列に */
 }
 .right{
 margin-left:auto;

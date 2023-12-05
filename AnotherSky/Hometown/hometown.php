@@ -12,6 +12,9 @@
 <?php  
   require_once '../!Mng/header.php' ;
 
+  require_once "../!Mng/DBManager.php";
+  $get = new DBManager();
+
   switch($_GET["branch"]) {
     case "all":
       $title = 'Hometown';
@@ -26,7 +29,8 @@
       $posts = array_reverse($get->get_my_posts(1));
       break;
     case "region":
-      $title = 'Region';
+      $regions = $get->get_regions();
+      $title = $regions[$_GET["region"]-1]["name"];
       $posts = array_reverse($get->get_region_posts($_GET["region"]));
       break;
     default:
@@ -42,7 +46,7 @@
     <div style="text-align: center;">
       <font face="serif">
       <br />
-        <span style="font-size: 36px;"><?php $title ?></span>
+        <span style="font-size: 36px;"><?php echo $title ?></span>
         <br />
       </font>
     </div>
@@ -53,11 +57,6 @@
   <body>
 
     <?php
-    require_once "../!Mng/DBManager.php";
-    $get = new DBManager();
-
-    $posts = array_reverse($get->get_all_posts());
-
     foreach($posts as $post){
         echo '<div class="box">
         <h2>
