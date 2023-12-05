@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>lopgin</title>
+    <title>login</title>
 
     <?php 
     session_start(); //セッションを開始する 
