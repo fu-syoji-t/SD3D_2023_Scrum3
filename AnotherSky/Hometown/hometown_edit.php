@@ -46,7 +46,7 @@
     <br>
     <label for="region">region</label><br>
     <select name="region" required>
-      <option value="" selected style="color: #888">未選択</option>
+      <option value="<?php echo htmlspecialchars($post["region"]); ?>" selected style="color: #888">未選択</option>
       <?php
         foreach($regions as $region) {
             echo '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
