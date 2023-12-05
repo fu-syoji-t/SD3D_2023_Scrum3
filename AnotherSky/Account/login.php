@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>lopgin</title>
+    <title>login</title>
 
     <?php 
     session_start(); //セッションを開始する 
@@ -89,6 +89,8 @@
 
                 <label class="label_left" for="password">パスワード:</label>
                 <input type="password" id="password" name="pass" placeholder="pass" required><br><br>
+
+                <div class="users-sgin"><a href="account.php">sgin-up</a></div><br>
 
                 <input type="submit" name="login" value="ログイン" class="btn">
             </form>
