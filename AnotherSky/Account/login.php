@@ -80,7 +80,7 @@
 
         <div class="form">
         <div class="form_title">
-            <h1>LOGIN</h1>
+            <h1>sgin-in</h1>
         </div>
         <div class="form_area">
             <form action="login_check.php" method="POST">
