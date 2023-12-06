@@ -75,7 +75,7 @@
     }
 
 
-    
+    //spotの表示
     $c_image = 0;
     $c_sentence = 0;
     for($i = 0; $i < $spot_n; $i++) {

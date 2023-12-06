@@ -112,6 +112,10 @@
           }
         }
         echo '</div>';
+        // ここにある場合は編集できるテキストボックスを追加
+        // <label for="freespace">free space</label><br>
+        // <input type="text" id="freespace" name="freespace" style= background-color:#fff; value="<?php echo htmlspecialchars($post["text"]); ?>">
+
       }
       if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_post"])) {
         $title = $_POST["title"];
@@ -130,43 +134,16 @@
     ?>
     <br>
     <input type="submit" name="update_post" value="更新">
-<form action="hometown_post(b).php" method="post" enctype="multipart/form-data">
-    <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_post"])) {
-            $title = $_POST["title"];
-            $region = $_POST["region"];
-            $place = $_POST["place"];
-            $youtube = $_POST["youtube"];
-            $freespace = $_POST["freespace"];
+  </form>
 
-            // DBManager クラスの updatePost メソッドを呼び出して投稿を更新
-            $dbManager = new DBManager();
-            if ($dbManager->updatePost($post_id, $title, $region, $place, $youtube, $freespace)) {
-                echo "投稿が更新されました。";
-            } else {
-                echo "更新に失敗しました。";
-            }
-        }
-    ?>
-</form>
-
-    <form id="keep_post" action="hometown_keep_post(b).php" method="post">
+  <form id="keep_post" action="hometown_keep_post(b).php" method="post">
     <input type="hidden" name="user_id" value="2">
     <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
+    <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
+    <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
+  </form>
 
-      <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
-      <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
-
-    </form>
-
-    <!-- <input type="submit" name="update_post" value="更新"> -->
-
-    <form id="keep_post" action="hometown_keep_post(b).php" method="post">
-      <input type="hidden" name="user_id" value="2">
-      <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
-        <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
-        <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
-    </form>
+  <!-- <input type="submit" name="update_post" value="更新"> -->
   </form>
   <?php  require_once '../!Mng/footer.php' ?>
   <script>
