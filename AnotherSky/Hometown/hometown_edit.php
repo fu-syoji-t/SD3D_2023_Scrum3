@@ -114,7 +114,7 @@
         echo '</div>';
         // ここにある場合は編集できるテキストボックスを追加
         // <label for="freespace">free space</label><br>
-        // <input type="text" id="freespace" name="freespace" style= background-color:#fff; value="<?php echo htmlspecialchars($post["text"]); ?>">
+        /* <input type="text" id="freespace" name="freespace" style= background-color:#fff; value="<?php echo htmlspecialchars($post["text"]); ?>"> */
 
       }
       if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_post"])) {
