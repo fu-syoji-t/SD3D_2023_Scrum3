@@ -19,7 +19,7 @@
         
         if ($success) {
             // 更新に成功した場合はリダイレクト
-            header('Location:../account/history.php');
+            header('Location:../hometown/hometown.php?branch=history');
             exit();
         } else {
             // 失敗した場合はメッセージを表示

@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($success) {
         // リダイレクトするページの実際の URL に置き換えてください
-        header("Location:rireki.php");
+        header("Location:../hometown/hometown.php?branch=history");
         exit();
     } else {
         // 失敗した場合の処理

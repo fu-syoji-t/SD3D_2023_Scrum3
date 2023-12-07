@@ -7,6 +7,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/hometown.css"> 
 </head>
+
+<style>
+    .delete-button {
+        background-color: #fff;
+        /* ボタンの背景色 */
+        color: #000;
+        /* ボタンのテキスト色 */
+        padding: 1px 1px;
+        /* ボタンの内側の余白 */
+        border-radius: 4px;
+        /* 角丸 */
+        margin-left: 680px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    .delete-button:hover {
+       /* background-color: #DDDDDD;
+        // ホバー時の背景色
+        margin-right: 25px;*/
+    }
+</style>
+
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <?php  
@@ -69,6 +92,19 @@
             <img src="'.$post["first_image"].'" alt="Thumbnail" width="150" height="150">
           </p>';
         }
+
+        if($_GET["branch"]=="history") {
+          // 削除ボタンを追加
+          echo 
+          '<form action="rireki_delete.php" method="post" onsubmit="return confirmDelete()">
+              <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
+              <div class="delete-button">
+              <a href="../hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
+              <input type="submit" value="投稿を削除" >
+              </div>
+          </form>';
+        }
+
         echo 
         '<div class="box_sentence">
           <p>
@@ -118,4 +154,10 @@
     }
     console.log(c_box);
   });
+
+
+  function confirmDelete() {
+      // 確認ダイアログを表示し、OKなら削除処理を実行、キャンセルなら処理を中止
+      return confirm("本当にこの投稿を削除しますか？");
+  }
 </script>

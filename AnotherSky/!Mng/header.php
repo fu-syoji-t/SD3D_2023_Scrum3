@@ -213,7 +213,7 @@
   <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
     <ul>
       <li><a href="../top/menu.php">Top</a></li>  
-      <li><a href="../hometown/hometown.php">Hometown</a></li>  
+      <li><a href="../hometown/hometown.php?branch=all">Hometown</a></li>  
       <li><a href="../commit/another.php">Commit</a></li>  
       <li><a href="../region/region.php">Region</a></li>
       <li><a href ="../account/profile.php">Account</a></li> 
