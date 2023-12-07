@@ -93,7 +93,7 @@
           </p>';
         }
 
-        if($_GET["branch"]=="history") {
+        if($_GET["branch"] == "history") {
           // 削除ボタンを追加
           echo 
           '<form action="rireki_delete.php" method="post" onsubmit="return confirmDelete()">
@@ -114,14 +114,18 @@
         </div>
       </div>';
     }
+
+    if($_GET["branch"] == "all") {
+      echo
+      '<div class="read_more">
+        <button type="button" class="more" id="more">read more...</button>
+      </div>
+      <div class="input">
+        <a onclick="location.href='."'../hometown/hometown_post_tokou.php'".'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
+      </div>';
+    }
 ?>
-  <div class="read_more">
-    <button type="button" class="more" id="more">read more...</button>
-  </div>
-  </div>
-  <div class="input">
-    <a onclick="location.href='../hometown/hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
-    </div>
+  
     <?php  require_once '../!Mng/footer_hometown.php' ?>
   </body>
 
