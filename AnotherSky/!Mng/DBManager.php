@@ -352,16 +352,13 @@
             return $all_post;
         }
 
-        function get_my_posts($user_id){
+        /* やりたいこと
+            post_images中のimage_orderが0のデータと
+            同じpost_idを持つpostのデータを結合させたい
+            1. 条件検索　post_images > image_order == 0
+            2. 結合　images posts */
+        function get_first_image($posts) {
             $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM posts
-                    WHERE user_id = ?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
-            $ps->execute();
-            $all_post = $ps->fetchAll();
-            
             $sql = "SELECT *
                     FROM post_images
                     WHERE image_order = 0";
@@ -371,15 +368,28 @@
 
             $i = 0;
             $j = 0;
-            foreach($all_post as $post) {
+            foreach($posts as $post) {
                 if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
-                    $all_post[$j]["first_image"] = $first_image[$i]["path"];
+                    $posts[$j]["first_image"] = $first_image[$i]["path"];
                     $i++;
                 }
                 $j++;
             }
 
-            return $all_post;
+            return $posts;
+        }
+
+        function get_my_posts($user_id){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM posts
+                    WHERE user_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
+            $ps->execute();
+            $all_posts = $ps->fetchAll();
+
+            return $this->get_first_image($all_posts);
         }
 
         function get_user_info($user_id) {
@@ -400,7 +410,8 @@
             $sql = "SELECT p.*
                     FROM keep_posts kp
                     INNER JOIN posts p ON kp.post_id = p.post_id
-                    WHERE kp.user_id = ?";
+                    WHERE kp.user_id = ?
+                    ORDER BY p.post_id ASC";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1, $user_id, PDO::PARAM_INT);
             $ps->execute();
@@ -424,6 +435,36 @@
             }
 
             return $myfavorite_posts;
+        }
+        function get_myfavorite_posts2($user_id) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT p.*
+                    FROM keep_posts kp
+                    INNER JOIN posts p ON kp.post_id = p.post_id
+                    WHERE kp.user_id = ?
+                    ORDER BY p.post_id ASC";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
+            $ps->execute();
+            $myfavorite_posts = $ps->fetchAll();
+            
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE image_order = 0";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $first_image = $ps->fetchAll();
+
+            $i = 0;
+            $j = 0;
+            foreach($myfavorite_posts as $post) {
+                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
+                    $myfavorite_posts[$j]["first_image"] = $first_image[$i]["path"];
+                    $i++;
+                }
+                $j++;
+                echo $post["post_id"];
+            }
         }
 
         function keep_post($user_id,$post_id){

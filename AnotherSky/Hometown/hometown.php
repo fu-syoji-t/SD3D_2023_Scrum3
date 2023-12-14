@@ -46,6 +46,7 @@
     case "keep":
       $title = 'Keep';
       $posts = array_reverse($get->get_myfavorite_posts(1));
+      $get->get_myfavorite_posts2(1);
       break;
     case "history":
       $title = 'History';
