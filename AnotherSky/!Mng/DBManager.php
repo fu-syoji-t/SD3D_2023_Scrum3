@@ -5,9 +5,16 @@
             
             dbConnect
 
+            mail_check
+            sign_up
+            login
+
+            get_regions
             create_post
             create_post_images
             create_post_sentences
+
+            get_posts
             get_post
             delete_post
             updatePost
@@ -24,22 +31,22 @@
         public $spot_limit = 10;
 
         private function dbConnect(){
-            /* パスワード設定
-            xampp mysqlを起動
-            Shell >> mysql -u root -p を入力
-            パスワードが設定されていない場合　何も入力せずenter
-            SET PASSWORD FOR root@localhost=password('root'); でパスワードを設定
-
-            xampp >> config.inc.php
-            >>
-            $cfg['Servers'][$i]['password'] = 'root';　ここに同じパスワードを入力
-            */
-
             //$pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1570577-anothersky;charset=utf8mb4','LAA1570577','I7RnRX7MhP7QeRP');
             $pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
             return $pdo;
         }
 
+
+        /*  mail_check
+
+            メールアドレスの存在確認をする関数
+
+            引数
+                mail       メールアドレス
+            
+            戻り値
+                メールアドレスに該当するユーザのレコード　１行
+        */
         function mail_check($mail) {
             $pdo = $this->dbConnect();
             $sql = "SELECT * FROM users WHERE mail=? LIMIT 1"; // テーブル名を修正
@@ -51,6 +58,19 @@
             return $mailcheck;
         }
 
+
+        /*  sign_up
+
+            アカウントを登録する関数
+
+            引数
+                mail       メールアドレス
+                pass       パスワード
+                name       ユーザー名
+            
+            戻り値
+                なし
+        */
         function sign_up($mail, $pass, $name) {
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO users(mail, password, name) VALUES(?,?,?)"; // テーブル名を修正
@@ -62,6 +82,18 @@
             $ps->execute();
         }
 
+
+        /*  login
+
+            ログイン処理をする関数
+
+            引数
+                mail       メールアドレス
+                pass       パスワード
+            
+            戻り値
+                メールアドレス及びパスワードに該当するユーザのレコード　１行
+        */
         function login($mail, $pass) {
             $pdo = $this->dbConnect();
             $sql = "SELECT * FROM users WHERE mail = ?";
@@ -77,17 +109,47 @@
                     return $search;
                 }*/
             }
-            /*if(!empty($search)){
-                foreach($search as $row){
-                    if($password == $row["password"]){
-                        return $search;
-                    }
-                }
-            }*/
             return $search=[];
         }
 
-        function create_post($user_id,$title,$region_id,$place,$link,$text){
+
+        /*  get_regions
+
+            全ての地方を取得する関数
+
+            引数
+                なし
+            
+            戻り値
+                地方の全レコード
+        */
+        function get_regions(){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM regions";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $regions = $ps->fetchAll();
+            return $regions;
+        }
+
+
+        /*  create_post
+
+            投稿を保存する関数
+
+            引数
+                user_id    ユーザID
+                title      投稿のタイトル
+                region_id  地方ID
+                place      場所
+                link_path  youtubeのリンク
+                text       投稿の紹介文
+
+            戻り値
+                なし
+        */
+        function create_post($user_id,$title,$region_id,$place,$link_path,$text){
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO posts (user_id,title,region_id,place,link_path,text)
                                 VALUES(?,?,?,?,?,?)";
@@ -96,11 +158,23 @@
             $ps->bindValue(2,$title,PDO::PARAM_STR);
             $ps->bindValue(3,$region_id,PDO::PARAM_INT);
             $ps->bindValue(4,$place,PDO::PARAM_STR);
-            $ps->bindValue(5,$link,PDO::PARAM_STR);
+            $ps->bindValue(5,$link_path,PDO::PARAM_STR);
             $ps->bindValue(6,$text,PDO::PARAM_STR);
             $ps->execute();
         }
 
+
+        /*  create_post_images
+
+            投稿に関する画像を保存する関数
+
+            引数
+                order      画像の並び順
+                path       画像のパス
+
+            戻り値
+                なし
+        */
         function create_post_images($order,$path){
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO post_images (post_id,image_order,path)
@@ -111,6 +185,18 @@
             $ps->execute();
         }
 
+
+        /*  create_post_sentence
+
+            投稿に関する画像を保存する関数
+
+            引数
+                order      文の並び順
+                sentence   文
+
+            戻り値
+                なし
+        */
         function create_post_sentence($order,$sentence){
             $pdo = $this->dbConnect();
             $sql = "INSERT INTO post_sentences (post_id,sentence_order,sentence)
@@ -121,6 +207,17 @@
             $ps->execute();
         }
 
+
+        /*  get_post
+
+            投稿の詳細を取得する関数
+
+            引数
+                post_id     投稿ID
+
+            戻り値
+                post_idに該当する投稿、及び該当する画像と文章を付随させたレコード　１行
+        */
         function get_post($post_id){
             $pdo = $this->dbConnect();
             $sql = "SELECT * 
@@ -251,15 +348,27 @@
         //$pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
 
 
-        function updatePost($post_id, $title, $region, $place, $link_path, $text) {
+        /*  update_post
+
+            投稿の内容を更新する関数
+
+            引数
+                post_id
+                title      投稿のタイトル
+                region_id  地方ID
+                place      場所
+                link_path  youtubeのリンク
+                text       投稿の紹介文
+        */
+        function updatePost($post_id, $title, $region_id, $place, $link_path, $text) {
             $pdo = $this->dbConnect();
             $sql = "UPDATE posts
-                    SET title = :title, region_id = :region, place = :place, link_path = :link_path, text = :text
+                    SET title = :title, region_id = :region_id, place = :place, link_path = :link_path, text = :text
                     WHERE post_id = :post_id";
         
             $ps = $pdo->prepare($sql);
             $ps->bindParam(':title', $title, PDO::PARAM_STR);
-            $ps->bindParam(':region', $region, PDO::PARAM_INT);
+            $ps->bindParam(':region_id', $region_id, PDO::PARAM_INT);
             $ps->bindParam(':place', $place, PDO::PARAM_STR);
             $ps->bindParam(':link_path', $link_path, PDO::PARAM_STR);
             $ps->bindParam(':text', $text, PDO::PARAM_STR);
@@ -268,6 +377,7 @@
             $ps->execute();
             return true;
         }
+
 
         //未使用？
         function get_post_for_edit($post_id) {
@@ -283,6 +393,9 @@
             return $post;
         }
 
+
+        /*  
+        */
         function max_post_id(){
             $pdo = $this->dbConnect();
             $sql = "SELECT MAX(post_id) AS max_post_id
@@ -313,24 +426,15 @@
             $sentence_id = $ps->fetch();
             return $sentence_id["max_sentence_id"];
         }*/
-        
-        function get_regions(){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM regions";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $regions = $ps->fetchAll();
-            return $regions;
-        }
+    
 
-        function get_all_posts(){
+        function get_posts(){
             $pdo = $this->dbConnect();
             $sql = "SELECT *
                     FROM posts";
             $ps = $pdo->query($sql);
             $ps->execute();
-            $all_post = $ps->fetchAll();
+            $posts = $ps->fetchAll();
             
             $sql = "SELECT *
                     FROM post_images
@@ -341,7 +445,7 @@
 
             $i = 0;
             $j = 0;
-            foreach($all_post as $post) {
+            foreach($posts as $post) {
                 if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
                     $all_post[$j]["first_image"] = $first_image[$i]["path"];
                     $i++;
@@ -349,7 +453,7 @@
                 $j++;
             }
 
-            return $all_post;
+            return $posts;
         }
 
         /* やりたいこと
@@ -379,20 +483,7 @@
             return $posts;
         }
 
-        function get_my_posts($user_id){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM posts
-                    WHERE user_id = ?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
-            $ps->execute();
-            $all_posts = $ps->fetchAll();
-
-            return $this->get_first_image($all_posts);
-        }
-
-        function get_user_info($user_id) {
+        function get_user($user_id) {
             $pdo = $this->dbConnect();
             $sql = "SELECT *
                     FROM users
@@ -559,36 +650,6 @@
                 return $posts;
             }
             
-            
-        function get_region_posts($region_id){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM posts
-                    WHERE region_id = ?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1, $region_id, PDO::PARAM_INT);
-            $ps->execute();
-            $all_post = $ps->fetchAll();
-            
-            $sql = "SELECT *
-                    FROM post_images
-                    WHERE image_order = 0";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $first_image = $ps->fetchAll();
-
-            $i = 0;
-            $j = 0;
-            foreach($all_post as $post) {
-                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
-                    $all_post[$j]["first_image"] = $first_image[$i]["path"];
-                    $i++;
-                }
-                $j++;
-            }
-
-            return $all_post;
-        }
 
     //     function favorite_post($post_id, $user_id){
     //         $pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
