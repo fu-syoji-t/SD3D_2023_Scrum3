@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>commithome</title>
+    <link rel="icon" href="../img/icon.png">
     <link rel="stylesheet" type="text/css" href="../css/another.css">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>

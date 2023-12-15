@@ -2,7 +2,8 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>HTML+CSS</title>
+    <title>home</title>
+    <link rel="icon" href="../img/icon.png">
     <style>
       body {
           background-color: #DDDDDD;

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>アナザースカイについて</title>
+<link rel="icon" href="../img/icon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
 <link rel="stylesheet" type="text/css" href="http://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/move02/6-2/css/reset.css">
