@@ -4,6 +4,7 @@
 
     $regions = $get->get_regions();
 ?>
+    <?php require_once '../!Mng/header.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
