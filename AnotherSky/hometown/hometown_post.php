@@ -1,5 +1,9 @@
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/.css"> -->
 </head>
 <style>
     body{
@@ -29,6 +33,7 @@
     $regions = $get->get_regions();
 
     $spot_limit = $get->spot_limit;
+    require_once "../!Mng/header.php";
 ?>
 
 <br>

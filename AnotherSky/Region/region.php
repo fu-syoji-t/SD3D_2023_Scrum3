@@ -3,6 +3,7 @@
     $get = new DBManager();
 
     $regions = $get->get_regions();
+    require_once "../!Mng/header.php";
 ?>
     <?php require_once '../!Mng/header.php'; ?>
 <!DOCTYPE html>

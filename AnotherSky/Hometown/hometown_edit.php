@@ -68,10 +68,17 @@
       echo '<div class="spot-container" style="display: ' . ('none') . ';">
       ------------------------------------------------------------<br>
       画像を選択 <br>
-      <input type="file" name="post_image'.$i.'" accept="image/*"><br>
-      <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style= background-color:#fff;></textarea><br>
-      </div>';
-      }
+        <div id="imagePreview'.$i.'" class="image-preview-container"></div>
+        <input type="file" name="post_image'.$i.'" accept="image/*"><br><br>
+        <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br>
+        </div>';
+
+        echo '<script>
+        $("input[name=\'post_image'.$i.'\']").change(function () {
+            showImagePreview(this, \'imagePreview'.$i.'\');
+        });
+        </script>';
+        }
     ?>
     <br>
     <?php
