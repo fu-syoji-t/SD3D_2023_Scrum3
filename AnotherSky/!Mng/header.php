@@ -204,7 +204,9 @@
 }
     </style>
 <header id="header">
-    <img src="../img/anothersky.gif" alt="logo" id="logo">
+    <a href="/AnotherSky/AnotherSky/top/menu.php">
+        <img src="../img/anothersky.gif" alt="logo" id="logo">
+    </a>
 </header>
 
 
