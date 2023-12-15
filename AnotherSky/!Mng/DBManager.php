@@ -430,28 +430,16 @@
 
         function get_posts(){
             $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM posts";
+            
+            $sql = "SELECT posts.post_id AS post_id, user_id, region_id, place,
+                            link_path, text, date, image_id, image_order, path
+                    FROM posts
+                    LEFT JOIN post_images 
+                        ON posts.post_id = post_images.post_id 
+                            AND post_images.image_order = 0;";
             $ps = $pdo->query($sql);
             $ps->execute();
             $posts = $ps->fetchAll();
-            
-            $sql = "SELECT *
-                    FROM post_images
-                    WHERE image_order = 0";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $first_image = $ps->fetchAll();
-
-            $i = 0;
-            $j = 0;
-            foreach($posts as $post) {
-                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
-                    $all_post[$j]["first_image"] = $first_image[$i]["path"];
-                    $i++;
-                }
-                $j++;
-            }
 
             return $posts;
         }
@@ -468,16 +456,12 @@
                     WHERE image_order = 0";
             $ps = $pdo->query($sql);
             $ps->execute();
-            $first_image = $ps->fetchAll();
+            $first_images = $ps->fetchAll();
 
             $i = 0;
             $j = 0;
-            foreach($posts as $post) {
-                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
-                    $posts[$j]["first_image"] = $first_image[$i]["path"];
-                    $i++;
-                }
-                $j++;
+            foreach($first_images as $first_image) {
+                
             }
 
             return $posts;

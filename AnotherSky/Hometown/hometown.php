@@ -41,21 +41,29 @@
   switch($_GET["branch"]) {
     case "all":
       $title = 'Hometown';
-      $posts = array_reverse($get->get_all_posts());
+      $posts = array_reverse($get->get_posts());
       break;
     case "keep":
       $title = 'Keep';
       $posts = array_reverse($get->get_myfavorite_posts(1));
-      $get->get_myfavorite_posts2(1);
+      $get->get_myfavorite_posts(1);
       break;
     case "history":
       $title = 'History';
-      $posts = array_reverse($get->get_my_posts(1));
+      $user_id = 1;
+      $posts = array_reverse($get->get_posts());
+      $posts = array_filter($posts, function ($post) use ($user_id) {
+        return $post['user_id'] == $user_id;
+      });
       break;
     case "region":
       $regions = $get->get_regions();
-      $title = $regions[$_GET["region"]-1]["name"];
-      $posts = array_reverse($get->get_region_posts($_GET["region"]));
+      $region_id = $_GET["region"];
+      $title = $regions[$region_id-1]["name"];
+      $posts = array_reverse($get->get_posts());
+      $posts = array_filter($posts, function ($post) use ($region_id) {
+        return $post['region_id'] == $region_id;
+      });
       break;
     default:
       $posts = [];
@@ -87,10 +95,10 @@
           <a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
           <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
         </h2>';
-        if(isset($post["first_image"])){
+        if(isset($post["image_id"])){
           echo 
           '<p class="box_img">
-            <img src="'.$post["first_image"].'" alt="Thumbnail" width="150" height="150">
+            <img src="'.$post["path"].'" alt="Thumbnail" width="150" height="150">
           </p>';
         }
 
@@ -116,14 +124,16 @@
       </div>';
     }
 
+    echo 
+    '<div class="read_more">
+      <button type="button" class="more" id="more">read more...</button>
+    </div>';
+
     if($_GET["branch"] == "all") {
       echo
-      '<div class="read_more">
-        <button type="button" class="more" id="more">read more...</button>
-      </div>
-      <div class="input">
+    '<div class="input">
         <a onclick="location.href='."'../hometown/hometown_post_tokou.php'".'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
-      </div>';
+    </div>';
     }
 ?>
   
