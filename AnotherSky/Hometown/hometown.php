@@ -132,7 +132,7 @@
     if($_GET["branch"] == "all") {
       echo
     '<div class="input">
-        <a onclick="location.href='."'../hometown/hometown_post.php'".'" value=""><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
+        <a onclick="location.href=\'../hometown/hometown_post.php\'"><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
     </div>';
     }
 ?>

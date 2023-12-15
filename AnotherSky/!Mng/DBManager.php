@@ -19,11 +19,13 @@
             delete_post
             updatePost
             get_post_for_edit
-            max_post_id
-            max_sentence_id1
-            get_regions
-            get_all_post
-            get_user_info
+            get_user
+            get_myfavorite_posts
+            get_myfavorite_posts2
+            keep_post
+            get_posts_by_keep_id
+            get_posts_by_user_id
+
         */
         
 
@@ -205,6 +207,33 @@
             $ps->bindValue(1,$order,PDO::PARAM_INT);
             $ps->bindValue(2,$sentence,PDO::PARAM_STR);
             $ps->execute();
+        }
+
+
+        /*  get_posts
+
+            全ての投稿を取得する関数
+
+            引数
+                なし
+
+            戻り値
+                投稿の全レコード
+        */
+        function get_posts(){
+            $pdo = $this->dbConnect();
+            
+            $sql = "SELECT posts.post_id AS post_id, user_id, region_id, place,
+                            link_path, text, date, image_id, image_order, path
+                    FROM posts
+                    LEFT JOIN post_images 
+                        ON posts.post_id = post_images.post_id 
+                            AND post_images.image_order = 0;";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $posts = $ps->fetchAll();
+
+            return $posts;
         }
 
 
@@ -394,78 +423,6 @@
         }
 
 
-        /*  
-        */
-        function max_post_id(){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT MAX(post_id) AS max_post_id
-                    FROM posts";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $post_id = $ps->fetch();
-            return $post_id["max_post_id"];
-        }
-
-        function max_sentence_id1($post_id){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM post_sentences WHERE post_id =?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
-            $ps->execute();
-            $sentence_id = $ps->fetch();
-            return $sentence_id["max_sentence_id"];
-        }
-
-        /* 元の
-        function max_sentence_id(){
-            $pdo = $this->dbConnect();
-            $sql = "SELECT MAX(sentence_id) AS max_sentence_id
-                    FROM post_sentences";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $sentence_id = $ps->fetch();
-            return $sentence_id["max_sentence_id"];
-        }*/
-    
-
-        function get_posts(){
-            $pdo = $this->dbConnect();
-            
-            $sql = "SELECT posts.post_id AS post_id, user_id, region_id, place,
-                            link_path, text, date, image_id, image_order, path
-                    FROM posts
-                    LEFT JOIN post_images 
-                        ON posts.post_id = post_images.post_id 
-                            AND post_images.image_order = 0;";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $posts = $ps->fetchAll();
-
-            return $posts;
-        }
-
-        /* やりたいこと
-            post_images中のimage_orderが0のデータと
-            同じpost_idを持つpostのデータを結合させたい
-            1. 条件検索　post_images > image_order == 0
-            2. 結合　images posts */
-        function get_first_image($posts) {
-            $pdo = $this->dbConnect();
-            $sql = "SELECT *
-                    FROM post_images
-                    WHERE image_order = 0";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $first_images = $ps->fetchAll();
-
-            $i = 0;
-            $j = 0;
-            foreach($first_images as $first_image) {
-                
-            }
-
-            return $posts;
-        }
 
         function get_user($user_id) {
             $pdo = $this->dbConnect();
@@ -511,6 +468,7 @@
 
             return $myfavorite_posts;
         }
+
         function get_myfavorite_posts2($user_id) {
             $pdo = $this->dbConnect();
             $sql = "SELECT p.*
@@ -552,25 +510,30 @@
             $ps->bindValue(2,$post_id,PDO::PARAM_STR);
             $ps->execute();
             $post = $ps->fetch();
+
             if(!empty($post)){
+
                 $sql = "DELETE FROM keep_posts
                         WHERE  user_id=? AND post_id=?";
                 $ps = $pdo->prepare($sql);
                 $ps->bindValue(1,$user_id,PDO::PARAM_INT);
                 $ps->bindValue(2,$post_id,PDO::PARAM_STR);
                 $ps->execute();
-                echo "fuck";
+
             }else{
+
                 $sql = "INSERT INTO keep_posts(user_id,post_id)
                         VALUES(?,?)";
                 $ps = $pdo->prepare($sql);
                 $ps->bindValue(1,$user_id,PDO::PARAM_INT);
                 $ps->bindValue(2,$post_id,PDO::PARAM_STR);
                 $ps->execute();
-                echo "fucking";
+
             }
 
         }
+
+
         //post/keep
         function get_posts_by_keep_id($keep_id) {
             $pdo = $this->dbConnect();
@@ -602,37 +565,39 @@
         
             return $posts;
         }
-            //post/user
-            function get_posts_by_user_id($user_id) {
-                $pdo = $this->dbConnect();
-                $sql = "SELECT p.*
-                        FROM keep_posts kp
-                        INNER JOIN posts p ON kp.post_id = p.post_id
-                        WHERE kp.user_id = ?";
-                $ps = $pdo->prepare($sql);
-                $ps->bindValue(1, $user_id, PDO::PARAM_INT);
-                $ps->execute();
-                $posts = $ps->fetchAll();
-            
-                $sql = "SELECT *
-                        FROM post_images
-                        WHERE image_order = 0";
-                $ps = $pdo->query($sql);
-                $ps->execute();
-                $first_images = $ps->fetchAll();
-            
-                $i = 0;
-                $j = 0;
-                foreach ($posts as $post) {
-                    if (isset($first_images[$i]) && $post["post_id"] == $first_images[$i]["post_id"]) {
-                        $posts[$j]["first_image"] = $first_images[$i]["path"];
-                        $i++;
-                    }
-                    $j++;
+
+
+        //post/user
+        function get_posts_by_user_id($user_id) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT p.*
+                    FROM keep_posts kp
+                    INNER JOIN posts p ON kp.post_id = p.post_id
+                    WHERE kp.user_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, $user_id, PDO::PARAM_INT);
+            $ps->execute();
+            $posts = $ps->fetchAll();
+        
+            $sql = "SELECT *
+                    FROM post_images
+                    WHERE image_order = 0";
+            $ps = $pdo->query($sql);
+            $ps->execute();
+            $first_images = $ps->fetchAll();
+        
+            $i = 0;
+            $j = 0;
+            foreach ($posts as $post) {
+                if (isset($first_images[$i]) && $post["post_id"] == $first_images[$i]["post_id"]) {
+                    $posts[$j]["first_image"] = $first_images[$i]["path"];
+                    $i++;
                 }
-            
-                return $posts;
+                $j++;
             }
+        
+            return $posts;
+        }
             
 
     //     function favorite_post($post_id, $user_id){
