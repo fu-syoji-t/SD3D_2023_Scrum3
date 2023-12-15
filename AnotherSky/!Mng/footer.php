@@ -184,21 +184,6 @@
         〒100-0005 福岡市博多区南１丁目<br>
         TEL : 123-456-9999　/　FAX : 123-456-0000
         </p>
-        <div class="navi-row">
-        <ul class="navi">
-            <li><a href="#">home</a></li>
-            <li><a href="#">news</a></li>
-            <li><a href="#">commit</a></li>
-            <li><a href="#">blog</a></li>
-            <li><a href="#">contact</a></li>
-        </ul>
-        <ul class="sns-navi">
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-        </ul>
-        </div>
     </section>
     <section class="secondary">
         <ul class="sitenavi">
