@@ -50,7 +50,7 @@
 require_once "../!Mng/DBManager.php";
 $get = new DBManager();
 
-$posts = $get->get_all_posts();
+$posts = $get->get_posts();
 $displayCount = 0; // 表示済みのポスト数
 
 foreach($posts as $post){
