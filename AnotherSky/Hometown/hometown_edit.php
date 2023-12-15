@@ -152,7 +152,7 @@
 
   <!-- <input type="submit" name="update_post" value="更新"> -->
   </form>
-  <?php  require_once '../!Mng/footer.php' ?>
+  <?php  require_once '../!Mng/footer_hometown.php' ?>
   <script>
       $(document).ready(function () {
           $('#addSpot').click(function () {

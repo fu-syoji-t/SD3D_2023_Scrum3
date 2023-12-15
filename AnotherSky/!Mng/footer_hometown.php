@@ -184,9 +184,6 @@
             text-align: left;
             margin-left: 30px;
         }
-        .sitenavic{
-            text-align: right;
-        }
     </style>
   </head>
   <body>
@@ -206,8 +203,7 @@
         <ul class="sitenavib">
         <li><a href="#">プライバシーポリシー</a></li>
         </ul>
-        <ul class="sitenavic">
-        <p class="copyright">Copyright WEBSITE,Inc. All rights reserved.</p>
+        <p class="copyright" style="margin-left: 470px;">Copyright WEBSITE,Inc. All rights reserved.</p>
         </ul>
     </section>
     </footer>
