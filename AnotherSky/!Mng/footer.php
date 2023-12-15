@@ -179,7 +179,7 @@
   <body>
     <footer id="footer">
     <section class="primary">
-        <p class="logo"><a href="#">株式会社AnotherSky</a></p>
+        <p class="logo"><a href="#">AnotherSky Corporation</a></p>
         <p class="address">
         〒812-0016 福岡市博多区博多駅南２丁目１２-３２　AnotherSky開発チーム<br>
         TEL : 0120-371-007　/　FAX : 0570-487-3699
