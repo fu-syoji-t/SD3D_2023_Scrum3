@@ -105,7 +105,7 @@
         if($_GET["branch"] == "history") {
           // 削除ボタンを追加
           echo 
-          '<form action="rireki_delete.php" method="post" onsubmit="return confirmDelete()">
+          '<form action="../Account/history_delete.php" method="post" onsubmit="return confirmDelete()">
               <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
               <div class="delete-button">
               <a href="../hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
