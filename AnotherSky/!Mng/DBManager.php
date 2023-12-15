@@ -388,6 +388,9 @@
                 place      場所
                 link_path  youtubeのリンク
                 text       投稿の紹介文
+
+            戻り値
+                true
         */
         function updatePost($post_id, $title, $region_id, $place, $link_path, $text) {
             $pdo = $this->dbConnect();
