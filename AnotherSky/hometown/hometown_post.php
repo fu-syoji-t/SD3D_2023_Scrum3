@@ -16,6 +16,7 @@
 
 </style>
 </html>
+<?php  require_once '../!Mng/header.php' ?>
 <?php
     require_once "../!Mng/DBManager.php";
     $get = new DBManager();
@@ -69,6 +70,7 @@
     ?>
     <br>
     <input class="subu" type="submit" value="投稿">
+    <?php  require_once '../!Mng/footer.php' ?>
 </form>
 <script>
     $(document).ready(function () {
