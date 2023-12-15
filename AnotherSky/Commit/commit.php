@@ -131,7 +131,7 @@
         <a class="btn" href="../commit/another.php">read more...</a>
       </div>
       <div class="img">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3T7WB738PNE?si=6qNPc6trJH8TXRj2&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3T7WB738PNE?si=6qNPc6trJH8TXRj2&autoplay=1&mute=1&rel=0&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
       </div>
     </div>
   </body>
