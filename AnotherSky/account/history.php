@@ -41,7 +41,7 @@ $get = new DBManager();
 $user_id = 1;
 
 // 全ての記事を取得
-$all_posts = array_reverse($get->get_all_posts());
+$all_posts = array_reverse($get->get_posts());
 
 // user_id に関連する記事だけを選別
 $posts = array_filter($all_posts, function ($post) use ($user_id) {
