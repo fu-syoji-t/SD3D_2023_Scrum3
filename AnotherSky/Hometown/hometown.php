@@ -137,7 +137,7 @@
     }
 ?>
   
-    <?php  require_once '../!Mng/footer_hometown.php' ?>
+    <?php  require_once '../!Mng/footer.php' ?>
   </body>
 
 </body>
