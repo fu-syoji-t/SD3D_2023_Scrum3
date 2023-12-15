@@ -41,7 +41,7 @@
   switch($_GET["branch"]) {
     case "all":
       $title = 'Hometown';
-      $posts = array_reverse($get->get_all_posts());
+      $posts = array_reverse($get->get_posts());
       break;
     case "keep":
       $title = 'Keep';
