@@ -80,7 +80,7 @@
 
         <div class="form">
         <div class="form_title">
-            <h1>sgin-in</h1>
+            <h1>sign-in</h1>
         </div>
         <div class="form_area">
             <form action="login_check.php" method="POST">
@@ -90,7 +90,7 @@
                 <label class="label_left" for="password">パスワード:</label>
                 <input type="password" id="password" name="pass" placeholder="pass" required><br><br>
 
-                <div class="users-sgin"><a href="account.php">sgin-up</a></div><br>
+                <div class="users-sgin"><a href="account.php">sign-up</a></div><br>
 
                 <input type="submit" name="login" value="ログイン" class="btn">
             </form>
