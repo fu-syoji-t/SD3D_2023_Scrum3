@@ -146,5 +146,6 @@
       document.body.appendChild(newDiv);
     }
   </script>
+   <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
