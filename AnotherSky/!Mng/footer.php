@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>header</title>
+    <title>footer</title>
     <style>
         #footer {
         position: relative;

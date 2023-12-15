@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="utf-8">
-<title>5-1-15 クリックしたら背景が全面に広がる</title>
-<meta name="description"  content="書籍「動くWebデザインアイディア帳」のサンプルサイトです">
-
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<!--==============レイアウトを制御する独自のCSSを読み込み===============-->
-<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
-<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-1-15/css/5-1-15.css">
-  <body>
+    <meta charset="utf-8">
+    <meta name="description"  content="AnotherSkyのサイトです">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>header</title>
+    <!--==============レイアウトを制御する独自のCSSを読み込み===============-->
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-1-15/css/5-1-15.css">
+</head>
+<body>
     <style>
       .header{
         background-color: #DDDDDD;

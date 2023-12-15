@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>header</title>
+    <title>footer hometown</title>
     <style>
         #footer {
         position: relative;
@@ -174,12 +174,22 @@
         margin: 0;
         padding: 0;
         }
+        .primarya{
+            text-align: left;
+        }
+        .sitenavia{
+            text-align: left;
+        }
+        .sitenavib{
+            text-align: left;
+            margin-left: 30px;
+        }
     </style>
   </head>
   <body>
   <!--<a onclick="location.href='hometown_post_tokou.php'" value=""><font face="serif"><span style="font-size: 20px; position: fixed;bottom: 37%;right: 23px;color: #999;z-index: 9999;">投稿</span></font></a>-->
     <footer id="footer">
-    <section class="primary">
+    <section class="primarya">
         <p class="logo"><a href="#">COMPANY</a></p>
         <p class="address">
         〒100-0005 福岡市博多区南１丁目<br>
@@ -187,11 +197,14 @@
         </p>
     </section>
     <section class="secondary">
-        <ul class="sitenavi">
+        <ul class="sitenavia">
         <li><a href="#">サイトマップ</a></li>
+        </ul>
+        <ul class="sitenavib">
         <li><a href="#">プライバシーポリシー</a></li>
         </ul>
-        <p class="copyright">Copyright WEBSITE,Inc. All rights reserved.</p>
+        <p class="copyright" style="margin-left: 470px;">Copyright WEBSITE,Inc. All rights reserved.</p>
+        </ul>
     </section>
     </footer>
   </body>

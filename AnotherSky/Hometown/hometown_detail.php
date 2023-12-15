@@ -1,9 +1,16 @@
+<?php
+    require_once "../!Mng/DBManager.php";
+    $get = new DBManager();
+
+    $post_id = $_GET["post"];
+    $post = $get->get_post($post_id);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?php echo $post["title"];?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <style>
@@ -17,18 +24,9 @@
     }
 </style>
 <body>
-
-<?php
-    require_once "../!Mng/DBManager.php";
-    $get = new DBManager();
-
-    $post_id = $_GET["post"];
-    $post = $get->get_post($post_id);
-
-    require_once "../!Mng/header.php";
-?>
-    
     <?php
+    require_once "../!Mng/header.php";
+
       echo"<br>";
       echo '<div class="maru"> ';
       echo $post["date"]."<br>";

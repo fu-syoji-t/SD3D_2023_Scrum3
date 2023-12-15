@@ -1,5 +1,9 @@
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/.css"> -->
 </head>
 <style>
     body{
@@ -13,6 +17,11 @@
         max-width: 100%;
         max-height: 300px;
     }
+    select[name="region"] {
+    background-color: #fff;
+    border-radius: 5px;
+}
+    
 
 </style>
 </html>
@@ -24,6 +33,7 @@
     $regions = $get->get_regions();
 
     $spot_limit = $get->spot_limit;
+    require_once "../!Mng/header.php";
 ?>
 
 <br>
@@ -34,6 +44,7 @@
     region <br>
     <select name="region" required>
         <option value="" selected style="color: #888">未選択</option>
+    </div>
 </div>
         <?php
             foreach($regions as $region) {
@@ -70,7 +81,7 @@
     ?>
     <br>
     <input class="subu" type="submit" value="投稿">
-    <?php  require_once '../!Mng/footer.php' ?>
+    <?php  require_once '../!Mng/footer_hometown.php' ?>
 </form>
 <script>
     $(document).ready(function () {
