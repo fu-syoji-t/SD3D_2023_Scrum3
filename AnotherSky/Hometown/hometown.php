@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hometown</title>
+    <title>投稿一覧</title>
+    <link rel="icon" href="../img/icon.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/hometown.css"> 
 </head>
@@ -105,7 +106,7 @@
         if($_GET["branch"] == "history") {
           // 削除ボタンを追加
           echo 
-          '<form action="rireki_delete.php" method="post" onsubmit="return confirmDelete()">
+          '<form action="../Account/history_delete.php" method="post" onsubmit="return confirmDelete()">
               <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
               <div class="delete-button">
               <a href="../hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>

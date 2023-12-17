@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>丸みを帯びた四角内に四行</title>
+  <title>プロフィール</title>
+  <link rel="icon" href="../img/icon.png">
   <style>
     body {
       background-color: #ccc;

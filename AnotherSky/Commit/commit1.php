@@ -2,7 +2,8 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>commit</title>
+    <title>commit1</title>
+    <link rel="icon" href="../img/icon.png">
     <meta name="description" content="テキストテキストテキストテキストテキストテキスト">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
