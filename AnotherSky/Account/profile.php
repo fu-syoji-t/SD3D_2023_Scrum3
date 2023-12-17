@@ -114,6 +114,7 @@
   <div class="button-container">
     <a href="../hometown/hometown.php?branch=keep" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
     <a href="../hometown/hometown.php?branch=history" type="button" class="button" onclick="addText('bottom-left')">投稿履歴</a>
+    <a href="../account/loguot.php" type="button" class="button" onclick="addText('bottom-left')">ログアウト</a>
   </div>
   <?php
       require_once "../!Mng/DBManager.php";

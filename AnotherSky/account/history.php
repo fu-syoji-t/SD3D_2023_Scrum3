@@ -27,6 +27,7 @@
        /* background-color: #DDDDDD;
         // ホバー時の背景色
         margin-right: 25px;*/
+        display: block;
     }
 </style>
 </html>

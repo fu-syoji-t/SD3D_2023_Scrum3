@@ -1,3 +1,12 @@
+<?php 
+    session_start(); //セッションを開始する 
+        if(isset($_GET['message'])){
+            $message = $_GET['message'];
+        }
+        if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
+            header('Location: ../top/menu.php');
+        }
+    ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,15 +22,6 @@
 
     <title>login</title>
 
-    <?php 
-    session_start(); //セッションを開始する 
-        if(isset($_GET['message'])){
-            $message = $_GET['message'];
-        }
-        if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
-            header('Location: ../top/menu.php');
-        }
-    ?>
     </head>
 
     <style>
@@ -94,8 +94,8 @@
 
                 <input type="submit" name="login" value="ログイン" class="btn">
             </form>
-        </div>
 
+        </div>
             <?php
                 if(isset($message)){
                     echo '<p class="error-message">ログインに失敗しました。正しい情報を入力してください</p>';
