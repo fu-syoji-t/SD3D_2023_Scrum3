@@ -64,7 +64,7 @@ foreach($posts as $post){
         if(isset($post["first_image"])){
           echo 
           '<p class="box_img">
-            <img src="'.$post["first_image"].'" alt="Thumbnail" width="150" height="150">
+            <imgF src="'.$post["first_image"].'" alt="Thumbnail" width="150" height="150">
           </p>';
         }
         echo 
@@ -135,7 +135,7 @@ foreach($posts as $post){
         </p>
       </div>
     </div>-->
-    <a onclick="location.href='../Hometown/hometown.php'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
+    <a onclick="location.href='../Hometown/hometown.php?branch=all'" value=""><span style="font-family: serif; font-size: medium;">more view</span></a>
   </h2>
 </div>
 
