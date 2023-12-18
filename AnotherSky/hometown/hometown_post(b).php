@@ -2,6 +2,7 @@
     require_once "../!Mng/DBManager.php";
     $create = new DBManager();
 
+    // $create->create_post($_POST["user_id"],$_POST["title"],$_POST["region"],$_POST["place"],$_POST["link"],$_POST["text"]);
     $create->create_post(1,$_POST["title"],$_POST["region"],$_POST["place"],$_POST["link"],$_POST["text"]);
     $spot_limit = $create->spot_limit; // 投稿内のスポット数の上限をDBManagerから呼び出し
     $order = 0;
