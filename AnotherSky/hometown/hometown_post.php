@@ -1,9 +1,10 @@
 <?php
-    // session_start();
-    // if(isset($_SESSION["user_id"]) == false) {
-    //     header('Location:../account/login.php');
-    // }
+    session_start();
+    if(isset($_SESSION["user_id"]) == false) {
+        header('Location:../account/login.php');
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>

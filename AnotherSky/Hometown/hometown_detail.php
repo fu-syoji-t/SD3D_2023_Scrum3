@@ -1,4 +1,11 @@
 <?php
+    session_start();
+    if(isset($_SESSION["user_id"])) {
+        $user_id = $_SESSION["user_id"];
+    }else{
+        $user_id = 0;
+    }
+
     require_once "../!Mng/DBManager.php";
     $get = new DBManager();
 
@@ -16,12 +23,14 @@
 </head>
 <style>
     body{
-      background-color: #DDDDDD;
+        background-color: #DDDDDD;
         text-align: center;
     }
     .hurt{
-      font-size: large;
-      margin-right: -300px;
+        /*border: none;
+        background-color: transparent;*/
+        font-size: 2rem;
+        margin-right: -300px;
     }
 </style>
 <body>
@@ -94,48 +103,56 @@
       }
       echo '</div>';
     }
-// //＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
-// // お気に入りの状態を取得
-
-// $resultFavorite = $get->$pdo->query("SELECT * FROM keep_posts WHERE post_id = $post_id AND user_id = 2");
-// $resultFavorite->execute();
-
-// // お気に入りの状態に応じて表示を変更
-// if ($resultFavorite->num_rows > 0) {
-//     // お気に入りに保存されている場合
-//     echo 'label.textContent="❤️"';
-// } else {
-//     // お気に入りに保存されていない場合
-//     echo 'label.textContent="♡"';
-// }
 
 
+    if(isset($_SESSION['user_id'])){
+        $label_function = 'changelabel(); sendFormData()';
+    }else{
+        $label_function = 'login_alert()';
+    }
+
+    $keep = $get->get_keep_post_flag($post_id, $user_id);
+    
+    $label_true_color = "#ff0000";
+    $label_false_color = "#aaaaaa";
+    if(empty($keep)){
+        $label_flag = -1;
+        $label_color = $label_false_color;
+    }else{
+        $label_flag = 1;
+        $label_color = $label_true_color;
+    }
 
     ?>
 
-    <button class="hurt" type="button" id="label" onclick="changelabel(); sendFormData()">♡</button>
+    <button class="hurt" type="button" id="label" onclick="<?php echo $label_function ?>" style="color: <?php echo $label_color ?>">♥</button>
     <br>
     <form id="keep_post" action="hometown_keep_post(b).php" method="post">
-    <input type="hidden" name="user_id" value="1">
-    <input type="hidden" name="post_id" value="<?php echo $post_id ?>">
-      <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
-      <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
+        <input type="hidden" name="user_id" value="<?php echo $user_id ?>">
+        <input type="hidden" name="post_id" value="<?php echo $post_id ?>">
     </form>
     <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>
   <script>
-    var label= document.getElementById("label")
+    var label= document.getElementById("label");
+    var label_flag = <?php echo $label_flag ?>;
     function changelabel(){
-      if(label.textContent == "♡"){
-        label.textContent="❤️";
+      if(label_flag == 1){
+        label.style.color = "<?php echo $label_false_color ?>";
       }else{
-        label.textContent="♡";
+        label.style.color = "<?php echo $label_true_color ?>";
       }
+      label_flag = -label_flag;
     }
+
+    function login_alert(){
+        alert("ログインが必要です");
+    }
+
+
   // フォームAJAX通信用関数　formタグの属性を空
   // データ送信と画面遷移を分離　遷移コントロールのため
-  /*セッション管理と(b)でのJSによる遷移ができたのでいらないかも*/
   function sendFormData() {
       var form = document.querySelector('#keep_post');
       var formData = new FormData(form);
@@ -159,7 +176,6 @@
       xhr.send(formData);
 
   }
-
   
   </script>
 

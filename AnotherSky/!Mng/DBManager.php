@@ -16,6 +16,7 @@
 
             get_posts
             get_post
+            get_keep_post_flag //
             delete_post
             updatePost
             get_post_for_edit
@@ -111,7 +112,7 @@
                     return $search;
                 }*/
             }
-            return $search=[];
+            return $search = [];
         }
 
 
@@ -284,6 +285,33 @@
             return $post;
         }
 
+
+        /*  get_keep_post_flag
+
+            保存投稿から該当するレコードを取得する関数
+
+            引数
+                post_id     投稿ID
+                user_id     ユーザID
+
+            戻り値
+                post_id及びuser_idに該当する保存投稿のレコード　1行または空値
+        */
+        function get_keep_post_flag($post_id, $user_id) {
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *
+                    FROM keep_posts
+                    WHERE post_id = ? AND user_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->bindValue(2,$user_id,PDO::PARAM_INT);
+            $ps->execute();
+            $row = $ps->fetch();
+
+            return $row;
+        }
+
+
         function delete_post($post_id) {
             $pdo = $this->dbConnect();
             $sql = "DELETE FROM posts WHERE post_id = ?";
@@ -297,6 +325,8 @@
     
             return $success;
         }
+
+
                //投稿削除（画像削除も）
         public function delete_post_and_images_ignore_constraints($post_id) {
             try {
@@ -327,6 +357,7 @@
                 return false; // 削除失敗
             }
         }
+        
             
         private function delete_post_images($post_id) {
             try {
@@ -411,21 +442,6 @@
         }
 
 
-        //未使用？
-        function get_post_for_edit($post_id) {
-            $pdo = $this->dbConnect();
-            $sql = "SELECT * 
-                    FROM posts
-                    WHERE post_id = ?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1, $post_id, PDO::PARAM_INT);
-            $ps->execute();
-            $post = $ps->fetch();
-        
-            return $post;
-        }
-
-
 
         function get_user($user_id) {
             $pdo = $this->dbConnect();
@@ -440,36 +456,20 @@
             return $user;
         }
 
-        function get_myfavorite_posts($user_id) {
+        function get_keep_posts($user_id) {
             $pdo = $this->dbConnect();
-            $sql = "SELECT p.*
-                    FROM keep_posts kp
-                    INNER JOIN posts p ON kp.post_id = p.post_id
-                    WHERE kp.user_id = ?
-                    ORDER BY p.post_id ASC";
+            $sql = "SELECT keep_id, kp.user_id, kp.post_id, title, region_id,
+                            place, link_path, text, date, image_id, image_order, path
+                    FROM keep_posts AS kp
+                    LEFT JOIN posts AS p ON p.post_id = kp.post_id
+                    LEFT JOIN post_images AS pi ON kp.post_id = pi.post_id AND image_order = 0
+                    WHERE kp.user_id = ?";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1, $user_id, PDO::PARAM_INT);
             $ps->execute();
-            $myfavorite_posts = $ps->fetchAll();
-            
-            $sql = "SELECT *
-                    FROM post_images
-                    WHERE image_order = 0";
-            $ps = $pdo->query($sql);
-            $ps->execute();
-            $first_image = $ps->fetchAll();
+            $posts = $ps->fetchAll();
 
-            $i = 0;
-            $j = 0;
-            foreach($myfavorite_posts as $post) {
-                if(isset($first_image[$i]) && $post["post_id"] == $first_image[$i]["post_id"]) {
-                    $myfavorite_posts[$j]["first_image"] = $first_image[$i]["path"];
-                    $i++;
-                }
-                $j++;
-            }
-
-            return $myfavorite_posts;
+            return $posts;
         }
 
         function get_myfavorite_posts2($user_id) {
