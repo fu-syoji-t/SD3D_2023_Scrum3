@@ -22,8 +22,7 @@
     }
 
     .square {
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
         width: 500px;
         border: 2px solid #000;
         border-radius: 20px;

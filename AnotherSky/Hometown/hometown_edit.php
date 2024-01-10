@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,7 +91,7 @@
             }
         ?>
         <br>
-        
+
         <?php
         // 以下、投稿内のスポット数を計算している（2度手間だが）
         $spot_order = array();
@@ -152,7 +155,7 @@
     </form>
 
     <form id="keep_post" action="hometown_keep_post(b).php" method="post">
-        <input type="hidden" name="user_id" value="2">
+        <input type="hidden" name="user_id" value="<?php echo $_SESSION["user_id"] ?>">
         <input type="hidden" name="post_id" value="<?php echo $post_id ?>">   
         <!--<button type="button" id="label"onclick="changelabel(); sendFormData()">♡</button>-->
         <!--<button type="submit" id="label"onclick="changelabel();">♡</button>-->
