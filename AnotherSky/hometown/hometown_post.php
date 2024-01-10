@@ -87,7 +87,7 @@
     ?>
     <br>
     <input class="subu" type="submit" value="投稿">
-    <?php  require_once '../!Mng/footer_hometown.php' ?>
+    <?php  require_once '../!Mng/footer.php' ?>
 </form>
 <script>
     $(document).ready(function () {
