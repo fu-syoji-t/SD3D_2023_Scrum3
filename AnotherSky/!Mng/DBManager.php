@@ -31,7 +31,7 @@
         
 
         /* 投稿画面のスポット数の上限 */
-        public $spot_limit = 10;
+        public $spot_limit = 100;
 
         private function dbConnect(){
             //$pdo = new PDO('mysql:host=mysql215.phy.lolipop.lan;dbname=LAA1570577-anothersky;charset=utf8mb4','LAA1570577','I7RnRX7MhP7QeRP');

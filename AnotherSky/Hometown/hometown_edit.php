@@ -77,7 +77,7 @@
         for($i = 0; $i < $spot_limit; $i++) {
         echo '<div class="spot-container" style="display: ' . ('none') . ';">
         ------------------------------------------------------------<br>
-        画像を選択 <br>
+            画像を選択 <br>
             <div id="imagePreview'.$i.'" class="image-preview-container"></div>
             <input type="file" name="post_image'.$i.'" accept="image/*"><br><br>
             <textarea class="maro" name="sentence'.$i.'" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" rows=8 cols=50 style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br>
@@ -135,7 +135,9 @@
             /* <input type="text" id="freespace" name="freespace" style= background-color:#fff; value="<?php echo htmlspecialchars($post["text"]); ?>"> */
 
         }
-        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_post"])) {
+
+
+        /*if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_post"])) {
             $title = $_POST["title"];
             $region = $_POST["region"];
             $place = $_POST["place"];
@@ -148,7 +150,7 @@
             } else {
                 echo "更新に失敗しました。";
             }
-        }
+        }*/
         ?>
         <br>
         <input type="submit" name="update_post" value="更新">
