@@ -3,50 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Input Fields</title>
+    <title>Insert Element Between Existing Elements</title>
     <style>
-        .hidden {
-            display: none;
+        .box {
+            border: 1px solid #ccc;
+            margin: 5px 30px;
+            padding: 5px;
         }
     </style>
 </head>
 <body>
-    <div id="inputContainer">
-        <!-- 初期の入力フィールド -->
-        <input type="text" name="dynamicInput[]" />
-        <button onclick="toggleVisibility(this)">表示/非表示</button>
+    <div id="container">
+        <div class="spot">
+            <button type="button" onclick="insertNewElement(this.parentNode)">＋</button>
+        </div>
+        <div class="spot">
+            <button type="button" onclick="removeElement(this.parentNode)">－</button>
+            <div class="box">child</div>
+            <button type="button" onclick="insertNewElement(this.parentNode)">＋</button>
+        </div>
+        
     </div>
+<script>
+function insertNewElement(element) {
 
-    <script>
-        function addInput() {
-            var container = document.getElementById('inputContainer');
-            var newInput = document.createElement('input');
-            newInput.type = 'text';
-            newInput.name = 'dynamicInput[]';
+    // 親要素を作成
+    var newElement = document.createElement('div');
+    newElement.className = 'spot';
 
-            var newButton = document.createElement('button');
-            newButton.textContent = '表示/非表示';
-            newButton.onclick = function() {
-                toggleVisibility(this);
-            };
+    // 子要素を作成
+    var newBox = document.createElement('div');
+    newBox.className = 'box';
+    newBox.textContent = '新しい要素'+Math.random();
 
-            container.appendChild(newInput);
-            container.appendChild(newButton);
-        }
+    // 子要素を作成
+    var newInsertButton = document.createElement('button');
+    newInsertButton.textContent = '＋';
+    newInsertButton.onclick = function() {
+        insertNewElement(this.parentNode);
+    };
 
-        function toggleVisibility(button) {
-            var container = button.parentElement;
-            var input = container.querySelector('input');
+    // 子要素を作成
+    var newRemoveButton = document.createElement('button');
+    newRemoveButton.textContent = '－';
+    newRemoveButton.onclick = function() {
+        removeElement(this.parentNode);
+    };
 
-            // 対応する input 要素の表示状態を切り替える
-            if (input.classList.contains('hidden')) {
-                input.classList.remove('hidden');
-            } else {
-                input.classList.add('hidden');
-            }
-        }
-    </script>
+    // 子要素を親要素へ挿入
+    newElement.appendChild(newRemoveButton);
+    newElement.appendChild(newBox);
+    newElement.appendChild(newInsertButton);
 
-    <button onclick="addInput()">新しい入力フィールドを追加</button>
+    // 親要素を挿入する位置の要素を取得
+    var position = getPosition(element);
+    console.log('要素の位置:', position);
+    var container = document.getElementById('container');
+    var existingElement = container.children[position];
+
+    // 特定の位置に新しい要素を挿入
+    container.insertBefore(newElement, existingElement.nextSibling);
+}
+
+function removeElement(element) {
+    var container = document.getElementById('container');
+    container.removeChild(element);
+}
+
+// 特定の要素の位置を取得
+function getPosition(element) {
+    var parent = element.parentNode;
+    var children = Array.from(parent.children);
+
+    var index = children.indexOf(element);
+    return index;
+}
+
+</script>
+
 </body>
 </html>
