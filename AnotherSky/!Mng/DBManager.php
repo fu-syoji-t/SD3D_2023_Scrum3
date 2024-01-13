@@ -7,7 +7,7 @@
 
             mail_check
             sign_up
-            sign_in
+            login
 
             get_regions
             create_post
@@ -86,7 +86,7 @@
         }
 
 
-        /*  sign_in
+        /*  login
 
             ログイン処理をする関数
 
@@ -97,7 +97,7 @@
             戻り値
                 メールアドレス及びパスワードに該当するユーザのレコード　１行
         */
-        function sign_in($mail, $pass) {
+        function login($mail, $pass) {
             $pdo = $this->dbConnect();
             $sql = "SELECT * FROM users WHERE mail = ?";
             $ps = $pdo->prepare($sql);
@@ -150,7 +150,7 @@
                 text       投稿の紹介文
 
             戻り値
-                
+                なし
         */
         function create_post($user_id,$title,$region_id,$place,$link_path,$text){
             $pdo = $this->dbConnect();
@@ -327,7 +327,7 @@
         }
 
 
-        //投稿削除（画像削除も）
+               //投稿削除（画像削除も）
         public function delete_post_and_images_ignore_constraints($post_id) {
             try {
                 $this->dbConnect(); // データベースへの接続

@@ -5,7 +5,10 @@
     <title>home</title>
     <link rel="icon" href="../img/icon.png">
     <style>
-      
+      body {
+          background-color: #DDDDDD;
+        }
+
         h1 {
           background-color: gray;
           font-size: 23px;

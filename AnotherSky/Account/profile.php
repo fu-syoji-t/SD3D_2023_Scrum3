@@ -1,27 +1,42 @@
 <?php
     session_start();
     if(isset($_SESSION["user_id"]) == false){
-        header('Location:sign_in.php');
+        header('Location:login.php');
     }
-
-    require_once "../!Mng/DBManager.php";
-    $get = new DBManager();
-
-    $user = $get -> get_user($_SESSION["user_id"]);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プロフィール</title>
-    <link rel="icon" href="../img/icon.png">
-    <style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プロフィール</title>
+  <link rel="icon" href="../img/icon.png">
+  <style>
     body {
-        text-align: center;
+      background-color: #ccc;
+      margin: 0;
+    }
+
+    .a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+    }
+
+    .profile-title {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      font-size: 32px;
+      color: #000;
+      transform: translateX(-50%);
     }
 
     .square {
+<<<<<<< HEAD
         margin: 0 auto;
         width: 500px;
         border: 2px solid #000;
@@ -31,84 +46,126 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+=======
+      position: relative;
+      width: 500px;
+      height: 500px;
+      border: 2px solid #000;
+      background-color: transparent;
+      border-radius: 20px;
+      color: #000;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+>>>>>>> parent of 7575699 (up)
     }
 
-    .square_head {
-        color: gray;
-        margin: 4rem 0 0;
-        font-size: 1.5rem;
+    .text-box {
+      width: 80%;
+      padding: 20px;
+      background-color: transparent;
+      box-sizing: border-box;
+      position: relative;
     }
-    .square_index {
-        margin: 3rem;
-        border-bottom: 2px solid #000;
-        font-size: 1.2rem;
+
+    .text-box::before {
+      content: '';
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #000;
+    }
+
+    .editable-text {
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
     }
 
     .button-container {
-        margin: 3rem;
-        margin-left: auto;
-        margin-right: auto;
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
     }
 
-    .btn {
-        display: inline-block;
-        vertical-align: middle;
-        margin: 0 10px;
-        padding: 6px 25px;
-        color: gray;
-        font-weight: bold;
-        letter-spacing: 0.5pt;
-        text-decoration: none;
-        background-color: #ffffff;
-        border: 1px solid gray;
-        cursor: pointer;
-        transition-duration: 0.3s;
-        -webkit-transition-duration: 0.3s;
-        -moz-transition-duration: 0.3s;
-        -o-transition-duration: 0.3s;
-        -ms-transition-duration: 0.3s;
-    } 
-    .btn:hover {
-        color: #ffffff;
-        background-color: gray;
+    .button {
+      margin-right: 10px;
+      padding: 10px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
-
-    </style>
+  </style>
 </head>
-    <?php
-        require_once "../!Mng/header.php";
-    ?>
+  <?php
+    require_once "../!Mng/header.php";
+  ?>
 <body>
-<h2>
-    <div style="text-align: center;">
-        <font face="serif">
-        <br />
-            <span style="font-size: 36px;">Profile</span>
-            <br />
-        </font>
+<div class="a">
+  <div class="profile-title">Profile</div>
+  <div class="square">
+    <div>name</div>
+    <div class="text-box">
+      <div contenteditable="true" class="editable-text"></div>
     </div>
-</h2>
-    
-<div class="square">
-
-    <div class="square_head">name</div>
-    <div class="square_index"><?php echo $user["name"] ?></div>
-
-    <div class="square_head">E-mail</div>
-    <div class="square_index"><?php echo $user["mail"] ?></div>
-
+    <div>mailaddress</div>
+    <div class="text-box">
+      <div contenteditable="true" class="editable-text"></div>
+    </div>
+  </div>
 </div>
 
-<div class="button-container">
-    <button type="botton" class="btn" onclick="location.href='../hometown/hometown.php?branch=keep'">お気に入り</button>
-    <button type="botton" class="btn" onclick="location.href='../hometown/hometown.php?branch=history'">投稿履歴</button>
-    <button type="botton" class="btn" onclick="location.href='../account/sign_out(b).php'">サインアウト</button>
-</div>
-    <?php
-        require_once "../!Mng/DBManager.php";
-        $get = new DBManager();
-    ?>
+  <div class="button-container">
+    <a href="../hometown/hometown.php?branch=keep" type="button" class="button" onclick="addText('bottom-left')">お気に入り</a>
+    <a href="../hometown/hometown.php?branch=history" type="button" class="button" onclick="addText('bottom-left')">投稿履歴</a>
+    <a href="../account/loguot.php" type="button" class="button" onclick="addText('bottom-left')">ログアウト</a>
+  </div>
+  <?php
+      require_once "../!Mng/DBManager.php";
+      $get = new DBManager();
+  ?>
 
-    <?php  require_once '../!Mng/footer.php' ?>
+  <script>
+    function addText(position) {
+      const editableText = document.createElement('div');
+      editableText.contentEditable = true;
+      editableText.className = 'editable-text';
+
+      const textBox = document.createElement('div');
+      textBox.className = 'text-box';
+      textBox.appendChild(editableText);
+
+      const newDiv = document.createElement('div');
+      newDiv.appendChild(textBox);
+
+      if (position === 'bottom-left') {
+        newDiv.style.position = 'absolute';
+        newDiv.style.bottom = '10px';
+        newDiv.style.left = '10px';
+      } else if (position === 'bottom-right') {
+        newDiv.style.position = 'absolute';
+        newDiv.style.bottom = '10px';
+        newDiv.style.right = '10px';
+      }
+
+      document.body.appendChild(newDiv);
+    }
+  </script>
+   <?php  require_once '../!Mng/footer.php' ?>
 </body>
 </html>

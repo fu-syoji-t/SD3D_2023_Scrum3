@@ -5,6 +5,9 @@
     <title>登録</title>
     <link rel="icon" href="../img/icon.png">
     <style>
+        body {
+          background-color: #DDDDDD;
+        }
         .form {
             margin: 50px auto;
             text-align: center;
@@ -58,7 +61,7 @@
             <h1>SIGN-UP</h1>
         </div>
         <div class="form_area">
-            <form action="sign_up(b).php" method="POST" name="userins" onsubmit="return check();">
+            <form action="toroku(b).php" method="POST" name="userins" onsubmit="return check();">
                 <label class="label_left" for="name">名前:</label>
                 <input type="text" id="name" name="name" placeholder="name" required><br><br>
                 

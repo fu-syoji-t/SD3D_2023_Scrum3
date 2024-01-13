@@ -1,12 +1,12 @@
 <?php 
     session_start(); //セッションを開始する 
-    if(isset($_GET['message'])){
-        $message = $_GET['message'];
-    }
-    if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
-        header('Location: ../top/profile.php');
-    }
-?>
+        if(isset($_GET['message'])){
+            $message = $_GET['message'];
+        }
+        if(isset($_SESSION["mail"]) == true && isset($_SESSION["name"]) == true){
+            header('Location: ../top/menu.php');
+        }
+    ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -18,11 +18,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     <meta http-equir="content-type" charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サインイン♪</title>
+    <title>ログイン♪</title>
     <link rel="icon" href="../img/icon.png">
 
 </head>
 <style>
+    body {
+        background-color: #DDDDDD;
+    }
     .form {
         margin: 50px auto;
         text-align: center;
@@ -71,7 +74,7 @@
 
 <body>
 
-    <form action="sign_in(b).php" method="post">
+    <form action="login(b).php" method="post">
 
         <br><br>
 
@@ -92,11 +95,11 @@
                 <br><br>
 
                 <div class="users-sgin">
-                    <a href="sign_up.php">sign-up</a>
+                    <a href="account.php">sign-up</a>
                 </div>
                 <br>
 
-                <input type="submit" name="login" value="サインイン" class="btn">
+                <input type="submit" name="login" value="ログイン" class="btn">
 
             </div>
 

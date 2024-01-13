@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION["user_id"]) == false) {
-        header('Location:../account/sign_in.php');
+        header('Location:../account/login.php');
     }
 ?>
 
@@ -14,8 +14,10 @@
     <link rel="icon" href="../img/icon.png">
     <!-- <link rel="stylesheet" type="text/css" href="../css/.css"> -->
 </head>
-
 <style>
+    body{
+        background-color: #DDDDDD;
+    }
     .macro{
         text-align: center;
         font-size: 14px;
@@ -25,11 +27,12 @@
         max-height: 300px;
     }
     select[name="region"] {
-        background-color: #fff;
-        border-radius: 5px;
-    }
-</style>
+    background-color: #fff;
+    border-radius: 5px;
+}
+    
 
+</style>
 </html>
 <?php  require_once '../!Mng/header.php' ?>
 <?php
@@ -52,12 +55,12 @@
         <option value="" selected style="color: #888">未選択</option>
     </div>
 </div>
-    <?php
-        foreach($regions as $region) {
-            echo 
+        <?php
+            foreach($regions as $region) {
+                echo 
         '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
-        }
-    ?>
+            }
+        ?>
     </select><br>
     place <br>
     <input type="text" name="place" style="background-color: #fff; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;"><br>

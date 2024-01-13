@@ -5,7 +5,6 @@
     }
     // ログインしていない場合の挙動？ Keep & History
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -40,7 +39,6 @@
 </style>
 
 <body>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <?php  
     require_once '../!Mng/header.php' ;
@@ -81,72 +79,77 @@
         default:
             $posts = [];
 
-    }
+  }
 
 ?>
+</div>
 
-<h2>
-    <div style="text-align: center;">
-        <font face="serif">
-        <br />
-            <span style="font-size: 36px;"><?php echo $title ?></span>
-            <br />
-        </font>
-    </div>
-</h2>
-
-
-<?php
-foreach($posts as $post){
-    echo 
-'<div class="box">
+<div>
     <h2>
-        <a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
-        <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
-    </h2>';
-    if(isset($post["image_id"])){
-    echo 
-    '<p class="box_img">
-        <img src="'.$post["path"].'" alt="Thumbnail" width="150" height="150">
-    </p>';
-    }
-
-    if($_GET["branch"] == "history") {
-    // 削除ボタンを追加
-    echo 
-    '<form action="../Account/history_delete(b).php" method="post" onsubmit="return confirmDelete()">
-        <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
-        <div class="delete-button">
-            <a href="../hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
-            <input type="submit" value="投稿を削除" >
+        <div style="text-align: center;"></div>
+        <div style="text-align: center;">
+            <font face="serif">
+            <br />
+                <span style="font-size: 36px;"><?php echo $title ?></span>
+                <br />
+            </font>
         </div>
-    </form>';
-    }
+    </h2>
+</div>
 
-    echo 
-    '<div class="box_sentence">
-        <p>
-            '.$post["text"].'…
-            <a href="hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
-        </p>
-    </div>
-</div>';
-}
+    <?php
+        foreach($posts as $post){
+            echo 
+        '<div class="box">
+            <h2>
+                <a href="hometown_detail.php?post='.$post["post_id"].'">'.$post["place"].'</a>
+                <span class="date">('.date('Y.m.d',strtotime($post["date"])).')</span>
+            </h2>';
+            if(isset($post["image_id"])){
+            echo 
+            '<p class="box_img">
+                <img src="'.$post["path"].'" alt="Thumbnail" width="150" height="150">
+            </p>';
+            }
 
-echo 
-'<div class="read_more">
-    <button type="button" class="more" id="more">read more...</button>
-</div>';
+            if($_GET["branch"] == "history") {
+            // 削除ボタンを追加
+            echo 
+            '<form action="../Account/history_delete.php" method="post" onsubmit="return confirmDelete()">
+                <input type="hidden" name="post_id" value="' . $post["post_id"] . '">
+                <div class="delete-button">
+                    <a href="../hometown/hometown_edit.php?post='. $post["post_id"] . '">編集</a>
+                    <input type="submit" value="投稿を削除" >
+                </div>
+            </form>';
+            }
 
-if($_GET["branch"] == "all") {
-    echo
-'<div class="input">
-    <a onclick="location.href=\'../hometown/hometown_post.php\'"><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
-</div>';
-}
+            echo 
+            '<div class="box_sentence">
+                <p>
+                    '.$post["text"].'…
+                    <a href="hometown_detail.php?post='.$post["post_id"].'">続きを読む</a>
+                </p>
+            </div>
+        </div>';
+        }
+
+        echo 
+        '<div class="read_more">
+            <button type="button" class="more" id="more">read more...</button>
+        </div>';
+
+        if($_GET["branch"] == "all") {
+            echo
+        '<div class="input">
+            <a onclick="location.href=\'../hometown/hometown_post.php\'"><font face="serif"><span style="font-size: 36px;">投稿する</span></font></a>
+        </div>';
+        }
 ?>
   
-<?php  require_once '../!Mng/footer.php' ?>
+    <?php  require_once '../!Mng/footer.php' ?>
+    </body>
+
 </body>
 
 </html>
