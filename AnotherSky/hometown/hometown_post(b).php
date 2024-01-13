@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once "../!Mng/DBManager.php";
     $create = new DBManager();
 

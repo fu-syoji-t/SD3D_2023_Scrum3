@@ -23,7 +23,6 @@
 </head>
 <style>
     body{
-        background-color: #DDDDDD;
         text-align: center;
     }
     .hurt{
@@ -147,7 +146,7 @@
     }
 
     function login_alert(){
-        alert("ログインが必要です");
+        alert("サインインが必要です");
     }
 
 
