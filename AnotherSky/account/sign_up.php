@@ -68,7 +68,7 @@
                 <label class="label_left" for="password">パスワード:</label>
                 <input type="password" id="password" name="pass" placeholder="pass" required><br><br> <!-- パスワードのname属性を修正 -->
                 
-                <input type="submit" name="register" value="登録" class="btn">
+                <input type="submit" name="register" value="SIGN UP" class="btn">
             </form>
         </div>
     </div>

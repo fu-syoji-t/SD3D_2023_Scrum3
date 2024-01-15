@@ -78,7 +78,7 @@
         <div class="form">
 
             <div class="form_title">
-                <h1>sign-in</h1>
+                <h1>SIGN-IN</h1>
             </div>
 
             <div class="form_area">
@@ -92,11 +92,11 @@
                 <br><br>
 
                 <div class="users-sgin">
-                    <a href="sign_up.php">sign-up</a>
+                    <a href="sign_up.php">SIGN-UP</a>
                 </div>
                 <br>
 
-                <input type="submit" name="login" value="サインイン" class="btn">
+                <input type="submit" name="login" value="SIGN IN" class="btn">
 
             </div>
 
