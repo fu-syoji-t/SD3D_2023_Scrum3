@@ -51,6 +51,29 @@
         border-radius: 5px;
         box-shadow: inset 0px 0px 0px 0.5px black;
     }
+
+    .btn {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 10px;
+        padding: 6px 25px;
+        color: gray;
+        font-weight: bold;
+        letter-spacing: 0.5pt;
+        text-decoration: none;
+        background-color: #ffffff;
+        border: 1px solid gray;
+        cursor: pointer;
+        transition-duration: 0.3s;
+        -webkit-transition-duration: 0.3s;
+        -moz-transition-duration: 0.3s;
+        -o-transition-duration: 0.3s;
+        -ms-transition-duration: 0.3s;
+    } 
+    .btn:hover {
+        color: #ffffff;
+        background-color: gray;
+    }
     
 
 </style>
@@ -119,7 +142,7 @@
         </div>
 
         <br>
-        <input class="subu" type="submit" value="投稿">
+        <input class="btn" type="submit" value="投稿">
         <?php  require_once '../!Mng/footer.php' ?>
     </form>
 </div>
@@ -164,7 +187,7 @@
         var newElement = document.createElement('div');
         newElement.className = 'spot-container';
         // htmlを記述
-        newElement.insertAdjacentHTML('beforeend', '<div class="spot-container"><hr><div class="image-preview-container"></div><input type="file" name="post_image[]" accept="image/*" onchange="showImagePreview(this)"><button type="button" class="input-img" onclick="selectImg(this)">画像を選択</button><br><textarea class="maro" name="sentence[]" rows=8 cols=50 placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br><button type="button" class="deleteSpot" onclick="removeElement(this.parentNode)">✕ 削除</button><hr><button type="button" class="addSpot" onclick="insertNewElement(this.parentNode)">+</button></div>');
+        newElement.insertAdjacentHTML('beforeend', '<hr><div class="image-preview-container"></div><input type="file" name="post_image[]" accept="image/*" onchange="showImagePreview(this)"><button type="button" class="input-img" onclick="selectImg(this)">画像を選択</button><br><textarea class="maro" name="sentence[]" rows=8 cols=50 placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br><button type="button" class="deleteSpot" onclick="removeElement(this.parentNode)">✕ 削除</button><hr><button type="button" class="addSpot" onclick="insertNewElement(this.parentNode)">+</button>');
 
         // 親要素を挿入する位置の要素を取得
         var position = getPosition(element);

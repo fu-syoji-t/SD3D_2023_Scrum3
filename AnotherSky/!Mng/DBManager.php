@@ -423,12 +423,12 @@
             戻り値
                 true
         */
-        function updatePost($post_id, $title, $region_id, $place, $link_path, $text) {
+        function update_post($post_id, $title, $region_id, $place, $link_path, $text) {
             $pdo = $this->dbConnect();
             $sql = "UPDATE posts
                     SET title = :title, region_id = :region_id, place = :place, link_path = :link_path, text = :text
                     WHERE post_id = :post_id";
-        
+
             $ps = $pdo->prepare($sql);
             $ps->bindParam(':title', $title, PDO::PARAM_STR);
             $ps->bindParam(':region_id', $region_id, PDO::PARAM_INT);
@@ -436,9 +436,45 @@
             $ps->bindParam(':link_path', $link_path, PDO::PARAM_STR);
             $ps->bindParam(':text', $text, PDO::PARAM_STR);
             $ps->bindParam(':post_id', $post_id, PDO::PARAM_INT);
-        
+            
             $ps->execute();
             return true;
+        }
+
+        function reset_post_images($post_id) {
+            $pdo = $this->dbConnect();
+            $sql = "DELETE FROM post_images WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->execute();
+        }
+        function update_post_images($post_id, $order,$path){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO post_images (post_id,image_order,path)
+                                VALUES(?,?,?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->bindValue(2,$order,PDO::PARAM_INT);
+            $ps->bindValue(3,$path,PDO::PARAM_STR);
+            $ps->execute();
+        }
+
+        function reset_post_sentences($post_id) {
+            $pdo = $this->dbConnect();
+            $sql = "DELETE FROM post_sentences WHERE post_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->execute();
+        }
+        function update_post_sentence($post_id, $order,$sentence){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO post_sentences (post_id,sentence_order,sentence)
+                                VALUES(?,?,?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$post_id,PDO::PARAM_INT);
+            $ps->bindValue(2,$order,PDO::PARAM_INT);
+            $ps->bindValue(3,$sentence,PDO::PARAM_STR);
+            $ps->execute();
         }
 
 
@@ -601,17 +637,5 @@
         
             return $posts;
         }
-            
-
-    //     function favorite_post($post_id, $user_id){
-    //         $pdo = new PDO('mysql:host=localhost;dbname=another_sky;charset=utf8mb4','root','root');
-    //         $pdo = $this->dbConnect();
-    //         $sql = "SELECT * FROM keep_posts WHERE post_id = $post_id AND user_id = 2";
-    //         $ps = $pdo->prepare($sql);
-    //         $ps->execute();
-    //         $resultFavorite = $ps->fetchAll();
-    //         return $resultFavorite;
-    //     }
     }
-
 ?>

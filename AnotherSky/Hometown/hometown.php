@@ -18,6 +18,11 @@
 </head>
 
 <style>
+
+    .box {
+        display: none;
+    }
+
     .delete-button {
         background-color: #fff;
         /* ボタンの背景色 */
@@ -135,7 +140,7 @@ foreach($posts as $post){
 
 echo 
 '<div class="read_more">
-    <button type="button" class="more" id="more">read more...</button>
+    <button type="button" class="more" id="more">more view...</button>
 </div>';
 
 if($_GET["branch"] == "all") {
@@ -152,33 +157,43 @@ if($_GET["branch"] == "all") {
 </html>
 
 <script>
-    var div = 5;
+    var start = 10;
+    var add = 10;
     var c_box = 0;
 
     var boxes = document.getElementsByClassName("box");
-    var moreElem = document.getElementById("more");
-
-    while(c_box < boxes.length) {
-        if(c_box < div) {
+    while(c_box < start) {
         boxes[c_box].style.display = "block";
-        }	else {
-        break;
-        }
         c_box++;
     }
     console.log(c_box);
 
-    document.addEventListener("click", function (event) {
-        if (event.target == moreElem) {
+    function moreBox() {
         var i = c_box;
-        while(c_box < i + div && c_box < boxes.length) {
+        while(c_box < i + add && c_box < boxes.length) {
             boxes[c_box].style.display = "block";
             c_box++;
         }
-        }
         console.log(c_box);
+    }
+
+    var moreElem = document.getElementById("more");
+    moreElem.addEventListener('click', function() {
+        moreBox();
     });
 
+    /*
+    // スクロールイベントのリスナを追加
+    window.addEventListener('scroll', function() {
+        // 現在のスクロール位置を取得
+        var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+
+        // スクロール位置が (画面の総高さ - 表示領域の高さ) 以下ならば関数を実行
+        if (scrollPosition >= (document.documentElement.scrollHeight - window.innerHeight)) {
+            moreBox();
+        }
+    });
+    */
 
     function confirmDelete() {
         // 確認ダイアログを表示し、OKなら削除処理を実行、キャンセルなら処理を中止
