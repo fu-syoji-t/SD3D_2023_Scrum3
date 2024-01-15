@@ -24,7 +24,8 @@
   <main>
     <?php  require_once '../!Mng/header.php' ?>
     <div class="home-photo">
-      <img src="../img/top-photo.jpg" alt="home">
+      <img src="../img/top-photo.jpg" alt="home"><!-- yasu -->
+      <!-- <img src="../img/another_sky_logo.jpg" alt="home"> --><!-- ryota -->
     </div>
 
     <?php  require_once '../commit/commit.php' ?>
