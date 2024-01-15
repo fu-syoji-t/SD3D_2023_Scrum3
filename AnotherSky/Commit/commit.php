@@ -116,7 +116,7 @@
   <body>
     <div class="content">
       <div class="text">
-        <h2 class="title">COMMIT</h2>
+        <h2 class="title">introduction</h2>
         <p class="large">
           <br>
           忘れられない空がある<br>

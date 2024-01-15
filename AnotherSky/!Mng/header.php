@@ -222,7 +222,7 @@
         <ul>
             <li><a href="../top/menu.php">Top</a></li>  
             <li><a href="../hometown/hometown.php?branch=all">Hometown</a></li>  
-            <li><a href="../commit/another.php">Commit</a></li>  
+            <li><a href="../commit/another.php">introduction</a></li>  
             <li><a href="../region/region.php">Region</a></li>
             <li><a href ="../account/profile.php">Account</a></li> 
             <li><a href ="../account/sign_in.php">Sign In</a></li> 
