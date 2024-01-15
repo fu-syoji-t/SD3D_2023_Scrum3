@@ -194,7 +194,7 @@
         </div>
 
         <br>
-        <input class="btn" type="submit" value="投稿">
+        <input class="btn" type="submit" value="更新">
         <?php  require_once '../!Mng/footer.php' ?>
     </form>
 </div>
