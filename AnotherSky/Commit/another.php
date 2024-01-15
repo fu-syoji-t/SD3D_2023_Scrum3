@@ -117,7 +117,7 @@
 <div id="wrpeer">
 <?php  require_once '../!Mng/header.php' ?>
 <div class="title">
-    <h1>COMMIT</h1>
+    <h1>INTRODUCTION</h1>
 </div>
 
 <div id="luxy">

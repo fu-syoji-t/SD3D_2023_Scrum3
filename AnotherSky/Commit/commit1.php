@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8">
-    <title>commit1</title>
+    <title>introduction</title>
     <link rel="icon" href="../img/icon.png">
     <meta name="description" content="テキストテキストテキストテキストテキストテキスト">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
   <body>
     <div class="content">
       <div class="text">
-        <h2 class="title">COMMIT</h2>
+        <h2 class="title">introduction</h2>
         <p class="large">
           <br>
           忘れられない空がある<br>
