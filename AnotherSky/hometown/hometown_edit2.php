@@ -55,57 +55,105 @@
 
 </style>
 
-</html>
 <?php
     require_once "../!Mng/header.php";
+
     require_once "../!Mng/DBManager.php";
     $get = new DBManager();
 
     $regions = $get->get_regions();
 
-    $spot_limit = $get->spot_limit;
+    $post_id = $_GET["post"];
+    $post = $get->get_post($post_id);
+
 ?>
 
 <br>
 <div class="macro">
     <form action="hometown_post(b).php" method="post" enctype="multipart/form-data">
+        <?php echo $post["date"] ?>
+        <br><br>
         title <br>
-        <input type="text" name="title" maxlength="30" style="background-color: #fff; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;"><br>
+        <input type="text" name="title" maxlength="30" value="<?php echo $post['title'] ?>" style="background-color: #fff; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;"><br>
         region <br>
         <select name="region" required>
             <option value="" selected style="color: #888">未選択</option>
             <?php
                 foreach($regions as $region) {
                     echo 
-            '<option value='.$region["region_id"].'>'.$region["name"].'</option>';
+            '<option value='.$region["region_id"].(($region["region_id"] == $post["region_id"]) ? " selected" : "").'>'.$region["name"].'</option>';
                 }
             ?>
         </select><br>
         place <br>
-        <input type="text" name="place" style="background-color: #fff; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;"><br>
+        <input type="text" name="place" value="<?php echo $post['place'] ?>" style="background-color: #fff; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px;"><br>
         youtube <br>
-        <textarea name="link" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br>
+        <textarea name="link" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"><?php echo $post['link_path'] ?></textarea><br>
         freespace <br>
-        <textarea name="text" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea><br><br>
+        <textarea name="text" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"><?php echo $post['text'] ?></textarea><br><br>
 
         <div>
-
+            
             <div class="spot-container">
                 <button type="button" class="addSpot" onclick="insertNewElement(this.parentNode)">+</button>
-            </div> 
+            </div>
 
-            <div class="spot-container">
+            <?php
+                // 以下、投稿内のスポット数を計算している（2度手間だが）
+                $spot_order = array();
+                // それぞれのオーダーを取得、配列に格納
+                for($i = 0; $i < count($post["images"]); $i++) {
+                    $spot_order[] = $post["images"][$i]["image_order"];
+                }
+                for($i = 0; $i < count($post["sentences"]); $i++) {
+                    $spot_order[] = $post["sentences"][$i]["sentence_order"];
+                }
+                // 画像の数とテキストの数の合計
+                $spot_n = count($spot_order); // spot_n = スポット数
+                // 画像とテキストのオーダーが一致しているときはspot_nを引く
+                for($i = 0; $i < count($spot_order); $i++) {
+                    for($j = $i+1; $j < count($spot_order); $j++) {
+                        if($spot_order[$i] == $spot_order[$j]) {
+                        $spot_n--;
+                        }
+                    }
+                }
+
+
+                //spotの表示
+                $c_image = 0;
+                $c_sentence = 0;
+                for($i = 0; $i < $spot_n; $i++) {
+                    
+                    echo
+            '<div class="spot-container">
 
                 <hr>
                 
-                <div class="image-preview-container">
-                </div>
+                <div class="image-preview-container">';
+                    if(isset($post["images"][$c_image]) && $post["images"][$c_image]["image_order"] == $i) {
+                        echo '<img src="'.$post["images"][$c_image]["path"].'">';
+                        if($c_image < count($post["images"])-1){
+                            $c_image++;
+                        }
+                    }
+
+                    echo
+                '</div>
 
                 <input type="file" name="post_image[]" accept="image/*" onchange="showImagePreview(this)">
                 <button type="button" class="input-img" onclick="selectImg(this)">画像を選択</button>
                 <br>
                 
-                <textarea class="maro" name="sentence[]" rows=8 cols=50 placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;"></textarea>
+                <textarea class="maro" name="sentence[]" rows=8 cols=50 placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;具体的なスポット" style="background-color: #fff; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">';
+                if(isset($post["sentences"][$c_sentence]) && $post["sentences"][$c_sentence]["sentence_order"] == $i) {
+                    echo $post["sentences"][$c_sentence]["sentence"];
+                    if($c_sentence < count($post["sentences"])-1){
+                        $c_sentence++;
+                    }
+                }
+                echo
+                '</textarea>
                 <br>
 
                 <button type="button" class="deleteSpot" onclick="removeElement(this.parentNode)">✕ 削除</button>
@@ -114,8 +162,10 @@
 
                 <button type="button" class="addSpot" onclick="insertNewElement(this.parentNode)">+</button>
 
-            </div>
+            </div>';
 
+                }
+            ?>
         </div>
 
         <br>
@@ -123,6 +173,8 @@
         <?php  require_once '../!Mng/footer.php' ?>
     </form>
 </div>
+
+
 <script>
 
     /* 画面読み込み時「+」ボタンを１回押したことにする
