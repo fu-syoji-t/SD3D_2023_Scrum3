@@ -37,11 +37,6 @@
         cursor: pointer;
     }
 
-    .delete-button:hover {
-       /* background-color: #DDDDDD;
-        // ホバー時の背景色
-        margin-right: 25px;*/
-    }
 </style>
 
 <body>
